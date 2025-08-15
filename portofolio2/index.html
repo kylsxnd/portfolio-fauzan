@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portofolio – Muhammad Fauzan Hariyono</title>
+
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: { extend: { container: { center: true, padding: '1rem' } } }
+      }
+    </script>
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+      html{scroll-behavior:smooth}
+      .tab-active{background:rgba(255,255,255,0.08)}
+      .media-card{cursor:pointer}
+    </style>
+  </head>
+  <body class="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+    <!-- ===== Navbar ===== -->
+    <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-neutral-950/70 border-b border-neutral-200/60 dark:border-neutral-800" data-aos="fade-down">
+      <div class="container flex h-16 items-center justify-between">
+        <a href="#home" class="font-semibold tracking-tight text-lg">Muhammad Fauzan Hariyono</a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#services" class="hover:opacity-80">What We Offer</a>
+          <a href="#trainings" class="hover:opacity-80">Course</a>
+          <a href="#certifications" class="hover:opacity-80">Certificate</a>
+          <a href="#works" class="hover:opacity-80">Portofolio</a>
+          <a href="#experience" class="hover:opacity-80">Experience</a>
+          <a href="#contact" class="hover:opacity-80">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <button id="themeBtn" class="rounded-xl border px-3 py-2 text-sm border-neutral-200 dark:border-neutral-800">Change Theme</button>
+          <!-- Link CV pakai encoding spasi -->
+          <a href="cv%20atas%202025.pdf" target="_blank" rel="noopener"
+             class="hidden sm:inline-block rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-3 py-2 text-sm"
+             data-aos="zoom-in">Download My CV</a>
+          <!-- Kalau mau paksa download, tambahkan atribut download -->
+          <!-- <a href="cv%20atas%202025.pdf" download class="hidden sm:inline-block ...">Download My CV</a> -->
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== Hero ===== -->
+    <section id="home" class="relative overflow-hidden">
+      <div class="container grid md:grid-cols-2 gap-10 items-center pt-14 pb-16 md:pt-20 md:pb-24">
+        <div data-aos="fade-up" data-aos-delay="100">
+          <div class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 mb-4">
+            <span class="size-2 rounded-full bg-emerald-500"></span>
+            Available For Freelance
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight">IT Student / Graduate in Multimedia from Vocational High School</h1>
+          <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-300 max-w-xl">
+            "Combining multimedia design skills and IT development to create works that are both aesthetic and functional."
+          </p>
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="#works" class="rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-2 text-sm">Look My Portofolio</a>
+            <a href="#contact" class="rounded-xl border px-4 py-2 text-sm border-neutral-200 dark:border-neutral-800">Contact Me</a>
+          </div>
+          <div class="mt-8 flex flex-wrap items-center gap-4 text-sm text-neutral-600 dark:text-neutral-300">
+            <a class="hover:opacity-80" href="mailto:fauzanhariyono280705@gmail.com">fauzanhariyono280705@gmail.com</a>
+            <span class="hidden sm:inline">•</span>
+            <span>+62 856-9565-1087</span>
+          </div>
+        </div>
+
+        <div class="order-first md:order-none" data-aos="fade-left" data-aos-delay="150">
+          <div class="relative w-full max-w-md mx-auto">
+            <img src="foto profil saya/fotoprofile.jpg" alt="Muhammad Fauzan Hariyono" class="w-full h-[340px] object-cover rounded-2xl shadow-xl border border-neutral-200 dark:border-neutral-800">
+            <div class="absolute -bottom-6 -left-6 bg-white/80 dark:bg-neutral-900/80 backdrop-blur p-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg">
+              <p class="text-sm font-medium">Muhammad Fauzan Hariyono</p>
+              <p class="text-xs text-neutral-600 dark:text-neutral-400">Indonesia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Services ===== -->
+    <section id="services" class="py-20 scroll-mt-24">
+      <div class="container">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-up">My Services</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="zoom-in" data-aos-delay="50">
+            <h3 class="text-xl mb-2">Data Science</h3>
+            <p class="text-neutral-600 dark:text-neutral-300">Mengolah & menganalisis data menggunakan Python, machine learning, dan visualisasi data.</p>
+          </div>
+          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="zoom-in" data-aos-delay="100">
+            <h3 class="text-xl mb-2">Graphic Design</h3>
+            <p class="text-neutral-600 dark:text-neutral-300">Branding, konten media sosial, dan materi promosi (Photoshop & Illustrator).</p>
+          </div>
+          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="zoom-in" data-aos-delay="150">
+            <h3 class="text-xl mb-2">Video Editor</h3>
+            <p class="text-neutral-600 dark:text-neutral-300">Storytelling, color grading, efek visual (Premiere Pro & After Effects).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Trainings ===== -->
+    <section id="trainings" class="py-20 scroll-mt-24">
+      <div class="container">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-right">My Course</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up" data-aos-delay="50">
+            <h3 class="text-lg">LEPKOM – Fundamental Of Data Science</h3>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">LEPKOM • 2024, Universitas Gunadarma</p>
+            <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">Dasar pengolahan data, statistik, dan eksplorasi data.</p>
+          </div>
+          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-lg">LEPKOM – Data Understanding Using Python</h3>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">LEPKOM • 2024, Universitas Gunadarma</p>
+            <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">Numpy, Pandas, visualisasi, dan data cleaning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Certifications (14) ===== -->
+    <section id="certifications" class="py-20 scroll-mt-24">
+      <div class="container">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-left">Certificate</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- 14 kartu sesuai data sebelumnya -->
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="0">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Sertifikat HTML</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Web</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Always Ngoding • 2024–2027</p>
+            <a href="https://drive.google.com/file/d/1sgWFIwvLsANP9MJjIIb4Spz2m6RvY6Yr/view?usp=sharing" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="50">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Desain Multimedia Madya (BNSP)</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">BNSP • 2023–2026</p>
+            <a href="https://drive.google.com/file/d/1m4w4MhtD6ufDyCkq2gaM6BJHDkmGH-Dp/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="100">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Uji Tingkat Kompetensi</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022–2024</p>
+            <a href="https://drive.google.com/file/d/1fm00SfgMOoW670UNSW-o8kUoOy18IVyf/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="150">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">ETS TOEIC</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022–2024</p>
+            <a href="https://drive.google.com/file/d/1lj85U9LGNEymI6hKndKybFSHyIPynRq_/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="200">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Global House</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
+            <a href="https://drive.google.com/file/d/1led0pRTJ9VScO0dTuNaH2Z641JsFwY6W/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="250">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">PKL Morehope</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
+            <a href="https://drive.google.com/file/d/1lsYYy-e_QuYpW2IIbe9ypLFG2U6GwCOP/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="300">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Workshop 3D Blender – Kulstori</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Desain</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
+            <a href="https://drive.google.com/file/d/1r-VExZHw_eF4njfOlD819I2EYQtKDYrK/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="350">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">PKL – Kulstori</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
+            <a href="https://drive.google.com/file/d/1lriunFqA2QVABxh_sT_XmD2CetqNdZ7n/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="400">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Photoshop CC Fundamentals & Essentials</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Desain</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Udemy • 2025</p>
+            <a href="https://drive.google.com/file/d/1C9rSkkoCXFhAYox-08BVLKsWHlWaBb5C/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="450">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Partisipasi TOEIC Vieera</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Data</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedriman • 2023</p>
+            <a href="https://drive.google.com/file/d/1rERdQGfRsK9Ct2EhvhtQspfn8wsH6-8T/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="500">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Designing Using Canva</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Desain</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">MySkill • 2024</p>
+            <a href="https://drive.google.com/file/d/1LTWMoY9AYKIDxohO1y8Tin3VHX1NLo29/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="550">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Exploring Microsoft Excel – Home Tab</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">MySkill • 2024</p>
+            <a href="https://drive.google.com/file/d/1QnpjI5gDvRLcWktfL4kmelpqh-QzJyoL/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="600">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Microsoft Excel Features</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">MySkill • 2024</p>
+            <a href="https://drive.google.com/file/d/1Vv551o1uxqQGQyJgwPrTxydqAPgf6Gio/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="650">
+            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Penghargaan TOEIC</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Web</span></div>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2024</p>
+            <a href="https://drive.google.com/file/d/1lBbCbyXBks0nNT4nmH7j50eccijzvYW6/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section id="skills" class="py-20 scroll-mt-24">
+      <div class="container">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-up">Keahlian</h2>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">HTML</span>
+          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Golang</span>
+          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Python</span>
+          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Photoshop</span>
+          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Premiere Pro</span>
+          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Canva</span>
+          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Microsoft</span>
+                    <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">After Effect</span>
+                              <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Capcut</span>
+                                        <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Adobe Illustrator</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Karya (Poster / Video / Web) ===== -->
+    <section id="works" class="py-20 scroll-mt-24">
+      <div class="container">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Karya</h2>
+          <div class="inline-flex rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+            <button data-tab="poster" class="tab-btn px-4 py-2 text-sm tab-active">Poster</button>
+            <button data-tab="video"  class="tab-btn px-4 py-2 text-sm">Video</button>
+            <button data-tab="web"    class="tab-btn px-4 py-2 text-sm">Web</button>
+          </div>
+        </div>
+
+        <!-- Grid Poster -->
+        <div id="grid-poster" class="grid md:grid-cols-4 gap-6">
+          <!-- path di-encode karena ada spasi/tanda kurung -->
+          <figure class="media-card" data-type="image" data-full="foto%20cv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg">
+            <img src="foto%20cv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg" alt="Poster 1" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+            <figcaption class="mt-2 text-sm">Poster 1</figcaption>
+          </figure>
+
+          <figure class="media-card" data-type="image" data-full="foto%20cv/Pujha%20Collection%20%281%29.jpg">
+            <img src="foto%20cv/Pujha%20Collection%20%281%29.jpg" alt="Poster 2" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+            <figcaption class="mt-2 text-sm">Poster 2</figcaption>
+          </figure>
+
+          <figure class="media-card" data-type="image" data-full="foto%20cv/tanggal-14%20%281%29.jpg">
+            <img src="foto%20cv/tanggal-14%20%281%29.jpg" alt="Poster 3" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+            <figcaption class="mt-2 text-sm">Poster 3</figcaption>
+          </figure>
+
+          <figure class="media-card" data-type="image" data-full="foto%20cv/tanggal-22%282%29%20%281%29.jpg">
+            <img src="foto%20cv/tanggal-22%282%29%20%281%29.jpg" alt="Poster 4" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+            <figcaption class="mt-2 text-sm">Poster 4</figcaption>
+          </figure>
+
+          <figure class="media-card" data-type="image" data-full="foto%20cv/1333%20%281%29.jpg">
+            <img src="foto%20cv/1333%20%281%29.jpg" alt="Poster 5" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+            <figcaption class="mt-2 text-sm">Poster 5</figcaption>
+          </figure>
+
+          <!-- Tambahkan poster 6-8 jika ada file tambahan -->
+        </div>
+
+        <!-- Grid Video -->
+        <div id="grid-video" class="grid md:grid-cols-3 gap-6 hidden">
+          <article class="media-card" data-type="video" data-video="video/1.Loncat%20Ojan0001-0045.mp4">
+            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+              <span class="text-sm opacity-80">Loncat Ojan</span>
+            </div>
+          </article>
+
+          <article class="media-card" data-type="video" data-video="video/barasuara.mp4">
+            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+              <span class="text-sm opacity-80">Barasuara</span>
+            </div>
+          </article>
+
+          <article class="media-card" data-type="video" data-video="video/bola%20ada%20donat%201.mp4">
+            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+              <span class="text-sm opacity-80">Bola Ada Donat</span>
+            </div>
+          </article>
+
+          <article class="media-card" data-type="video" data-video="video/gembuldudah10386-0857_2.mp4">
+            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+              <span class="text-sm opacity-80">Gembul Udah</span>
+            </div>
+          </article>
+
+          <article class="media-card" data-type="video" data-video="video/jalan%20dan%20duduk0001-0028.mp4">
+            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+              <span class="text-sm opacity-80">Jalan & Duduk</span>
+            </div>
+          </article>
+
+          <article class="media-card" data-type="video" data-video="video/yihhaa...%20%23shorts.mp4">
+            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+              <span class="text-sm opacity-80">Yihhaa (Shorts)</span>
+            </div>
+          </article>
+
+          <!-- Tambah 2 video lagi jika ada -->
+        </div>
+
+        <!-- Grid Web (placeholder) -->
+        <div id="grid-web" class="grid md:grid-cols-3 gap-6 hidden">
+          <a href="#" class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 grid place-content-center">
+            <span class="text-sm opacity-80">Belum ada proyek web</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden z-[999]">
+      <button id="lb-close" class="absolute top-4 right-4 rounded-lg border px-3 py-1 text-sm">Tutup ✕</button>
+      <div class="h-full w-full grid place-items-center p-4">
+        <div id="lightbox-content" class="w-full max-w-5xl"></div>
+      </div>
+    </div>
+
+    <!-- ===== Experience (6 items) ===== -->
+    <section id="experience" class="py-20 scroll-mt-24">
+      <div class="container">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-up">Pengalaman</h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-right">
+            <h3 class="text-xl">3D Animator For Riska Dan Si Gembul</h3>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Kulstori • May 2022 – July 2022</p>
+            <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
+              <li>Experienced as a 3D Animator at KULSTORI, helping to animate the characters "RISKA DAN SI GEMBUL".</li>
+              <li>Skilled in rigging and animating characters to move naturally and smoothly</li>
+              <li>Collaborative team player, focused on creating engaging and audience-appealing animations.</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up">
+            <h3 class="text-xl">Social Media Designer And Video Editor</h3>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Morehope • July 2022 – Oct 2022</p>
+            <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
+              <li>Creating engaging poster designs for Instagram and various social media platforms.</li>
+              <li>Actively participating in teamwork to develop innovative creative concepts.</li>
+              <li>Responsible for recording and editing videos for Instagram and social media content.</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-left">
+            <h3 class="text-xl">Social Media Designer</h3>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Commet Kreasi Indonesia • July 2022 – Oct 2022</p>
+            <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
+              <li>Designed visual content for publication on Commet Kreasi Indonesia’s social media platforms.</li>
+              <li>Edited promotional videos for SPG Commet Kreasi Indonesia and uploaded them to the company’s social media channels.</li>
+              <li>Created recruitment promotion designs for SPG and published them on Commet Kreasi Indonesia’s Instagram account.</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-right">
+            <h3 class="text-xl">Graphic Design And Video Recording Support</h3>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Terra • July 2022 – Oct 2022</p>
+            <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
+              <li>Designed promotional posters for Terra, focusing on property marketing.</li>
+              <li>Edited recorded videos for social media content, including property promotion materials.</li>
+              <li>Operated a camera to record videos for Terra’s social media content with a focus on property marketing.</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up">
+            <h3 class="text-xl">2D Animation And Video Editor</h3>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">TEFA • 2021 - 2023</p>
+            <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
+              <li>Designed 2D school-themed illustrations, similar to textbook layouts, for use in animated school introduction videos.</li>
+              <li>Produced and animated 2D videos for school promotional purposes.</li>
+              <li>Created 2D character designs for animation in Adobe software.</li>
+            </ul>
+          </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="py-20 scroll-mt-24">
+      <div class="container grid md:grid-cols-2 gap-10 items-start">
+        <div data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-3">Contact</h2>
+          <p class="text-neutral-600 dark:text-neutral-300">Tel me what you need and i'm gonna reply by email thanks.</p>
+          <div class="mt-6 flex items-center gap-4 text-sm">
+            <a class="underline" href="mailto:fauzanhariyono280705@gmail.com">fauzanhariyono280705@gmail.com</a>
+            <span>+62 856-9565-1087</span>
+          </div>
+        </div>
+        <form id="contactForm" class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+          <input class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-transparent px-3 py-2" placeholder="Name" required>
+          <input type="email" class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-transparent px-3 py-2" placeholder="Email" required>
+          <textarea rows="6" class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-transparent px-3 py-2" placeholder="Message" required></textarea>
+          <div class="flex gap-3">
+            <button type="submit" class="rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-2 text-sm">Kirim via Email</button>
+            <!-- Link CV di bagian kontak -->
+            <a href="cv%20atas%202025.pdf" target="_blank" rel="noopener"
+               class="rounded-xl border px-4 py-2 text-sm border-neutral-200 dark:border-neutral-800">Lihat CV</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="py-10 border-t border-neutral-200 dark:border-neutral-800" data-aos="fade-in">
+      <div class="container text-sm flex flex-col md:flex-row items-center justify-between gap-4">
+        <p>© <span id="year"></span> Muhammad Fauzan Hariyono. Semua hak dilindungi.</p>
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">React</span>
+          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Tailwind</span>
+          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">UI/UX</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== Scripts ===== -->
+    <script>
+      // Init AOS
+      AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });
+
+      // Tahun footer otomatis
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Toggle tema
+      document.getElementById('themeBtn').addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+      });
+
+      // Kirim form via mailto
+      document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const [name, email, message] = Array.from(e.target.querySelectorAll('input, textarea')).map(el => el.value);
+        const subject = encodeURIComponent(`Inquiry dari ${name}`);
+        const body = encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\n${message}`);
+        window.location.href = `mailto:fauzanhariyono280705@gmail.com?subject=${subject}&body=${body}`;
+      });
+
+      // ===== Tabs Karya =====
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const grids = {
+        poster: document.getElementById('grid-poster'),
+        video:  document.getElementById('grid-video'),
+        web:    document.getElementById('grid-web'),
+      };
+      function setTab(name){
+        Object.values(grids).forEach(g => g.classList.add('hidden'));
+        grids[name]?.classList.remove('hidden');
+        tabBtns.forEach(b => b.classList.toggle('tab-active', b.dataset.tab===name));
+      }
+      tabBtns.forEach(b => b.addEventListener('click', () => setTab(b.dataset.tab)));
+      setTab('poster'); // default
+
+      // ===== Lightbox (Image & Video) =====
+      const lb = document.getElementById('lightbox');
+      const lbC = document.getElementById('lightbox-content');
+      const closeLB = () => {
+        lb.classList.add('hidden');
+        lbC.innerHTML = '';
+        document.body.style.overflow = '';
+      };
+      document.getElementById('lb-close').addEventListener('click', closeLB);
+      lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLB(); });
+
+      // Delegasi klik untuk seluruh kartu media
+      document.addEventListener('click', (e) => {
+        const card = e.target.closest('.media-card');
+        if(!card) return;
+
+        const type = card.dataset.type;
+        document.body.style.overflow = 'hidden';
+
+        if(type === 'image'){
+          const src = card.dataset.full;
+          lbC.innerHTML = `<img src="${src}" class="w-full h-auto max-h-[80vh] object-contain rounded-xl border border-neutral-800" alt="Poster" />`;
+        } else if(type === 'video'){
+          const src = card.dataset.video;
+          lbC.innerHTML = `
+            <video src="${src}" class="w-full h-auto max-h-[80vh] rounded-xl border border-neutral-800"
+                   controls playsinline></video>`;
+        }
+        lb.classList.remove('hidden');
+      });
+    </script>
+  </body>
+</html>
