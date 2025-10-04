@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portofolio – Muhammad Fauzan Hariyono</title>
 
-    <!-- Tailwind via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -14,7 +13,6 @@
       }
     </script>
 
-    <!-- AOS (Animate On Scroll) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -22,10 +20,34 @@
       html{scroll-behavior:smooth}
       .tab-active{background:rgba(255,255,255,0.08)}
       .media-card{cursor:pointer}
+      body{
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
     </style>
   </head>
   <body class="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
-    <!-- ===== Navbar ===== -->
+    
+    <audio id="background-music" loop>
+      <source src="video/lofi1.mp3" type="audio/mpeg">
+      Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <div id="music-popup" class="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300">
+      <div class="bg-white dark:bg-neutral-900 rounded-2xl p-8 text-center shadow-xl max-w-sm mx-auto" data-aos="zoom-in">
+        <h3 class="text-xl font-semibold mb-4">🎵 Putar musik latar?</h3>
+        <p class="text-neutral-600 dark:text-neutral-300 mb-6">Website ini akan lebih asik dengan alunan musik. Izinkan?</p>
+        <div class="flex justify-center gap-4">
+          <button id="play-music-btn" class="rounded-xl bg-emerald-500 text-white px-5 py-2 text-sm font-medium hover:bg-emerald-600 transition-colors">Ya, putar musik</button>
+          <button id="no-music-btn" class="rounded-xl bg-neutral-200 dark:bg-neutral-800 px-5 py-2 text-sm hover:opacity-80 transition-opacity">Tidak, terima kasih</button>
+        </div>
+      </div>
+    </div>
+
+    <button id="music-toggle-btn" class="fixed bottom-5 right-5 z-50 size-12 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm rounded-full shadow-lg hidden items-center justify-center border border-neutral-200 dark:border-neutral-800 hover:scale-110 transition-transform">
+      <svg id="icon-sound-on" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+      <svg id="icon-sound-off" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+    </button>
     <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-neutral-950/70 border-b border-neutral-200/60 dark:border-neutral-800" data-aos="fade-down">
       <div class="container flex h-16 items-center justify-between">
         <a href="#home" class="font-semibold tracking-tight text-lg">Muhammad Fauzan Hariyono</a>
@@ -39,468 +61,600 @@
         </nav>
         <div class="flex items-center gap-2">
           <button id="themeBtn" class="rounded-xl border px-3 py-2 text-sm border-neutral-200 dark:border-neutral-800">Change Theme</button>
-          <!-- Link CV pakai encoding spasi -->
-          <a href="cv%20atas%202025.pdf" target="_blank" rel="noopener"
+          <a href="fotocv/cvats1.pdf" target="_blank" rel="noopener"
              class="hidden sm:inline-block rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-3 py-2 text-sm"
-             data-aos="zoom-in">Download My CV</a>
-          <!-- Kalau mau paksa download, tambahkan atribut download -->
-          <!-- <a href="cv%20atas%202025.pdf" download class="hidden sm:inline-block ...">Download My CV</a> -->
+             data-aos="zoom-in">Download CV</a>
         </div>
       </div>
     </header>
 
-    <!-- ===== Hero ===== -->
-    <section id="home" class="relative overflow-hidden">
-      <div class="container grid md:grid-cols-2 gap-10 items-center pt-14 pb-16 md:pt-20 md:pb-24">
-        <div data-aos="fade-up" data-aos-delay="100">
-          <div class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 mb-4">
-            <span class="size-2 rounded-full bg-emerald-500"></span>
-            Available For Freelance
+    <main>
+      <section id="home" class="relative overflow-hidden">
+        <div class="container grid md:grid-cols-2 gap-10 items-center py-16 md:py-20">
+          <div data-aos="fade-up" data-aos-delay="100">
+            <div class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 mb-4">
+              <span class="size-2 rounded-full bg-emerald-500"></span>
+              Available For Freelance
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight">IT Student / Graduate in Multimedia from Vocational High School</h1>
+            <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-300 max-w-xl">
+              "Combining multimedia design skills and IT development to create works that are both aesthetic and functional."
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a href="#works" class="rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-2 text-sm">Look My Portofolio</a>
+              <a href="#contact" class="rounded-xl border px-4 py-2 text-sm border-neutral-200 dark:border-neutral-800">Contact Me</a>
+            </div>
+            <div class="mt-8 flex flex-wrap items-center gap-4 text-sm text-neutral-600 dark:text-neutral-300">
+              <a class="hover:opacity-80" href="mailto:fauzanhariyono280705@gmail.com">fauzanhariyono280705@gmail.com</a>
+              <span class="hidden sm:inline">•</span>
+              <span>+62 856-9565-1087</span>
+            </div>
           </div>
-          <h1 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight">IT Student / Graduate in Multimedia from Vocational High School</h1>
-          <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-300 max-w-xl">
-            "Combining multimedia design skills and IT development to create works that are both aesthetic and functional."
-          </p>
-          <div class="mt-6 flex flex-wrap items-center gap-3">
-            <a href="#works" class="rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-2 text-sm">Look My Portofolio</a>
-            <a href="#contact" class="rounded-xl border px-4 py-2 text-sm border-neutral-200 dark:border-neutral-800">Contact Me</a>
-          </div>
-          <div class="mt-8 flex flex-wrap items-center gap-4 text-sm text-neutral-600 dark:text-neutral-300">
-            <a class="hover:opacity-80" href="mailto:fauzanhariyono280705@gmail.com">fauzanhariyono280705@gmail.com</a>
-            <span class="hidden sm:inline">•</span>
-            <span>+62 856-9565-1087</span>
-          </div>
-        </div>
 
-        <div class="order-first md:order-none" data-aos="fade-left" data-aos-delay="150">
-          <div class="relative w-full max-w-md mx-auto">
-            <img src="foto profil saya/fotoprofile.jpg" alt="Muhammad Fauzan Hariyono" class="w-full h-[340px] object-cover rounded-2xl shadow-xl border border-neutral-200 dark:border-neutral-800">
-            <div class="absolute -bottom-6 -left-6 bg-white/80 dark:bg-neutral-900/80 backdrop-blur p-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg">
-              <p class="text-sm font-medium">Muhammad Fauzan Hariyono</p>
-              <p class="text-xs text-neutral-600 dark:text-neutral-400">Indonesia</p>
+          <div class="order-first md:order-none" data-aos="fade-left" data-aos-delay="150">
+            <div class="relative w-full max-w-md mx-auto">
+              <img src="foto profil saya/fotoprofile.jpg" alt="Muhammad Fauzan Hariyono" class="w-full h-[340px] object-cover rounded-2xl shadow-xl border border-neutral-200 dark:border-neutral-800">
+              <div class="absolute -bottom-6 -left-6 bg-white/80 dark:bg-neutral-900/80 backdrop-blur p-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg">
+                <p class="text-sm font-medium">Muhammad Fauzan Hariyono</p>
+                <p class="text-xs text-neutral-600 dark:text-neutral-400">Indonesia</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ===== Services ===== -->
-    <section id="services" class="py-20 scroll-mt-24">
-      <div class="container">
-        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-up">My Services</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="zoom-in" data-aos-delay="50">
-            <h3 class="text-xl mb-2">Data Science</h3>
-            <p class="text-neutral-600 dark:text-neutral-300">Processing & analyzing data using Python, machine learning, and data visualization.</p>
-          </div>
-          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="zoom-in" data-aos-delay="100">
-            <h3 class="text-xl mb-2">Graphic Design</h3>
-            <p class="text-neutral-600 dark:text-neutral-300">Branding, social media content, and promotional materials (Photoshop & Illustrator).</p>
-          </div>
-          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="zoom-in" data-aos-delay="150">
-            <h3 class="text-xl mb-2">Video Editor</h3>
-            <p class="text-neutral-600 dark:text-neutral-300">Storytelling, color grading, visual effects (Premiere Pro & After Effects).</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Trainings ===== -->
-    <section id="trainings" class="py-20 scroll-mt-24">
-      <div class="container">
-        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-right">My Course</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up" data-aos-delay="50">
-            <h3 class="text-lg">LEPKOM – Fundamental Of Data Science</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">LEPKOM • 2024, Universitas Gunadarma</p>
-            <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">Dasar pengolahan data, statistik, dan eksplorasi data.</p>
-          </div>
-          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="text-lg">LEPKOM – Data Understanding Using Python</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">LEPKOM • 2024, Universitas Gunadarma</p>
-            <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">Numpy, Pandas, visualisasi, dan data cleaning.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Certifications (14) ===== -->
-    <section id="certifications" class="py-20 scroll-mt-24">
-      <div class="container">
-        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-left">Certificate</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <!-- 14 kartu sesuai data sebelumnya -->
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="0">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Sertifikat HTML</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Web</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Always Ngoding • 2024–2027</p>
-            <a href="https://drive.google.com/file/d/1sgWFIwvLsANP9MJjIIb4Spz2m6RvY6Yr/view?usp=sharing" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="50">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Desain Multimedia Madya (BNSP)</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">BNSP • 2023–2026</p>
-            <a href="https://drive.google.com/file/d/1m4w4MhtD6ufDyCkq2gaM6BJHDkmGH-Dp/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="100">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Uji Tingkat Kompetensi</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022–2024</p>
-            <a href="https://drive.google.com/file/d/1fm00SfgMOoW670UNSW-o8kUoOy18IVyf/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="150">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">ETS TOEIC</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022–2024</p>
-            <a href="https://drive.google.com/file/d/1lj85U9LGNEymI6hKndKybFSHyIPynRq_/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="200">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Global House</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
-            <a href="https://drive.google.com/file/d/1led0pRTJ9VScO0dTuNaH2Z641JsFwY6W/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="250">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">PKL Morehope</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
-            <a href="https://drive.google.com/file/d/1lsYYy-e_QuYpW2IIbe9ypLFG2U6GwCOP/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="300">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Workshop 3D Blender – Kulstori</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Desain</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
-            <a href="https://drive.google.com/file/d/1r-VExZHw_eF4njfOlD819I2EYQtKDYrK/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="350">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">PKL – Kulstori</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
-            <a href="https://drive.google.com/file/d/1lriunFqA2QVABxh_sT_XmD2CetqNdZ7n/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="400">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Photoshop CC Fundamentals & Essentials</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Desain</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Udemy • 2025</p>
-            <a href="https://drive.google.com/file/d/1C9rSkkoCXFhAYox-08BVLKsWHlWaBb5C/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="450">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Partisipasi TOEIC Vieera</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Data</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedriman • 2023</p>
-            <a href="https://drive.google.com/file/d/1rERdQGfRsK9Ct2EhvhtQspfn8wsH6-8T/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="500">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Designing Using Canva</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Desain</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">MySkill • 2024</p>
-            <a href="https://drive.google.com/file/d/1LTWMoY9AYKIDxohO1y8Tin3VHX1NLo29/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="550">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Exploring Microsoft Excel – Home Tab</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">MySkill • 2024</p>
-            <a href="https://drive.google.com/file/d/1QnpjI5gDvRLcWktfL4kmelpqh-QzJyoL/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="600">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Microsoft Excel Features</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">MySkill • 2024</p>
-            <a href="https://drive.google.com/file/d/1Vv551o1uxqQGQyJgwPrTxydqAPgf6Gio/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-          <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="650">
-            <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Penghargaan TOEIC</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Web</span></div>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2024</p>
-            <a href="https://drive.google.com/file/d/1lBbCbyXBks0nNT4nmH7j50eccijzvYW6/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Skills ===== -->
-    <section id="skills" class="py-20 scroll-mt-24">
-      <div class="container">
-        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-up">My Skill</h2>
-        <div class="flex flex-wrap gap-2 text-sm">
-          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">HTML</span>
-          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Golang</span>
-          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Python</span>
-          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Photoshop</span>
-          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Premiere Pro</span>
-          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Canva</span>
-          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Microsoft</span>
-                    <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">After Effect</span>
-                              <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Capcut</span>
-                                        <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Adobe Illustrator</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Karya (Poster / Video / Web) ===== -->
-    <section id="works" class="py-20 scroll-mt-24">
-      <div class="container">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Portofolio</h2>
-          <div class="inline-flex rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
-            <button data-tab="poster" class="tab-btn px-4 py-2 text-sm tab-active">Poster</button>
-            <button data-tab="video"  class="tab-btn px-4 py-2 text-sm">Video</button>
-            <button data-tab="web"    class="tab-btn px-4 py-2 text-sm">Web</button>
-          </div>
-        </div>
-
-        <!-- Grid Poster -->
-        <div id="grid-poster" class="grid md:grid-cols-4 gap-6">
-          <!-- path di-encode karena ada spasi/tanda kurung -->
-          <figure class="media-card" data-type="image" data-full="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg">
-            <img src="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg" alt="Poster 1" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
-            <figcaption class="mt-2 text-sm">Poster 1</figcaption>
-          </figure>
-
-          <figure class="media-card" data-type="image" data-full="fotocv/Pujha%20Collection%20%281%29.jpg">
-            <img src="fotocv/Pujha%20Collection%20%281%29.jpg" alt="Poster 2" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
-            <figcaption class="mt-2 text-sm">Poster 2</figcaption>
-          </figure>
-
-          <figure class="media-card" data-type="image" data-full="fotocv/tanggal-14%20%281%29.jpg">
-            <img src="fotocv/tanggal-14%20%281%29.jpg" alt="Poster 3" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
-            <figcaption class="mt-2 text-sm">Poster 3</figcaption>
-          </figure>
-
-          <figure class="media-card" data-type="image" data-full="fotocv/tanggal-22%282%29%20%281%29.jpg">
-            <img src="fotocv/tanggal-22%282%29%20%281%29.jpg" alt="Poster 4" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
-            <figcaption class="mt-2 text-sm">Poster 4</figcaption>
-          </figure>
-
-          <figure class="media-card" data-type="image" data-full="fotocv/1333%20%281%29.jpg">
-            <img src="fotocv/1333%20%281%29.jpg" alt="Poster 5" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
-            <figcaption class="mt-2 text-sm">Poster 5</figcaption>
-          </figure>
-
-          <!-- Poster 6 -->
-          <figure class="media-card" data-type="image" data-full="fotocv/resizegunung.png">
-            <img src="fotocv/resizegunung.png" alt="Poster Gunung" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
-            <figcaption class="mt-2 text-sm">Poster Gunung</figcaption>
-          </figure>
-
-          <!-- Poster 7 -->
-          <figure class="media-card" data-type="image" data-full="fotocv/sore1.png">
-            <img src="fotocv/sore1.png" alt="Poster Sore" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
-            <figcaption class="mt-2 text-sm">Poster Sore</figcaption>
-          </figure>
-
-
-          <!-- Tambahkan poster 6-8 jika ada file tambahan -->
-        </div>
-
-        <!-- Grid Video -->
-        <div id="grid-video" class="grid md:grid-cols-3 gap-6 hidden">
-          <article class="media-card" data-type="video" data-video="video/loncat.mp4">
-            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
-              <span class="text-sm opacity-80">Loncat Ojan</span>
+      <section id="services" class="py-16 md:py-20 scroll-mt-24">
+        <div class="container">
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-up">My Services</h2>
+          <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="zoom-in" data-aos-delay="50">
+              <h3 class="text-xl mb-2">Data Science</h3>
+              <p class="text-neutral-600 dark:text-neutral-300">Processing & analyzing data using Python, machine learning, and data visualization.</p>
             </div>
-          </article>
-
-          <article class="media-card" data-type="video" data-video="video/barasuara.mp4">
-            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
-              <span class="text-sm opacity-80">Barasuara</span>
+            <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="zoom-in" data-aos-delay="100">
+              <h3 class="text-xl mb-2">Graphic Design</h3>
+              <p class="text-neutral-600 dark:text-neutral-300">Branding, social media content, and promotional materials (Photoshop & Illustrator).</p>
             </div>
-          </article>
-
-          <article class="media-card" data-type="video" data-video="video/boladonat.mp4">
-            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
-              <span class="text-sm opacity-80">Bola Ada Donat</span>
+            <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="zoom-in" data-aos-delay="150">
+              <h3 class="text-xl mb-2">Video Editor</h3>
+              <p class="text-neutral-600 dark:text-neutral-300">Storytelling, color grading, visual effects (Premiere Pro & After Effects).</p>
             </div>
-          </article>
-
-          <article class="media-card" data-type="video" data-video="video/sigembul.mp4">
-            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
-              <span class="text-sm opacity-80">Gembul Udah</span>
-            </div>
-          </article>
-
-          <article class="media-card" data-type="video" data-video="video/jalanduduk.mp4">
-            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
-              <span class="text-sm opacity-80">Jalan & Duduk</span>
-            </div>
-          </article>
-
-          <article class="media-card" data-type="video" data-video="video/joget.mp4">
-            <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
-              <span class="text-sm opacity-80">Yihhaa (Shorts)</span>
-            </div>
-          </article>
-
-          <!-- Tambah 2 video lagi jika ada -->
+          </div>
         </div>
+      </section>
 
-        <!-- Grid Web (placeholder) -->
-        <div id="grid-web" class="grid md:grid-cols-3 gap-6 hidden">
-          <a href="#" class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 grid place-content-center">
-            <span class="text-sm opacity-80">Belum ada proyek web</span>
-          </a>
+      <section id="trainings" class="py-16 md:py-20 scroll-mt-24">
+          <div class="container">
+              <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-right">My Course</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up" data-aos-delay="50">
+                      <h3 class="text-lg">LEPKOM – Fundamental Of Data Science</h3>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400">LEPKOM • 2024, Universitas Gunadarma</p>
+                      <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">Dasar pengolahan data, statistik, dan eksplorasi data.</p>
+                  </div>
+                  <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up" data-aos-delay="100">
+                      <h3 class="text-lg">LEPKOM – Data Understanding Using Python</h3>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400">LEPKOM • 2024, Universitas Gunadarma</p>
+                      <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">Numpy, Pandas, visualisasi, dan data cleaning.</p>
+                  </div>
+                  <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up" data-aos-delay="150">
+                      <h3 class="text-lg">LEPKOM - Fundamental Of Python</h3>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400">LEPKOM • 2024,  Universitas Gunadarma</p>
+                      <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">[Deskripsi singkat kursus].</p>
+                  </div>
+                  <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up" data-aos-delay="200">
+                      <h3 class="text-lg">LEPKOM - Data Preparation using Python</h3>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400">LEPKOM • 2025, Universitas Gunadarma</p>
+                      <p class="mt-2 text-sm text-neutral-700 dark:text-neutral-300">[Deskripsi singkat kursus].</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="certifications" class="py-16 md:py-20 scroll-mt-24">
+          <div class="container">
+              <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-left">Certificate</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Sertifikat HTML</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Web</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Always Ngoding • 2024–2027</p>
+                      <a href="https://drive.google.com/file/d/1sgWFIwvLsANP9MJjIIb4Spz2m6RvY6Yr/view?usp=sharing" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="50">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Desain Multimedia Madya (BNSP)</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">BNSP • 2023–2026</p>
+                      <a href="https://drive.google.com/file/d/1m4w4MhtD6ufDyCkq2gaM6BJHDkmGH-Dp/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="100">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Uji Tingkat Kompetensi</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022–2024</p>
+                      <a href="https://drive.google.com/file/d/1fm00SfgMOoW670UNSW-o8kUoOy18IVyf/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="150">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">ETS TOEIC</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022–2024</p>
+                      <a href="https://drive.google.com/file/d/1lj85U9LGNEymI6hKndKybFSHyIPynRq_/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="200">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Global House</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
+                      <a href="https://drive.google.com/file/d/1led0pRTJ9VScO0dTuNaH2Z641JsFwY6W/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="250">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">PKL Morehope</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
+                      <a href="https://drive.google.com/file/d/1lsYYy-e_QuYpW2IIbe9ypLFG2U6GwCOP/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="300">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Workshop 3D Blender – Kulstori</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Desain</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
+                      <a href="https://drive.google.com/file/d/1r-VExZHw_eF4njfOlD819I2EYQtKDYrK/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="350">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">PKL – Kulstori</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Multimedia</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2022</p>
+                      <a href="https://drive.google.com/file/d/1lriunFqA2QVABxh_sT_XmD2CetqNdZ7n/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="400">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Photoshop CC Fundamentals & Essentials</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Desain</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Udemy • 2025</p>
+                      <a href="https://drive.google.com/file/d/1C9rSkkoCXFhAYox-08BVLKsWHlWaBb5C/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="450">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Partisipasi TOEIC Vieera</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Data</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedriman • 2023</p>
+                      <a href="https://drive.google.com/file/d/1rERdQGfRsK9Ct2EhvhtQspfn8wsH6-8T/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="500">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Designing Using Canva</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Desain</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">MySkill • 2024</p>
+                      <a href="https://drive.google.com/file/d/1LTWMoY9AYKIDxohO1y8Tin3VHX1NLo29/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="550">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Exploring Microsoft Excel – Home Tab</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">MySkill • 2024</p>
+                      <a href="https://drive.google.com/file/d/1QnpjI5gDvRLcWktfL4kmelpqh-QzJyoL/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="600">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Microsoft Excel Features</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Produktivitas</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">MySkill • 2024</p>
+                      <a href="https://drive.google.com/file/d/1Vv551o1uxqQGQyJgwPrTxydqAPgf6Gio/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="650">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Penghargaan TOEIC</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">Web</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">SMK 1 Islam PB Soedirman • 2024</p>
+                      <a href="https://drive.google.com/file/d/1lBbCbyXBks0nNT4nmH7j50eccijzvYW6/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="700">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Workshop DGX</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">[Kategori]</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Pengelola MK praktikum unggulan • 2025</p>
+                      <a href="https://drive.google.com/file/d/1HU-eRWpknPLxis2U31S_trQM4lHo3hQI/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="750">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Volunteer React Day</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">[Kategori]</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">PPIM UIN JAKARTA • 2025</p>
+                      <a href="https://drive.google.com/file/d/1R0LhY-7wULE5rcWAKZEBN5NoSfuqKDLa/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="800">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">TOR (training of trainer) DGX</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">[Kategori]</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">HPC Universitas Gunadarma • [Tahun]</p>
+                      <a href="https://drive.google.com/file/d/1FIg8ETO1YlXhWzpZktIi_J8BzqQNBtst/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="850">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Data Understanding Using Python</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">[Kategori]</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">LEPKOM, Universitas Gunadarma • 2024</p>
+                      <a href="https://drive.google.com/file/d/1iCF7_eSki8SBdsyCUSkEvZ6CdvFPzsdR/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="900">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Fundamental Of Python</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">[Kategori]</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">LEPKOM, Universitas Gunadarma • 2024</p>
+                      <a href="https://drive.google.com/file/d/13ctfHlpMZXEVWgrpeLzx3haFJA0Z3v8V/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="950">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Fundamental Of Data Science</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">[Kategori]</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">LEPKOM, Universitas Gunadarma • 2025</p>
+                      <a href="https://drive.google.com/file/d/1GWWOSh9ghwZ9vmM2nLxL7EKwCuK1Llhw/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+                  <div class="group rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-all" data-aos="flip-up" data-aos-delay="1000">
+                      <div class="flex items-start justify-between"><h3 class="text-lg font-semibold leading-tight">Data Preparation Using Python</h3><span class="text-[10px] px-2 py-1 rounded-full border border-neutral-200 dark:border-neutral-800">[Kategori]</span></div>
+                      <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">LEPKOM, Universitas Gunadarma • 2025</p>
+                      <a href="https://drive.google.com/file/d/1xm5nVHiqMr0rFNS7B6k4zQB8WpwPaYsQ/view?usp=drive_link" target="_blank" class="mt-3 inline-block text-sm underline">Lihat Sertifikat</a>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="skills" class="py-16 md:py-20 scroll-mt-24">
+        <div class="container">
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-up">My Skill</h2>
+          <div class="flex flex-wrap gap-2 text-sm">
+            <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">HTML</span>
+            <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Golang</span>
+            <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Python</span>
+            <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Photoshop</span>
+            <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Premiere Pro</span>
+            <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Canva</span>
+            <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Microsoft</span>
+            <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">After Effect</span>
+            <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Capcut</span>
+            <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Adobe Illustrator</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="works" class="py-16 md:py-20 scroll-mt-24">
+          <div class="container">
+              <div class="flex items-center justify-between mb-6">
+                  <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Portofolio</h2>
+                  <div class="inline-flex rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+                      <button data-tab="poster" class="tab-btn px-4 py-2 text-sm tab-active">Poster</button>
+                      <button data-tab="video"  class="tab-btn px-4 py-2 text-sm">Video</button>
+                      <button data-tab="web"    class="tab-btn px-4 py-2 text-sm">Web</button>
+                  </div>
+              </div>
+
+              <div id="grid-poster" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  <figure class="media-card" data-type="image" data-full="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg">
+                      <img src="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg" alt="Poster 1" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">Poster 1</figcaption>
+                  </figure>
+                  <figure class="media-card" data-type="image" data-full="fotocv/Pujha%20Collection%20%281%29.jpg">
+                      <img src="fotocv/Pujha%20Collection%20%281%29.jpg" alt="Poster 2" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">Poster 2</figcaption>
+                  </figure>
+                  <figure class="media-card" data-type="image" data-full="fotocv/tanggal-14%20%281%29.jpg">
+                      <img src="fotocv/tanggal-14%20%281%29.jpg" alt="Poster 3" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">Poster 3</figcaption>
+                  </figure>
+                  <figure class="media-card" data-type="image" data-full="fotocv/tanggal-22%282%29%20%281%29.jpg">
+                      <img src="fotocv/tanggal-22%282%29%20%281%29.jpg" alt="Poster 4" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">Poster 4</figcaption>
+                  </figure>
+                  <figure class="media-card" data-type="image" data-full="fotocv/1333%20%281%29.jpg">
+                      <img src="fotocv/1333%20%281%29.jpg" alt="Poster 5" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">Poster 5</figcaption>
+                  </figure>
+                  <figure class="media-card" data-type="image" data-full="fotocv/resizegunung.png">
+                      <img src="fotocv/resizegunung.png" alt="Poster Gunung" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">Poster Gunung</figcaption>
+                  </figure>
+                  <figure class="media-card" data-type="image" data-full="fotocv/sore1.png">
+                      <img src="fotocv/sore1.png" alt="Poster Sore" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">Poster Sore</figcaption>
+                  </figure>
+                  <figure class="media-card" data-type="image" data-full="fotocv/500days.png">
+                      <img src="fotocv/500days.png" alt="Deskripsi Portofolio Baru 1" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">500 days of summer</figcaption>
+                  </figure>
+                  <figure class="media-card" data-type="image" data-full="fotocv/awan2.png">
+                      <img src="fotocv/awan2.png" alt="Deskripsi Portofolio Baru 2" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">person in the clouds</figcaption>
+                  </figure>
+                  <figure class="media-card" data-type="image" data-full="fotocv/joker1.png">
+                      <img src="fotocv/joker1.png" alt="Deskripsi Portofolio Baru 3" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">movie poster</figcaption>
+                  </figure>
+                  <figure class="media-card" data-type="image" data-full="fotocv/rumah1.png">
+                      <img src="fotocv/rumah1.png" alt="Deskripsi Portofolio Baru 4" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">movie house poster</figcaption>
+                  </figure>
+                  <figure class="media-card" data-type="image" data-full="fotocv/sepatu2.png">
+                      <img src="fotocv/sepatu2.png" alt="Deskripsi Portofolio Baru 5" class="h-56 w-full object-cover rounded-2xl border border-neutral-200 dark:border-neutral-800" />
+                      <figcaption class="mt-2 text-sm">nike poster</figcaption>
+                  </figure>
+              </div>
+
+              <div id="grid-video" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
+                <article class="media-card" data-type="video" data-video="video/loncat.mp4">
+                  <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+                    <span class="text-sm opacity-80">Loncat Ojan</span>
+                  </div>
+                </article>
+                <article class="media-card" data-type="video" data-video="video/barasuara.mp4">
+                  <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+                    <span class="text-sm opacity-80">Barasuara</span>
+                  </div>
+                </article>
+                <article class="media-card" data-type="video" data-video="video/boladonat.mp4">
+                  <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+                    <span class="text-sm opacity-80">Bola Ada Donat</span>
+                  </div>
+                </article>
+                <article class="media-card" data-type="video" data-video="video/sigembul.mp4">
+                  <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+                    <span class="text-sm opacity-80">Gembul Udah</span>
+                  </div>
+                </article>
+                <article class="media-card" data-type="video" data-video="video/jalanduduk.mp4">
+                  <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+                    <span class="text-sm opacity-80">Jalan & Duduk</span>
+                  </div>
+                </article>
+                <article class="media-card" data-type="video" data-video="video/joget.mp4">
+                  <div class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-900/20 grid place-content-center">
+                    <span class="text-sm opacity-80">Yihhaa (Shorts)</span>
+                  </div>
+                </article>
+              </div>
+
+              <div id="grid-web" class="grid md:grid-cols-3 gap-6 hidden">
+                <a href="#" class="h-56 w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 grid place-content-center">
+                  <span class="text-sm opacity-80">Belum ada proyek web</span>
+                </a>
+              </div>
+          </div>
+      </section>
+
+      <div id="lightbox" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden z-[999]">
+        <button id="lb-close" class="absolute top-4 right-4 rounded-lg border px-3 py-1 text-sm">Tutup ✕</button>
+        <div class="h-full w-full grid place-items-center p-4">
+          <div id="lightbox-content" class="w-full max-w-5xl flex justify-center"></div>
         </div>
       </div>
-    </section>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden z-[999]">
-      <button id="lb-close" class="absolute top-4 right-4 rounded-lg border px-3 py-1 text-sm">Tutup ✕</button>
-      <div class="h-full w-full grid place-items-center p-4">
-        <div id="lightbox-content" class="w-full max-w-5xl"></div>
-      </div>
-    </div>
+      <section id="experience" class="py-16 md:py-20 scroll-mt-24">
+        <div class="container">
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-up">My Experience</h2>
 
-    <!-- ===== Experience (6 items) ===== -->
-    <section id="experience" class="py-20 scroll-mt-24">
-      <div class="container">
-        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-8" data-aos="fade-up">My Experience</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-right">
+              <h3 class="text-xl">3D Animator For Riska Dan Si Gembul</h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Kulstori • May 2022 – July 2022</p>
+              <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
+                <li>Experienced as a 3D Animator at KULSTORI, helping to animate the characters "RISKA DAN SI GEMBUL".</li>
+                <li>Skilled in rigging and animating characters to move naturally and smoothly</li>
+                <li>Collaborative team player, focused on creating engaging and audience-appealing animations.</li>
+              </ul>
+            </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-right">
-            <h3 class="text-xl">3D Animator For Riska Dan Si Gembul</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">Kulstori • May 2022 – July 2022</p>
-            <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
-              <li>Experienced as a 3D Animator at KULSTORI, helping to animate the characters "RISKA DAN SI GEMBUL".</li>
-              <li>Skilled in rigging and animating characters to move naturally and smoothly</li>
-              <li>Collaborative team player, focused on creating engaging and audience-appealing animations.</li>
-            </ul>
-          </div>
+            <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up">
+              <h3 class="text-xl">Social Media Designer And Video Editor</h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Morehope • July 2022 – Oct 2022</p>
+              <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
+                <li>Creating engaging poster designs for Instagram and various social media platforms.</li>
+                <li>Actively participating in teamwork to develop innovative creative concepts.</li>
+                <li>Responsible for recording and editing videos for Instagram and social media content.</li>
+              </ul>
+            </div>
 
-          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up">
-            <h3 class="text-xl">Social Media Designer And Video Editor</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">Morehope • July 2022 – Oct 2022</p>
-            <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
-              <li>Creating engaging poster designs for Instagram and various social media platforms.</li>
-              <li>Actively participating in teamwork to develop innovative creative concepts.</li>
-              <li>Responsible for recording and editing videos for Instagram and social media content.</li>
-            </ul>
-          </div>
+            <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-left">
+              <h3 class="text-xl">Social Media Designer</h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Commet Kreasi Indonesia • July 2022 – Oct 2022</p>
+              <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
+                <li>Designed visual content for publication on Commet Kreasi Indonesia’s social media platforms.</li>
+                <li>Edited promotional videos for SPG Commet Kreasi Indonesia and uploaded them to the company’s social media channels.</li>
+                <li>Created recruitment promotion designs for SPG and published them on Commet Kreasi Indonesia’s Instagram account.</li>
+              </ul>
+            </div>
 
-          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-left">
-            <h3 class="text-xl">Social Media Designer</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">Commet Kreasi Indonesia • July 2022 – Oct 2022</p>
-            <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
-              <li>Designed visual content for publication on Commet Kreasi Indonesia’s social media platforms.</li>
-              <li>Edited promotional videos for SPG Commet Kreasi Indonesia and uploaded them to the company’s social media channels.</li>
-              <li>Created recruitment promotion designs for SPG and published them on Commet Kreasi Indonesia’s Instagram account.</li>
-            </ul>
-          </div>
+            <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-right">
+              <h3 class="text-xl">Graphic Design And Video Recording Support</h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">Terra • July 2022 – Oct 2022</p>
+              <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
+                <li>Designed promotional posters for Terra, focusing on property marketing.</li>
+                <li>Edited recorded videos for social media content, including property promotion materials.</li>
+                <li>Operated a camera to record videos for Terra’s social media content with a focus on property marketing.</li>
+              </ul>
+            </div>
 
-          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-right">
-            <h3 class="text-xl">Graphic Design And Video Recording Support</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">Terra • July 2022 – Oct 2022</p>
-            <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
-              <li>Designed promotional posters for Terra, focusing on property marketing.</li>
-              <li>Edited recorded videos for social media content, including property promotion materials.</li>
-              <li>Operated a camera to record videos for Terra’s social media content with a focus on property marketing.</li>
-            </ul>
-          </div>
+            <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up">
+              <h3 class="text-xl">2D Animation And Video Editor</h3>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400">TEFA • 2021 - 2023</p>
+              <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
+                <li>Designed 2D school-themed illustrations, similar to textbook layouts, for use in animated school introduction videos.</li>
+                <li>Produced and animated 2D videos for school promotional purposes.</li>
+                <li>Created 2D character designs for animation in Adobe software.</li>
+              </ul>
+            </div>
+            
+            <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-left">
+                <h3 class="text-xl">Film Production</h3>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400">Peradox Picture • 2025 - Until Now</p>
+                <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
+                    <li>Edited recorded footage to enhance storytelling and visual flow.</li>
+                    <li>Assisted the camera department in achieving effective and creative angles.</li>
+                    <li>Supported the lighting setup to ensure proper exposure and cinematic atmosphere.</li>
+                </ul>
+                
+                <video class="w-full rounded-lg mt-4 border border-neutral-200 dark:border-neutral-800" controls>
+                    <source src="video/404 Friends.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung tag video.
+                </video>
+                <p class="text-xs text-neutral-500 mt-2 text-center">
+                    Cuplikan Film: <strong>404 Friends</strong>
+                </p>
+            </div>
 
-          <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800" data-aos="fade-up">
-            <h3 class="text-xl">2D Animation And Video Editor</h3>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">TEFA • 2021 - 2023</p>
-            <ul class="list-disc list-inside mt-3 space-y-2 text-neutral-700 dark:text-neutral-300">
-              <li>Designed 2D school-themed illustrations, similar to textbook layouts, for use in animated school introduction videos.</li>
-              <li>Produced and animated 2D videos for school promotional purposes.</li>
-              <li>Created 2D character designs for animation in Adobe software.</li>
-            </ul>
-          </div>
-            </ul>
+            <div class="rounded-2xl border p-6 border-neutral-200 dark:border-neutral-800 md:col-span-full" data-aos="fade-up">
+                <h3 class="text-xl">Volunteer React Day </h3>
+                <p class="text-sm text-neutral-600 dark:text-neutral-400">PPIM UIN JAKARTA • 2025 AUG</p>
+                <ul class="list-disc list-inside mt-3 mb-4 space-y-2 text-neutral-700 dark:text-neutral-300">
+                    <li>Supported the design team by editing event cards and promotional videos for Instagram (PPIM UIN Jakarta).</li>
+                    <li>Created engaging and entertaining content to boost audience interaction on social media.</li>
+                    <li>Collaborated with the team to develop the eco-friendly game (Pin n Win) using recycled materials as part of environmental education.</li>
+                    <li>Assisted in event execution during React Day by managing booths, facilitating the interactive (Tree of Hope) activity, and coordinating tasks with fellow volunteers.</li>
+                    <li>Contributed to the overall success of the event, raising environmental awareness and encouraging active participation from attendees.</li>
+                </ul>
+        
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                    <div class="media-card" data-type="image" data-full="fotocv/ppim2.jpg">
+                      <img src="fotocv/ppim2.jpg" alt="Volunteer Photo 1" class="w-full h-48 object-cover rounded-lg border border-neutral-200 dark:border-neutral-800">
+                    </div>
+                     <div class="media-card" data-type="image" data-full="fotocv/ppim3.jpg">
+                      <img src="fotocv/ppim3.jpg" alt="Volunteer Photo 2" class="w-full h-48 object-cover rounded-lg border border-neutral-200 dark:border-neutral-800">
+                    </div>
+                     <div class="media-card" data-type="image" data-full="fotocv/ppim4.jpeg">
+                      <img src="fotocv/ppim4.jpeg" alt="Volunteer Photo 3" class="w-full h-48 object-cover rounded-lg border border-neutral-200 dark:border-neutral-800">
+                    </div>
+                     <div class="media-card" data-type="image" data-full="fotocv/ppim5.jpeg">
+                      <img src="fotocv/ppim5.jpeg" alt="Volunteer Photo 4" class="w-full h-48 object-cover rounded-lg border border-neutral-200 dark:border-neutral-800">
+                    </div>
+                </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ===== Contact ===== -->
-    <section id="contact" class="py-20 scroll-mt-24">
-      <div class="container grid md:grid-cols-2 gap-10 items-start">
-        <div data-aos="fade-up">
-          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-3">Contact</h2>
-          <p class="text-neutral-600 dark:text-neutral-300">Tel me what you need and i'm gonna reply by email thanks.</p>
-          <div class="mt-6 flex items-center gap-4 text-sm">
-            <a class="underline" href="mailto:fauzanhariyono280705@gmail.com">fauzanhariyono280705@gmail.com</a>
-            <span>+62 856-9565-1087</span>
+      <section id="contact" class="py-16 md:py-20 scroll-mt-24">
+        <div class="container grid md:grid-cols-2 gap-10 items-start">
+          <div data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-3">Contact</h2>
+            <p class="text-neutral-600 dark:text-neutral-300">Tell me what you need and I'm gonna reply by email, thanks.</p>
+            <div class="mt-6 flex items-center gap-4 text-sm">
+              <a class="underline" href="mailto:fauzanhariyono280705@gmail.com">fauzanhariyono280705@gmail.com</a>
+              <span>+62 856-9565-1087</span>
+            </div>
           </div>
+          <form id="contactForm" class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+            <input class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-transparent px-3 py-2" placeholder="Name" required>
+            <input type="email" class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-transparent px-3 py-2" placeholder="Email" required>
+            <textarea rows="6" class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-transparent px-3 py-2" placeholder="Message" required></textarea>
+            <div class="flex gap-3">
+              <button type="submit" class="rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-2 text-sm">Send By email</button>
+              <a href="fotocv/cvats1.pdf" target="_blank" rel="noopener"
+                 class="sm:inline-block rounded-xl border px-4 py-2 text-sm border-neutral-200 dark:border-neutral-800">
+                 Download CV
+              </a>
+            </div>
+          </form>
         </div>
-        <form id="contactForm" class="space-y-4" data-aos="fade-up" data-aos-delay="100">
-          <input class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-transparent px-3 py-2" placeholder="Name" required>
-          <input type="email" class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-transparent px-3 py-2" placeholder="Email" required>
-          <textarea rows="6" class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 bg-transparent px-3 py-2" placeholder="Message" required></textarea>
-          <div class="flex gap-3">
-            <button type="submit" class="rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-2 text-sm">Send By email</button>
-            <!-- Link CV di bagian kontak -->
-            <a href="cv%20atas%202025.pdf" target="_blank" rel="noopener"
-               class="rounded-xl border px-4 py-2 text-sm border-neutral-200 dark:border-neutral-800">Download My CV</a>
-          </div>
-        </form>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- ===== Footer ===== -->
-    <footer class="py-10 border-t border-neutral-200 dark:border-neutral-800" data-aos="fade-in">
-      <div class="container text-sm flex flex-col md:flex-row items-center justify-between gap-4">
-        <p>© <span id="year"></span> Muhammad Fauzan Hariyono. Semua hak dilindungi.</p>
-        <div class="flex flex-wrap gap-2 text-xs">
-          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">React</span>
-          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">Tailwind</span>
-          <span class="rounded-full border px-3 py-1 border-neutral-200 dark:border-neutral-800">UI/UX</span>
-        </div>
+    <footer class="py-10 border-t border-neutral-200/60 dark:border-neutral-800">
+      <div class="container text-center text-sm">
+        &copy; 2025 Muhammad Fauzan Hariyono. All rights reserved.
       </div>
     </footer>
 
-    <!-- ===== Scripts ===== -->
     <script>
-      // Init AOS
-      AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });
+      AOS.init({ once: true, duration: 600 });
 
-      // Tahun footer otomatis
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Toggle tema
-      document.getElementById('themeBtn').addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
+      // ===== Logika Ganti Tema =====
+      const themeBtn = document.getElementById('themeBtn');
+      const doc = document.documentElement;
+      themeBtn.addEventListener('click', () => {
+        doc.classList.toggle('dark');
       });
 
-      // Kirim form via mailto
-      document.getElementById('contactForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const [name, email, message] = Array.from(e.target.querySelectorAll('input, textarea')).map(el => el.value);
-        const subject = encodeURIComponent(`Inquiry dari ${name}`);
-        const body = encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\n${message}`);
-        window.location.href = `mailto:fauzanhariyono280705@gmail.com?subject=${subject}&body=${body}`;
-      });
-
-      // ===== Tabs Karya =====
-      const tabBtns = document.querySelectorAll('.tab-btn');
+      // ===== Logika Tab Portofolio =====
+      const tabs = document.querySelectorAll('.tab-btn');
       const grids = {
         poster: document.getElementById('grid-poster'),
-        video:  document.getElementById('grid-video'),
-        web:    document.getElementById('grid-web'),
+        video: document.getElementById('grid-video'),
+        web: document.getElementById('grid-web'),
       };
-      function setTab(name){
-        Object.values(grids).forEach(g => g.classList.add('hidden'));
-        grids[name]?.classList.remove('hidden');
-        tabBtns.forEach(b => b.classList.toggle('tab-active', b.dataset.tab===name));
+      
+      tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabs.forEach(b => b.classList.remove('tab-active'));
+          btn.classList.add('tab-active');
+          const targetTab = btn.getAttribute('data-tab');
+          Object.values(grids).forEach(grid => grid.classList.add('hidden'));
+          if (grids[targetTab]) {
+            grids[targetTab].classList.remove('hidden');
+          }
+        });
+      });
+
+      // ===== Logika Lightbox =====
+      const lightbox = document.getElementById('lightbox');
+      const lbClose = document.getElementById('lb-close');
+      const lbContent = document.getElementById('lightbox-content');
+      
+      function setupLightbox() {
+        document.querySelectorAll('.media-card').forEach(card => {
+            card.addEventListener('click', () => {
+            const type = card.dataset.type;
+            lbContent.innerHTML = '';
+            if (type === 'image') {
+              const fullSrc = card.dataset.full;
+              const img = document.createElement('img');
+              img.src = fullSrc;
+              img.className = 'w-full h-auto max-h-[80vh] object-contain rounded-lg';
+              lbContent.appendChild(img);
+            } else if (type === 'video') {
+              const videoSrc = card.dataset.video;
+              const video = document.createElement('video');
+              video.src = videoSrc;
+              video.controls = true;
+              video.autoplay = true;
+
+              if (videoSrc === 'video/barasuara.mp4') {
+                video.muted = true;
+              }
+
+              video.className = 'max-w-full max-h-[80vh] rounded-lg';
+              
+              lbContent.appendChild(video);
+            }
+            lightbox.classList.remove('hidden');
+          });
+        });
       }
-      tabBtns.forEach(b => b.addEventListener('click', () => setTab(b.dataset.tab)));
-      setTab('poster'); // default
 
-      // ===== Lightbox (Image & Video) =====
-      const lb = document.getElementById('lightbox');
-      const lbC = document.getElementById('lightbox-content');
-      const closeLB = () => {
-        lb.classList.add('hidden');
-        lbC.innerHTML = '';
-        document.body.style.overflow = '';
-      };
-      document.getElementById('lb-close').addEventListener('click', closeLB);
-      lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLB(); });
-
-      // Delegasi klik untuk seluruh kartu media
-      document.addEventListener('click', (e) => {
-        const card = e.target.closest('.media-card');
-        if(!card) return;
-
-        const type = card.dataset.type;
-        document.body.style.overflow = 'hidden';
-
-        if(type === 'image'){
-          const src = card.dataset.full;
-          lbC.innerHTML = `<img src="${src}" class="w-full h-auto max-h-[80vh] object-contain rounded-xl border border-neutral-800" alt="Poster" />`;
-        } else if(type === 'video'){
-          const src = card.dataset.video;
-          lbC.innerHTML = `
-            <video src="${src}" class="w-full h-auto max-h-[80vh] rounded-xl border border-neutral-800"
-                   controls playsinline></video>`;
+      lbClose.addEventListener('click', () => {
+        lightbox.classList.add('hidden');
+        const videoElement = lbContent.querySelector('video');
+        if (videoElement) {
+          videoElement.pause();
         }
-        lb.classList.remove('hidden');
+        lbContent.innerHTML = '';
+      });
+      
+      setupLightbox();
+
+
+      // ===== Logika Form Kontak =====
+      document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = e.target.children[0].value;
+        const email = e.target.children[1].value;
+        const message = e.target.children[2].value;
+        const mailtoLink = `mailto:fauzanhariyono280705@gmail.com?subject=Message from ${name}&body=${message}%0A%0AFrom: ${email}`;
+        window.location.href = mailtoLink;
+      });
+
+      // ===== Logika Audio Player =====
+      document.addEventListener('DOMContentLoaded', () => {
+        const musicPopup = document.getElementById('music-popup');
+        const playMusicBtn = document.getElementById('play-music-btn');
+        const noMusicBtn = document.getElementById('no-music-btn');
+        const musicToggleBtn = document.getElementById('music-toggle-btn');
+        const backgroundMusic = document.getElementById('background-music');
+        const iconSoundOn = document.getElementById('icon-sound-on');
+        const iconSoundOff = document.getElementById('icon-sound-off');
+
+        const closePopup = () => {
+          musicPopup.classList.add('opacity-0', 'pointer-events-none');
+          musicToggleBtn.classList.remove('hidden');
+          musicToggleBtn.classList.add('flex');
+        }
+
+        playMusicBtn.addEventListener('click', () => {
+          backgroundMusic.play();
+          iconSoundOn.classList.remove('hidden');
+          iconSoundOff.classList.add('hidden');
+          closePopup();
+        });
+
+        noMusicBtn.addEventListener('click', () => {
+          iconSoundOn.classList.add('hidden');
+          iconSoundOff.classList.remove('hidden');
+          closePopup();
+        });
+
+        musicToggleBtn.addEventListener('click', () => {
+          if (backgroundMusic.paused) {
+            backgroundMusic.play();
+            iconSoundOn.classList.remove('hidden');
+            iconSoundOff.classList.add('hidden');
+          } else {
+            backgroundMusic.pause();
+            iconSoundOn.classList.add('hidden');
+            iconSoundOff.classList.remove('hidden');
+          }
+        });
       });
     </script>
   </body>
