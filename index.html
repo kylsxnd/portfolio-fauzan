@@ -1,1087 +1,288 @@
 <!DOCTYPE html>
-<html lang="id" class="dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portofolio – Muhammad Fauzan Hariyono</title>
-
-    <!-- Google Fonts: Plus Jakarta Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGrowth Creative - Digital Marketing Agency</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: { 
-          extend: { 
-            fontFamily: {
-              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            },
-            container: { center: true, padding: '1.5rem', screens: { '2xl': '1280px' } },
-            colors: {
-              emerald: {
-                500: '#10b981',
-                600: '#059669',
-              }
-            }
-          } 
-        }
-      }
-    </script>
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      html { scroll-behavior: smooth; }
-      body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      .media-card { cursor: pointer; }
-      
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar { width: 8px; }
-      ::-webkit-scrollbar-track { background: transparent; }
-      ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 4px; }
-      .dark ::-webkit-scrollbar-thumb { background: #3f3f46; }
-      ::-webkit-scrollbar-thumb:hover { background: #10b981; }
-
-      /* Pro Card Hover Effect */
-      .pro-card {
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .pro-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.1), 0 8px 10px -6px rgba(16, 185, 129, 0.1);
-        border-color: rgba(16, 185, 129, 0.4);
-      }
-
-      /* Animasi getar untuk tombol musik saat aktif */
-      @keyframes pulse-music {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-        50% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-      }
-      .music-playing {
-        animation: pulse-music 2s infinite;
-      }
+        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
     </style>
-  </head>
-  <body class="bg-[#fafafa] text-neutral-900 dark:bg-[#0a0a0a] dark:text-neutral-100 transition-colors duration-300 selection:bg-emerald-500/30 selection:text-emerald-900 dark:selection:text-emerald-100 overflow-x-hidden">
-    
-    <audio id="background-music" loop>
-      <source src="video/lofi1.mp3" type="audio/mpeg">
-    </audio>
+</head>
+<!-- Background Gambar Full Layar (Fixed) -->
+<body class="bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2069&q=80')] bg-fixed bg-cover bg-center text-gray-800 leading-relaxed">
 
-    <!-- Tombol Floating Music -->
-    <button id="music-toggle-btn" title="Play/Pause Music" class="fixed bottom-6 right-6 z-50 size-14 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md border border-neutral-200 dark:border-neutral-800 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all group">
-      <svg id="icon-sound-off" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-500 group-hover:text-emerald-500 transition-colors"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-      <svg id="icon-sound-on" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-emerald-500 drop-shadow-[0_0_5px_rgba(16,185,129,0.5)]"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-    </button>
-    
-    <!-- Header -->
-    <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-[#0a0a0a]/80 border-b border-neutral-200/50 dark:border-neutral-800/50 transition-colors duration-300">
-      <div class="container flex h-20 items-center justify-between">
-        <a href="#" id="logo-btn" class="font-bold tracking-tight text-lg flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <span class="w-8 h-8 rounded-lg bg-emerald-500 text-white flex items-center justify-center text-sm">FH</span>
-            Muhammad Fauzan
-        </a>
-        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
-          <a href="#services" class="nav-link text-neutral-600 dark:text-neutral-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Services</a>
-          <a href="#trainings" class="nav-link text-neutral-600 dark:text-neutral-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Course</a>
-          <a href="#certifications" class="nav-link text-neutral-600 dark:text-neutral-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Certificate</a>
-          <button class="open-portfolio-btn text-neutral-600 dark:text-neutral-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors cursor-pointer font-medium">Portofolio</button>
-          <a href="#experience" class="nav-link text-neutral-600 dark:text-neutral-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Experience</a>
-        </nav>
-        <div class="flex items-center gap-3">
-          <button id="themeBtn" class="p-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors group">
-            <svg class="w-4 h-4 text-neutral-600 block dark:hidden group-hover:text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            <svg class="w-4 h-4 text-neutral-400 hidden dark:block group-hover:text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          </button>
-          <a href="#contact" class="hidden sm:inline-flex nav-link items-center justify-center rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-4 py-2 text-sm font-semibold hover:scale-105 active:scale-95 transition-all">Let's Talk</a>
+    <!-- Header (Glassmorphism) -->
+    <header class="bg-white/90 backdrop-blur-md shadow-lg fixed w-full top-0 z-50 transition-all duration-300 border-b border-white/50">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center z-50">
+                <img src="logo/logo2.jpeg" alt="Logo EduGrowth" class="h-12 md:h-16 w-auto object-contain">
+            </a>
+            
+            <!-- Desktop Navigasi -->
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html#tentang" class="text-gray-700 hover:text-[#1b8e44] font-medium transition duration-300">Tentang Kami</a>
+                <a href="index.html#layanan" class="text-gray-700 hover:text-[#1b8e44] font-medium transition duration-300">Layanan</a>
+                <a href="index.html#usp" class="text-gray-700 hover:text-[#1b8e44] font-medium transition duration-300">USP</a>
+                <a href="index.html#kontak" class="text-gray-700 hover:text-[#1b8e44] font-medium transition duration-300">Kontak</a>
+                <a href="produk.html" class="bg-[#1b8e44] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#157235] transition duration-300 shadow-md">Produk</a>
+            </nav>
+
+            <!-- Tombol Menu Mobile -->
+            <button id="mobile-menu-btn" class="md:hidden text-[#053d6c] text-2xl focus:outline-none z-50">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
-      </div>
+
+        <!-- Mobile Navigasi -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white absolute top-0 left-0 w-full shadow-xl pt-20 pb-6 px-6 flex flex-col space-y-4 border-t border-gray-100">
+            <a href="index.html#tentang" class="text-gray-800 hover:text-[#1b8e44] font-medium text-lg border-b border-gray-50 pb-2">Tentang Kami</a>
+            <a href="index.html#layanan" class="text-gray-800 hover:text-[#1b8e44] font-medium text-lg border-b border-gray-50 pb-2">Layanan</a>
+            <a href="index.html#usp" class="text-gray-800 hover:text-[#1b8e44] font-medium text-lg border-b border-gray-50 pb-2">USP</a>
+            <a href="index.html#kontak" class="text-gray-800 hover:text-[#1b8e44] font-medium text-lg border-b border-gray-50 pb-2">Kontak</a>
+            <a href="produk.html" class="bg-[#1b8e44] text-white px-6 py-3 rounded-xl font-semibold text-center hover:bg-[#157235] transition duration-300 shadow-md mt-4">Lihat Produk</a>
+        </div>
     </header>
 
-    <main class="relative w-full">
-      <!-- ========================================== -->
-      <!-- VIEW 1: HALAMAN UTAMA (BERANDA) -->
-      <!-- ========================================== -->
-      <div id="main-view" class="transition-opacity duration-500 opacity-100 w-full">
-        
-        <!-- Hero Section -->
-        <section id="home" class="relative overflow-hidden pt-20 pb-24 md:pt-32 md:pb-32">
-          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[500px] bg-emerald-500/5 dark:bg-emerald-500/10 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
-
-          <div class="container grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-            <div data-aos="fade-up" data-aos-delay="100">
-              <div class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full border border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 mb-6 backdrop-blur-sm">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                Available For Freelance
-              </div>
-              <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
-                IT Student & <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-400">Multimedia Graduate</span>
-              </h1>
-              <p class="mt-6 text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-xl leading-relaxed">
-                Combining multimedia design skills and IT development to create digital works that are both visually aesthetic and functionally powerful.
-              </p>
-              <div class="mt-8 flex flex-wrap items-center gap-4">
-                <button class="open-portfolio-btn rounded-xl bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 px-6 py-3.5 text-sm font-semibold hover:shadow-xl hover:shadow-neutral-900/20 dark:hover:shadow-white/20 hover:-translate-y-1 active:scale-95 transition-all">Look My Portofolio</button>
-                <a href="fotocv/Cvatsbener2025.pdf" target="_blank" rel="noopener" class="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-neutral-900/50 backdrop-blur px-6 py-3.5 text-sm font-semibold hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:-translate-y-1 active:scale-95 transition-all flex items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                  Download CV
-                </a>
-              </div>
-              <div class="mt-10 flex items-center gap-6 text-sm font-medium text-neutral-500 dark:text-neutral-400">
-                <a class="hover:text-emerald-500 transition-colors flex items-center gap-2" href="mailto:fauzanhariyono280705@gmail.com">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    fauzanhariyono280705@gmail.com
-                </a>
-                <span class="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    +62 856-9565-1087
-                </span>
-              </div>
+    <!-- Hero Section (Full Screen / 100vh) -->
+    <section class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-[#053d6c]/90 to-[#032847]/90 backdrop-blur-sm pt-20 pb-20 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 text-white tracking-tight leading-tight drop-shadow-lg">EduGrowth Creative</h1>
+            <p class="text-base md:text-lg lg:text-xl mb-8 md:mb-10 max-w-3xl mx-auto text-blue-100 px-2 drop-shadow-md">Agensi digital marketing profesional yang berfokus pada penyediaan layanan kreatif dan promosi digital bagi lembaga pendidikan nonformal.</p>
+            <div class="flex justify-center">
+                <a href="#tentang" class="bg-[#1b8e44] text-white font-bold py-3 px-8 rounded-full shadow-xl hover:bg-[#157235] transition duration-300 transform hover:-translate-y-1 text-sm md:text-base border border-white/20"><i class="fa-solid fa-arrow-down mr-2"></i>Pelajari Lebih Lanjut</a>
             </div>
+        </div>
+    </section>
 
-            <div class="order-first lg:order-none relative" data-aos="fade-left" data-aos-delay="200">
-              <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-cyan-500 blur-[80px] opacity-30 dark:opacity-20 rounded-full scale-90"></div>
-              <div class="relative w-full max-w-sm mx-auto">
-                <img src="foto profil saya/fotoprofile.jpg" alt="Muhammad Fauzan Hariyono" class="w-full h-[400px] object-cover rounded-3xl shadow-2xl border border-neutral-200/50 dark:border-neutral-700/50 relative z-10">
-                <div class="absolute -bottom-6 -left-6 z-20 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl p-5 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-xl shadow-neutral-900/5 dark:shadow-black/50 animate-bounce" style="animation-duration: 3s;">
-                  <p class="text-sm font-bold">Muhammad Fauzan</p>
-                  <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Depok, Indonesia 🇮🇩</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Services -->
-        <section id="services" class="py-20 bg-neutral-50 dark:bg-neutral-900/30 scroll-mt-20 border-y border-neutral-200/50 dark:border-neutral-800/50">
-          <div class="container">
-            <div class="mb-12" data-aos="fade-up">
-                <span class="text-emerald-500 font-bold tracking-wider text-sm uppercase">What I Do</span>
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-2">My Services</h2>
+    <!-- Deskripsi Perusahaan (Glassmorphism Section) -->
+    <section id="tentang" class="py-16 md:py-24 bg-white/85 backdrop-blur-md border-t border-white/50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-bold text-[#053d6c] mb-4 drop-shadow-sm">Tentang Kami</h2>
+                <div class="w-16 md:w-24 h-1 bg-[#1b8e44] mx-auto rounded-full shadow-sm"></div>
             </div>
             
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div class="pro-card relative bg-white dark:bg-[#0f0f0f] rounded-3xl border border-neutral-200 dark:border-neutral-800 p-8 overflow-hidden group" data-aos="fade-up" data-aos-delay="50">
-                <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Data Science</h3>
-                <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">Processing & analyzing data using Python, machine learning, and data visualization to gain actionable insights.</p>
-              </div>
-              
-              <div class="pro-card relative bg-white dark:bg-[#0f0f0f] rounded-3xl border border-neutral-200 dark:border-neutral-800 p-8 overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Graphic Design</h3>
-                <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">Crafting digital branding, engaging social media content, and promotional materials using Photoshop & Illustrator.</p>
-              </div>
-              
-              <div class="pro-card relative bg-white dark:bg-[#0f0f0f] rounded-3xl border border-neutral-200 dark:border-neutral-800 p-8 overflow-hidden group" data-aos="fade-up" data-aos-delay="150">
-                <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Video Editor</h3>
-                <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">Producing visual storytelling with precise color grading and visual effects using Premiere Pro & After Effects.</p>
-              </div>
+            <div class="max-w-4xl mx-auto bg-white/95 p-8 md:p-12 rounded-3xl shadow-xl border border-white text-gray-700 text-base md:text-lg text-justify space-y-4 md:space-y-6">
+                <p>EduGrowth Creative merupakan agensi digital marketing yang didirikan pada tahun 2026 dengan fokus pada penyediaan layanan kreatif dan promosi digital bagi lembaga pendidikan nonformal, seperti bimbingan belajar, kursus, dan pelatihan keterampilan.</p>
+                <p>Layanan terintegrasi yang ditawarkan mencakup perancangan desain media promosi seperti brosur dan konten digital, pengelolaan konten media sosial, produksi video promosi komunikatif, hingga pengembangan website company profile profesional. Setiap layanan dirancang sebagai sarana publikasi dan media untuk memperkuat karakter serta positioning lembaga di tengah persaingan yang semakin kompetitif.</p>
+                <p>Dengan mengedepankan kreativitas, strategi, dan pemahaman mendalam terhadap kebutuhan klien, komitmen yang dibangun adalah membantu lembaga pendidikan membangun citra positif (branding) yang kuat dan berkelanjutan. Solusi digital yang relevan dan tepat sasaran diimplementasikan untuk meningkatkan daya tarik lembaga, memperluas jangkauan promosi, serta menumbuhkan kepercayaan masyarakat secara optimal.</p>
             </div>
-          </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Course -->
-        <section id="trainings" class="py-20 scroll-mt-20">
-            <div class="container">
-                <div class="mb-12" data-aos="fade-right">
-                    <span class="text-emerald-500 font-bold tracking-wider text-sm uppercase">Education</span>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-2">My Course</h2>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="pro-card relative bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6" data-aos="fade-up" data-aos-delay="50">
-                        <div class="w-10 h-10 bg-neutral-100 dark:bg-neutral-800 rounded-lg flex items-center justify-center mb-4">📘</div>
-                        <h3 class="text-lg font-bold leading-tight">LEPKOM – Fundamental Of Data Science</h3>
-                        <p class="text-xs text-neutral-500 mt-2 font-medium">LEPKOM • 2024, Univ. Gunadarma</p>
-                    </div>
-                    <div class="pro-card relative bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-10 h-10 bg-neutral-100 dark:bg-neutral-800 rounded-lg flex items-center justify-center mb-4">🐍</div>
-                        <h3 class="text-lg font-bold leading-tight">LEPKOM – Data Understanding Using Python</h3>
-                        <p class="text-xs text-neutral-500 mt-2 font-medium">LEPKOM • 2024, Univ. Gunadarma</p>
-                    </div>
-                    <div class="pro-card relative bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6" data-aos="fade-up" data-aos-delay="150">
-                        <div class="w-10 h-10 bg-neutral-100 dark:bg-neutral-800 rounded-lg flex items-center justify-center mb-4">💻</div>
-                        <h3 class="text-lg font-bold leading-tight">LEPKOM - Fundamental Of Python</h3>
-                        <p class="text-xs text-neutral-500 mt-2 font-medium">LEPKOM • 2024, Univ. Gunadarma</p>
-                    </div>
-                    <div class="pro-card relative bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-10 h-10 bg-neutral-100 dark:bg-neutral-800 rounded-lg flex items-center justify-center mb-4">📊</div>
-                        <h3 class="text-lg font-bold leading-tight">LEPKOM - Data Preparation using Python</h3>
-                        <p class="text-xs text-neutral-500 mt-2 font-medium">LEPKOM • 2025, Univ. Gunadarma</p>
-                    </div>
-                </div>
+    <!-- Fokus & Target Pasar -->
+    <section id="layanan" class="py-16 md:py-24 bg-gray-50/85 backdrop-blur-md border-t border-white/50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-bold text-[#053d6c] mb-4 drop-shadow-sm">Fokus & Target Pasar</h2>
+                <div class="w-16 md:w-24 h-1 bg-[#1b8e44] mx-auto rounded-full shadow-sm"></div>
+                <p class="mt-4 md:mt-6 text-gray-700 font-medium max-w-2xl mx-auto text-sm md:text-lg px-2">Layanan yang dirancang khusus dan tepat sasaran untuk mendukung pertumbuhan lembaga pendidikan nonformal di era digital.</p>
             </div>
-        </section>
-
-        <!-- Certificates (FULL 22 SERTIFIKAT) -->
-        <section id="certifications" class="py-20 bg-neutral-50 dark:bg-neutral-900/30 scroll-mt-20 border-y border-neutral-200/50 dark:border-neutral-800/50">
-            <div class="container">
-                <div class="mb-12" data-aos="fade-left">
-                    <span class="text-emerald-500 font-bold tracking-wider text-sm uppercase">Achievements</span>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-2">Certificates</h2>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                    
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Sertifikat HTML</h3></div>
-                        <a href="https://drive.google.com/file/d/1sgWFIwvLsANP9MJjIIb4Spz2m6RvY6Yr/view?usp=sharing" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+                <div class="bg-white/95 p-6 md:p-8 rounded-2xl shadow-lg border-t-4 border-[#1b8e44] border-x border-b border-white hover:-translate-y-2 transition duration-300">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-[#e8f4ec] rounded-full flex items-center justify-center text-[#1b8e44] text-xl md:text-2xl mb-4 md:mb-6 shadow-sm">
+                        <i class="fa-solid fa-building-columns"></i>
                     </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Desain Multimedia Madya (BNSP)</h3></div>
-                        <a href="https://drive.google.com/file/d/1m4w4MhtD6ufDyCkq2gaM6BJHDkmGH-Dp/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Uji Tingkat Kompetensi</h3></div>
-                        <a href="https://drive.google.com/file/d/1fm00SfgMOoW670UNSW-o8kUoOy18IVyf/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">ETS TOEIC</h3></div>
-                        <a href="https://drive.google.com/file/d/1lj85U9LGNEymI6hKndKybFSHyIPynRq_/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Global House</h3></div>
-                        <a href="https://drive.google.com/file/d/1led0pRTJ9VScO0dTuNaH2Z641JsFwY6W/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">PKL Morehope</h3></div>
-                        <a href="https://drive.google.com/file/d/1lsYYy-e_QuYpW2IIbe9ypLFG2U6GwCOP/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Workshop 3D Blender</h3></div>
-                        <a href="https://drive.google.com/file/d/1r-VExZHw_eF4njfOlD819I2EYQtKDYrK/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">PKL – Kulstori</h3></div>
-                        <a href="https://drive.google.com/file/d/1lriunFqA2QVABxh_sT_XmD2CetqNdZ7n/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Photoshop CC Fundamentals</h3></div>
-                        <a href="https://drive.google.com/file/d/1C9rSkkoCXFhAYox-08BVLKsWHlWaBb5C/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Partisipasi TOEIC Vieera</h3></div>
-                        <a href="https://drive.google.com/file/d/1rERdQGfRsK9Ct2EhvhtQspfn8wsH6-8T/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Designing Using Canva</h3></div>
-                        <a href="https://drive.google.com/file/d/1LTWMoY9AYKIDxohO1y8Tin3VHX1NLo29/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Exploring Microsoft Excel</h3></div>
-                        <a href="https://drive.google.com/file/d/1QnpjI5gDvRLcWktfL4kmelpqh-QzJyoL/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Microsoft Excel Features</h3></div>
-                        <a href="https://drive.google.com/file/d/1Vv551o1uxqQGQyJgwPrTxydqAPgf6Gio/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Penghargaan TOEIC</h3></div>
-                        <a href="https://drive.google.com/file/d/1lBbCbyXBks0nNT4nmH7j50eccijzvYW6/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Workshop DGX</h3></div>
-                        <a href="https://drive.google.com/file/d/1HU-eRWpknPLxis2U31S_trQM4lHo3hQI/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Volunteer React Day</h3></div>
-                        <a href="https://drive.google.com/file/d/1R0LhY-7wULE5rcWAKZEBN5NoSfuqKDLa/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">TOR (training of trainer) DGX</h3></div>
-                        <a href="https://drive.google.com/file/d/1FIg8ETO1YlXhWzpZktIi_J8BzqQNBtst/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Data Understanding Using Python</h3></div>
-                        <a href="https://drive.google.com/file/d/1iCF7_eSki8SBdsyCUSkEvZ6CdvFPzsdR/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Fundamental Of Python</h3></div>
-                        <a href="https://drive.google.com/file/d/13ctfHlpMZXEVWgrpeLzx3haFJA0Z3v8V/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Fundamental Of Data Science</h3></div>
-                        <a href="https://drive.google.com/file/d/1GWWOSh9ghwZ9vmM2nLxL7EKwCuK1Llhw/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                        <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Data Preparation Using Python</h3></div>
-                        <a href="https://drive.google.com/file/d/1xm5nVHiqMr0rFNS7B6k4zQB8WpwPaYsQ/view?usp=drive_link" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                    </div>
-                    <div class="pro-card bg-white dark:bg-[#0f0f0f] rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 flex flex-col justify-between" data-aos="fade-up">
-                      <div><div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-base font-bold leading-tight">Volunteer PKKMB</h3></div>
-                      <a href="https://drive.google.com/file/d/1e73rdBN_Qn6qJpaOch-7APO4XHUFX63V/view?usp=sharing" target="_blank" class="mt-4 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 w-max transition-colors">Lihat Sertifikat &rarr;</a>
-                  </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section id="skills" class="py-20 scroll-mt-20">
-          <div class="container">
-            <div class="mb-10 text-center" data-aos="fade-up">
-                <span class="text-emerald-500 font-bold tracking-wider text-sm uppercase">Tech Stack & Tools</span>
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-2">My Skills</h2>
-            </div>
-            <div class="flex flex-wrap justify-center gap-3 text-sm font-semibold" data-aos="zoom-in" data-aos-delay="100">
-              <span class="rounded-full border px-5 py-2.5 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0f0f0f] shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-500 transition-colors cursor-default">HTML</span>
-              <span class="rounded-full border px-5 py-2.5 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0f0f0f] shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-500 transition-colors cursor-default">Golang</span>
-              <span class="rounded-full border px-5 py-2.5 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0f0f0f] shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-500 transition-colors cursor-default">Python</span>
-              <span class="rounded-full border px-5 py-2.5 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0f0f0f] shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-500 transition-colors cursor-default">Photoshop</span>
-              <span class="rounded-full border px-5 py-2.5 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0f0f0f] shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-500 transition-colors cursor-default">Premiere Pro</span>
-              <span class="rounded-full border px-5 py-2.5 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0f0f0f] shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-500 transition-colors cursor-default">Canva</span>
-              <span class="rounded-full border px-5 py-2.5 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0f0f0f] shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-500 transition-colors cursor-default">Microsoft Office</span>
-              <span class="rounded-full border px-5 py-2.5 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0f0f0f] shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-500 transition-colors cursor-default">After Effects</span>
-              <span class="rounded-full border px-5 py-2.5 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0f0f0f] shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-500 transition-colors cursor-default">Capcut</span>
-              <span class="rounded-full border px-5 py-2.5 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0f0f0f] shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-500 transition-colors cursor-default">Adobe Illustrator</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- CTA Mini Portofolio Khusus Halaman Utama (DIPERBAIKI JADI FULL COVER PARALLAX) -->
-        <section class="relative py-32 bg-neutral-900 bg-fixed bg-center bg-cover flex items-center justify-center my-10" style="background-image: url('fotocv/abstrak1.jpg');" data-aos="fade-up">
-          <div class="absolute inset-0 bg-black/75 backdrop-blur-[2px]"></div>
-          
-          <div class="container relative z-10 text-center text-white">
-            <span class="text-emerald-400 font-bold tracking-wider text-sm uppercase">Showcase</span>
-            <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mt-3 mb-6">See My Creative Work</h2>
-            <p class="text-neutral-300 text-lg mb-10 max-w-xl mx-auto">Jelajahi galeri lengkap desain poster, produksi video, dan dokumentasi event yang telah saya kerjakan.</p>
-            <button class="open-portfolio-btn inline-flex items-center gap-3 rounded-full bg-emerald-500 text-white px-8 py-4 font-bold text-lg hover:bg-emerald-600 active:scale-95 transition-all shadow-lg shadow-emerald-500/30">
-              Buka Halaman Portofolio
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </button>
-          </div>
-        </section>
-
-        <!-- Experience -->
-        <section id="experience" class="py-20 scroll-mt-20">
-          <div class="container">
-            <div class="mb-12" data-aos="fade-up">
-                <span class="text-emerald-500 font-bold tracking-wider text-sm uppercase">Career History</span>
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-2">My Experience</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-8" data-aos="fade-up">
-                  <div class="flex items-start justify-between mb-4">
-                      <h3 class="text-xl font-bold leading-tight">Visual Production</h3>
-                      <span class="px-2.5 py-1 bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-bold rounded-lg whitespace-nowrap">2025</span>
-                  </div>
-                  <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">Koraksi</p>
-                  <ul class="list-disc list-outside ml-4 space-y-2.5 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500">
-                    <li>Developed custom motion graphics, including an animated envelope sequence for digital communications.</li>
-                    <li>Designed high-quality social media content and posters aligning with branding guidelines.</li>
-                    <li>Assisted in resolving complex technical design challenges.</li>
-                  </ul>
-              </div>
-
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-8" data-aos="fade-up" data-aos-delay="50">
-                <div class="flex items-start justify-between mb-4">
-                    <h3 class="text-xl font-bold leading-tight">3D Animator</h3>
-                    <span class="px-2.5 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-400 text-xs font-bold rounded-lg whitespace-nowrap">2022</span>
-                </div>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">Kulstori</p>
-                <ul class="list-disc list-outside ml-4 space-y-2.5 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500">
-                  <li>Animated the characters "RISKA DAN SI GEMBUL" in 3D environment.</li>
-                  <li>Skilled in rigging and animating characters for smooth and natural movements.</li>
-                  <li>Collaborative team player focused on engaging audiences.</li>
-                </ul>
-              </div>
-
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-8" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex items-start justify-between mb-4">
-                    <h3 class="text-xl font-bold leading-tight">Socmed Designer & Editor</h3>
-                    <span class="px-2.5 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-400 text-xs font-bold rounded-lg whitespace-nowrap">2022</span>
-                </div>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">Morehope</p>
-                <ul class="list-disc list-outside ml-4 space-y-2.5 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500">
-                  <li>Creating engaging poster designs for various social media platforms.</li>
-                  <li>Actively developing innovative creative concepts with the team.</li>
-                  <li>Responsible for recording and editing videos for social contents.</li>
-                </ul>
-              </div>
-
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-8" data-aos="fade-up">
-                <div class="flex items-start justify-between mb-4">
-                    <h3 class="text-xl font-bold leading-tight">Social Media Designer</h3>
-                    <span class="px-2.5 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-400 text-xs font-bold rounded-lg whitespace-nowrap">2022</span>
-                </div>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">Commet Kreasi Indonesia</p>
-                <ul class="list-disc list-outside ml-4 space-y-2.5 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500">
-                  <li>Designed visual content for corporate social media platforms.</li>
-                  <li>Edited promotional videos for SPG Commet Kreasi Indonesia.</li>
-                  <li>Created and published SPG recruitment promotion designs.</li>
-                </ul>
-              </div>
-
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-8" data-aos="fade-up" data-aos-delay="50">
-                <div class="flex items-start justify-between mb-4">
-                    <h3 class="text-xl font-bold leading-tight">Graphic & Video Support</h3>
-                    <span class="px-2.5 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-400 text-xs font-bold rounded-lg whitespace-nowrap">2022</span>
-                </div>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">Terra</p>
-                <ul class="list-disc list-outside ml-4 space-y-2.5 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500">
-                  <li>Designed promotional posters focusing on property marketing.</li>
-                  <li>Edited and recorded videos for property promotion materials on social media.</li>
-                  <li>Operated camera to shoot professional footage for Terra.</li>
-                </ul>
-              </div>
-
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-8" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex items-start justify-between mb-4">
-                    <h3 class="text-xl font-bold leading-tight">2D Animation & Editor</h3>
-                    <span class="px-2.5 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-400 text-xs font-bold rounded-lg whitespace-nowrap">2021-2023</span>
-                </div>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">TEFA</p>
-                <ul class="list-disc list-outside ml-4 space-y-2.5 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500">
-                  <li>Designed 2D school-themed illustrations for animated videos.</li>
-                  <li>Produced and animated 2D videos for school promotion.</li>
-                  <li>Created complete 2D character designs in Adobe software.</li>
-                </ul>
-              </div>
-
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-8 md:col-span-2 lg:col-span-1" data-aos="fade-up">
-                <div class="flex items-start justify-between mb-4">
-                    <h3 class="text-xl font-bold leading-tight">Laboratory Assistant</h3>
-                    <span class="px-2.5 py-1 bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-bold rounded-lg whitespace-nowrap">Present</span>
-                </div>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">Universitas Gunadarma</p>
-                <ul class="list-disc list-outside ml-4 space-y-2.5 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500">
-                  <li>Assisted lecturers in teaching Python and Data Science modules.</li>
-                  <li>Guided students in troubleshooting code and logic.</li>
-                  <li>Ensured laboratory tech assets were ready for practical sessions.</li>
-                </ul>
-              </div>
-
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-8 md:col-span-2" data-aos="fade-up" data-aos-delay="50">
-                <div class="flex items-start justify-between mb-4">
-                    <h3 class="text-xl font-bold leading-tight">Film Production</h3>
-                    <span class="px-2.5 py-1 bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-bold rounded-lg whitespace-nowrap">Present</span>
-                </div>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">Peradox Picture</p>
-                
-                <div class="flex flex-col md:flex-row gap-6">
-                    <ul class="list-disc list-outside ml-4 space-y-2.5 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500 flex-1">
-                        <li>Edited recorded footage to enhance storytelling and visual flow.</li>
-                        <li>Assisted camera department for effective and creative angles.</li>
-                        <li>Supported lighting setup for cinematic exposure.</li>
+                    <h3 class="text-lg md:text-xl font-bold text-[#053d6c] mb-3 md:mb-4">Profil Lembaga</h3>
+                    <ul class="text-gray-700 space-y-2 md:space-y-3 text-sm md:text-base">
+                        <li><i class="fa-solid fa-check text-[#1b8e44] mr-2"></i>Bimbingan belajar dan kursus.</li>
+                        <li><i class="fa-solid fa-check text-[#1b8e44] mr-2"></i>Fokus pada area Jabodetabek.</li>
+                        <li><i class="fa-solid fa-check text-[#1b8e44] mr-2"></i>Segmen menengah ke bawah.</li>
                     </ul>
-                    <div class="flex-1">
-                        <video class="w-full rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-lg" controls>
-                            <source src="video/404 Friends.mp4" type="video/mp4">
-                            Browser Anda tidak mendukung tag video.
-                        </video>
-                        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-3 text-center font-medium">Cuplikan Film: <strong class="text-neutral-800 dark:text-neutral-200">404 Friends</strong></p>
+                </div>
+                
+                <div class="bg-white/95 p-6 md:p-8 rounded-2xl shadow-lg border-t-4 border-[#1b8e44] border-x border-b border-white hover:-translate-y-2 transition duration-300">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-[#e8f4ec] rounded-full flex items-center justify-center text-[#1b8e44] text-xl md:text-2xl mb-4 md:mb-6 shadow-sm">
+                        <i class="fa-solid fa-bullseye"></i>
                     </div>
+                    <h3 class="text-lg md:text-xl font-bold text-[#053d6c] mb-3 md:mb-4">Kebutuhan Utama</h3>
+                    <ul class="text-gray-700 space-y-2 md:space-y-3 text-sm md:text-base">
+                        <li><i class="fa-solid fa-check text-[#1b8e44] mr-2"></i>Branding media sosial.</li>
+                        <li><i class="fa-solid fa-check text-[#1b8e44] mr-2"></i>Video promosi profesional.</li>
+                        <li><i class="fa-solid fa-check text-[#1b8e44] mr-2"></i>Pengembangan website resmi.</li>
+                    </ul>
                 </div>
-              </div>
 
+                <div class="bg-white/95 p-6 md:p-8 rounded-2xl shadow-lg border-t-4 border-[#1b8e44] border-x border-b border-white sm:col-span-2 lg:col-span-1 hover:-translate-y-2 transition duration-300">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-[#e8f4ec] rounded-full flex items-center justify-center text-[#1b8e44] text-xl md:text-2xl mb-4 md:mb-6 shadow-sm">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-[#053d6c] mb-3 md:mb-4">Karakteristik Klien</h3>
+                    <ul class="text-gray-700 space-y-2 md:space-y-3 text-sm md:text-base">
+                        <li><i class="fa-solid fa-check text-[#1b8e44] mr-2"></i>Promosi digital belum optimal.</li>
+                        <li><i class="fa-solid fa-check text-[#1b8e44] mr-2"></i>Tahap berkembang (scale-up).</li>
+                        <li><i class="fa-solid fa-check text-[#1b8e44] mr-2"></i>Butuh media kredibilitas.</li>
+                    </ul>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Volunteer -->
-            <div class="mt-20 mb-10" data-aos="fade-up">
-                <span class="text-emerald-500 font-bold tracking-wider text-sm uppercase">Community</span>
-                <h3 class="text-2xl md:text-3xl font-bold tracking-tight mt-2">Volunteer Experience</h3>
-            </div>
-            <div class="grid grid-cols-1 gap-8">
-              
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-6 md:p-8" data-aos="fade-up">
-                <h3 class="text-xl font-bold mb-1">Volunteer Sagala Studio</h3>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">Sagala Studio • 2026 MARCH</p>
-                <ul class="list-disc list-outside ml-4 mb-6 space-y-2 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500 max-w-4xl">
-                  <li>Captured comprehensive photo and video documentation throughout the event.</li>
-                  <li>Edited and produced engaging after-movie videos post-event.</li>
-                  <li>Directed and coordinated participants to ensure high-quality portrait sessions.</li>
-                </ul>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/dokumentasi.jpeg"><img src="fotocv/dokumentasi.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></div></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/dokumentasi2.jpeg"><img src="fotocv/dokumentasi2.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></div></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/dokumentasi3.jpeg"><img src="fotocv/dokumentasi3.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></div></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/dokumentasi4.jpeg"><img src="fotocv/dokumentasi4.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></div></div>
-                </div>
-              </div>
-
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-6 md:p-8" data-aos="fade-up">
-                <h3 class="text-xl font-bold mb-1">Volunteer Edutrip Koraksi</h3>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">Koraksi • 2025</p>
-                <ul class="list-disc list-outside ml-4 mb-6 space-y-2 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500 max-w-4xl">
-                  <li>Coordinated and supervised a team of volunteers, ensuring all team members were aligned with the event’s objectives.</li>
-                  <li>Facilitated field missions assigned by organizers, guiding participants through educational goals.</li>
-                  <li>Ensured safety, well-being, and group engagement dynamically.</li>
-                </ul>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/edu1.jpeg"><img src="fotocv/edu1.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/edu2.jpeg"><img src="fotocv/edu2.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/edu3.jpeg"><img src="fotocv/edu3.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/edu4.jpeg"><img src="fotocv/edu4.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                </div>
-              </div>
-
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-6 md:p-8" data-aos="fade-up">
-                <h3 class="text-xl font-bold mb-1">PKKMB Volunteer</h3>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">Universitas Gunadarma • 2025</p>
-                <ul class="list-disc list-outside ml-4 mb-6 space-y-2 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500 max-w-4xl">
-                  <li>Provided on-the-spot assistance and answered inquiries from new students regarding schedules.</li>
-                  <li>Helped students navigate the campus and locate important facilities like library and clinic.</li>
-                  <li>Assisted in distributing orientation materials and refreshments.</li>
-                </ul>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/pkkmb4.JPG"><img src="fotocv/pkkmb4.JPG" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/pkkmb3.JPG"><img src="fotocv/pkkmb3.JPG" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/pkkmb2.jpg"><img src="fotocv/pkkmb2.jpg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/pkkmb1.jpg"><img src="fotocv/pkkmb1.jpg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                </div>
-              </div>
-
-              <div class="pro-card rounded-3xl bg-white dark:bg-[#0f0f0f] border border-neutral-200 dark:border-neutral-800 p-6 md:p-8" data-aos="fade-up">
-                <h3 class="text-xl font-bold mb-1">React Day Volunteer</h3>
-                <p class="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-5">PPIM UIN JAKARTA • 2025 AUG</p>
-                <ul class="list-disc list-outside ml-4 mb-6 space-y-2 text-sm text-neutral-600 dark:text-neutral-300 marker:text-emerald-500 max-w-4xl">
-                    <li>Supported design team by editing event cards and promotional videos for Instagram.</li>
-                    <li>Created engaging content to boost audience interaction.</li>
-                    <li>Collaborated to develop the eco-friendly game using recycled materials.</li>
-                    <li>Managed booths, facilitating interactive activities, raising environmental awareness.</li>
-                </ul>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/ppim2.jpg"><img src="fotocv/ppim2.jpg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/ppim3.jpg"><img src="fotocv/ppim3.jpg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/ppim4.jpeg"><img src="fotocv/ppim4.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                    <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/ppim5.jpeg"><img src="fotocv/ppim5.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="py-24 bg-emerald-900 text-white relative overflow-hidden scroll-mt-20">
-          <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500 rounded-full blur-[120px] opacity-20 -z-10 translate-x-1/2 -translate-y-1/2"></div>
-          
-          <div class="container grid md:grid-cols-2 gap-12 lg:gap-20 items-center z-10 relative">
-            <div data-aos="fade-up">
-              <span class="text-emerald-400 font-bold tracking-wider text-sm uppercase">Get in touch</span>
-              <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mt-3 mb-6">Let's work together!</h2>
-              <p class="text-emerald-100 text-lg mb-10 max-w-md">Have an exciting project or want to hire me? Drop a message, I'll reply via email as soon as possible.</p>
-              
-              <div class="flex flex-col gap-5">
-                <a href="mailto:fauzanhariyono280705@gmail.com" class="flex items-center gap-4 hover:text-emerald-300 transition-colors w-max group">
-                  <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  </div>
-                  <div>
-                      <p class="text-sm text-emerald-300 font-semibold">Email</p>
-                      <p class="font-medium text-lg">fauzanhariyono280705@gmail.com</p>
-                  </div>
-                </a>
-                <div class="flex items-center gap-4 w-max group">
-                  <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  </div>
-                  <div>
-                      <p class="text-sm text-emerald-300 font-semibold">WhatsApp / Phone</p>
-                      <p class="font-medium text-lg">+62 856-9565-1087</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <form id="contactForm" class="bg-white dark:bg-[#0f0f0f] rounded-3xl p-8 shadow-2xl text-neutral-900 dark:text-white border border-neutral-100 dark:border-neutral-800" data-aos="fade-left" data-aos-delay="100">
-              <h3 class="text-2xl font-bold mb-6">Send a Message</h3>
-              <div class="space-y-5">
-                  <div>
-                      <label class="block text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300">Full Name</label>
-                      <input type="text" class="w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="John Doe" required>
-                  </div>
-                  <div>
-                      <label class="block text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300">Email Address</label>
-                      <input type="email" class="w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="john@example.com" required>
-                  </div>
-                  <div>
-                      <label class="block text-sm font-semibold mb-2 text-neutral-700 dark:text-neutral-300">Message</label>
-                      <textarea rows="4" class="w-full rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none" placeholder="Hello Fauzan, I'd like to discuss..." required></textarea>
-                  </div>
-                  
-                  <button type="submit" class="w-full rounded-xl bg-emerald-500 text-white px-4 py-3.5 text-sm font-bold hover:bg-emerald-600 active:scale-95 transition-all shadow-lg shadow-emerald-500/30 flex justify-center items-center gap-2">
-                      Send via Email <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                  </button>
-              </div>
-            </form>
-          </div>
-        </section>
-
-      </div>
-      <!-- ========================================== -->
-      <!-- AKHIR VIEW 1 -->
-      <!-- ========================================== -->
-
-
-      <!-- ========================================== -->
-      <!-- VIEW 2: HALAMAN PORTOFOLIO FULL -->
-      <!-- ========================================== -->
-      <!-- Diperbaiki: Menghapus class absolute dari portfolio-view agar lightbox tidak terhalang -->
-      <div id="portfolio-view" class="hidden opacity-0 transition-opacity duration-500 w-full pt-10 pb-20">
-        
-        <!-- Portfolio Header -->
-        <div class="container mb-12 relative z-10">
-          <button id="close-portfolio-btn" class="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 hover:text-emerald-500 dark:text-neutral-400 dark:hover:text-emerald-400 transition-colors mb-8 group">
-            <svg class="group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            Kembali ke Beranda
-          </button>
-          
-          <div class="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6">
-            <div>
-                <span class="text-emerald-500 font-bold tracking-wider text-sm uppercase">Full Showcase</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mt-2 text-neutral-900 dark:text-white">Portofolio Saya</h2>
-                <p class="mt-4 text-neutral-600 dark:text-neutral-400 max-w-xl">Semua karya kreatif desain poster, produksi video, dan hasil dokumentasi event profesional.</p>
+    <!-- Unique Selling Point (USP) -->
+    <section id="usp" class="py-16 md:py-24 bg-white/85 backdrop-blur-md border-t border-white/50">
+        <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-bold text-[#053d6c] mb-4 drop-shadow-sm">Unique Selling Point</h2>
+                <div class="w-16 md:w-24 h-1 bg-[#1b8e44] mx-auto rounded-full shadow-sm"></div>
             </div>
             
-            <!-- Tabs Premium -->
-            <div class="inline-flex rounded-xl p-1.5 bg-neutral-200/50 dark:bg-neutral-900/80 backdrop-blur border border-neutral-200 dark:border-neutral-800">
-                <button data-tab="poster" class="tab-btn px-6 py-2.5 text-sm font-semibold rounded-lg transition-all tab-active">Poster</button>
-                <button data-tab="video"  class="tab-btn px-6 py-2.5 text-sm font-semibold rounded-lg text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-all">Video</button>
-                <button data-tab="web"    class="tab-btn px-6 py-2.5 text-sm font-semibold rounded-lg text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-all">Web</button>
-                <button data-tab="dokumentasi" class="tab-btn px-6 py-2.5 text-sm font-semibold rounded-lg text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-all">Dokumentasi</button>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="flex items-start group bg-white/95 p-6 rounded-2xl shadow-lg border border-white hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="mt-1 flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-[#1b8e44] group-hover:bg-[#1b8e44] group-hover:text-white transition duration-300 shadow-sm border border-blue-100">
+                        <i class="fa-solid fa-bolt text-xl"></i>
+                    </div>
+                    <div class="ml-5">
+                        <h4 class="text-lg font-bold text-[#053d6c]">Visual Scroll-Stopping</h4>
+                        <p class="text-gray-700 text-sm md:text-base mt-1">Kombinasi desain dan video memikat yang relevan untuk target audiens Anda.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start group bg-white/95 p-6 rounded-2xl shadow-lg border border-white hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="mt-1 flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-[#1b8e44] group-hover:bg-[#1b8e44] group-hover:text-white transition duration-300 shadow-sm border border-blue-100">
+                        <i class="fa-solid fa-pen-fancy text-xl"></i>
+                    </div>
+                    <div class="ml-5">
+                        <h4 class="text-lg font-bold text-[#053d6c]">Copywriting Persuasif</h4>
+                        <p class="text-gray-700 text-sm md:text-base mt-1">Merangkai kata untuk membangun koneksi emosional dengan calon siswa dan orang tua.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start group bg-white/95 p-6 rounded-2xl shadow-lg border border-white hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="mt-1 flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-[#1b8e44] group-hover:bg-[#1b8e44] group-hover:text-white transition duration-300 shadow-sm border border-blue-100">
+                        <i class="fa-solid fa-id-badge text-xl"></i>
+                    </div>
+                    <div class="ml-5">
+                        <h4 class="text-lg font-bold text-[#053d6c]">Identitas Otentik</h4>
+                        <p class="text-gray-700 text-sm md:text-base mt-1">Desain dan konten yang menonjolkan karakter unik lembaga pendidikan Anda.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start group bg-white/95 p-6 rounded-2xl shadow-lg border border-white hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="mt-1 flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-[#1b8e44] group-hover:bg-[#1b8e44] group-hover:text-white transition duration-300 shadow-sm border border-blue-100">
+                        <i class="fa-solid fa-bullhorn text-xl"></i>
+                    </div>
+                    <div class="ml-5">
+                        <h4 class="text-lg font-bold text-[#053d6c]">Education Marketing</h4>
+                        <p class="text-gray-700 text-sm md:text-base mt-1">Bukan sekadar berjualan, tetapi mengedukasi sekaligus membangun kepercayaan audiens.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start group bg-white/95 p-6 rounded-2xl shadow-lg border border-white hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="mt-1 flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-[#1b8e44] group-hover:bg-[#1b8e44] group-hover:text-white transition duration-300 shadow-sm border border-blue-100">
+                        <i class="fa-solid fa-arrow-trend-up text-xl"></i>
+                    </div>
+                    <div class="ml-5">
+                        <h4 class="text-lg font-bold text-[#053d6c]">Fokus Konversi</h4>
+                        <p class="text-gray-700 text-sm md:text-base mt-1">Menarik perhatian dan meningkatkan kredibilitas untuk mendorong pendaftaran.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <div class="container">
-          <!-- Content Portfolio -->
-          <div id="grid-poster" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg"><img src="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg" alt="Poster 1" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/Pujha%20Collection%20%281%29.jpg"><img src="fotocv/Pujha%20Collection%20%281%29.jpg" alt="Poster 2" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/koraksi2.png"><img src="fotocv/koraksi2.png" alt="Poster 3" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/korkasi1.png"><img src="fotocv/korkasi1.png" alt="Poster 4" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/tanggal-14%20%281%29.jpg"><img src="fotocv/tanggal-14%20%281%29.jpg" alt="Poster 5" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/tanggal-22%282%29%20%281%29.jpg"><img src="fotocv/tanggal-22%282%29%20%281%29.jpg" alt="Poster 6" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/1333%20%281%29.jpg"><img src="fotocv/1333%20%281%29.jpg" alt="Poster 7" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/resizegunung.png"><img src="fotocv/resizegunung.png" alt="Poster 8" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/sore1.png"><img src="fotocv/sore1.png" alt="Poster 9" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/500days.png"><img src="fotocv/500days.png" alt="Poster 10" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/awan2.png"><img src="fotocv/awan2.png" alt="Poster 11" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/joker1.png"><img src="fotocv/joker1.png" alt="Poster 12" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/rumah1.png"><img src="fotocv/rumah1.png" alt="Poster 13" class="h-64 w-full object-cover" /></figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/sepatu2.png"><img src="fotocv/sepatu2.png" alt="Poster 14" class="h-64 w-full object-cover" /></figure>
-
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/PHBN.png">
-                  <img src="fotocv/PHBN.png" alt="Poster 15" class="h-64 w-full object-cover" />
-              </figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/Coming Soon.png">
-                  <img src="fotocv/Coming Soon.png" alt="Poster 16" class="h-64 w-full object-cover" />
-              </figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="fotocv/Koraksi Connect.png">
-                  <img src="fotocv/Koraksi Connect.png" alt="Poster 17" class="h-64 w-full object-cover" />
-              </figure>
-
-              <!-- 1 Poster Spesial (Slider 2 Halaman) -->
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 relative group" data-type="slider" data-images="fotocv/pepeapa.png,fotocv/pepeapa2.png">
-                  <img src="fotocv/pepeapa.png" alt="Poster Slide" class="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div class="absolute bottom-4 right-4 bg-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1.5 backdrop-blur-md border border-white/30 z-10">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line>
-                      </svg>
-                      2 Pages
-                  </div>
-              </figure>
-          </div>
-
-          <div id="grid-video" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
-            <article class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900/50" data-type="video" data-video="video/loncat.mp4">
-              <div class="h-64 w-full flex items-center justify-center relative group">
-                <div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-12 h-12 bg-black/50 backdrop-blur text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-              </div>
-            </article>
-            <article class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900/50" data-type="video" data-video="video/barasuara.mp4">
-              <div class="h-64 w-full flex items-center justify-center relative group">
-                <div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-12 h-12 bg-black/50 backdrop-blur text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-              </div>
-            </article>
-            <article class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900/50" data-type="video" data-video="video/boladonat.mp4">
-              <div class="h-64 w-full flex items-center justify-center relative group">
-                <div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-12 h-12 bg-black/50 backdrop-blur text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-              </div>
-            </article>
-            <article class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900/50" data-type="video" data-video="video/sigembul.mp4">
-              <div class="h-64 w-full flex items-center justify-center relative group">
-                <div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-12 h-12 bg-black/50 backdrop-blur text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-              </div>
-            </article>
-            <article class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900/50" data-type="video" data-video="video/jalanduduk.mp4">
-              <div class="h-64 w-full flex items-center justify-center relative group">
-                <div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-12 h-12 bg-black/50 backdrop-blur text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-              </div>
-            </article>
-            <article class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900/50" data-type="video" data-video="video/joget.mp4">
-              <div class="h-64 w-full flex items-center justify-center relative group">
-                <div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-12 h-12 bg-black/50 backdrop-blur text-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-              </div>
-            </article>
-          </div>
-
-          <div id="grid-web" class="grid md:grid-cols-3 gap-6 hidden">
-            <a href="#" class="h-64 w-full pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0f0f0f] grid place-content-center text-sm text-neutral-500 font-medium">Coming Soon</a>
-          </div>
-          
-          <div id="grid-dokumentasi" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 hidden">
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="dokumentasi/foto1.jpg">
-                  <img src="dokumentasi/foto1.jpg" alt="Foto Dokumentasi 1" class="h-64 w-full object-cover" />
-              </figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="dokumentasi/foto2.jpg">
-                  <img src="dokumentasi/foto2.jpg" alt="Foto Dokumentasi 2" class="h-64 w-full object-cover" />
-              </figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="dokumentasi/foto3.jpg">
-                  <img src="dokumentasi/foto3.jpg" alt="Foto Dokumentasi 3" class="h-64 w-full object-cover" />
-              </figure>
-              <figure class="media-card pro-card rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800" data-type="image" data-full="dokumentasi/foto4.jpg">
-                  <img src="dokumentasi/foto4.jpg" alt="Foto Dokumentasi 4" class="h-64 w-full object-cover" />
-              </figure>
-          </div>
+    <!-- Kontak -->
+    <section id="kontak" class="py-16 md:py-24 bg-gray-50/85 backdrop-blur-md border-t border-white/50">
+        <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+            <div class="bg-[#053d6c]/95 backdrop-blur-lg rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-white/20">
+                <div class="p-8 md:p-14 md:w-1/2 text-white bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Hubungi Kami</h2>
+                    <p class="text-blue-100 mb-8 md:mb-10 text-sm md:text-lg">Konsultasikan kebutuhan branding dan promosi digital lembaga pendidikan secara langsung untuk mendapatkan solusi operasional yang paling relevan.</p>
+                    <div class="space-y-6 md:space-y-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-[#1b8e44] rounded-full flex items-center justify-center mr-4 md:mr-5 text-lg md:text-xl flex-shrink-0 shadow-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-xs md:text-sm text-blue-200 mb-1">Email Resmi</p>
+                                <p class="font-semibold text-base md:text-lg truncate">halo@edugrowthcreative.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-[#1b8e44] rounded-full flex items-center justify-center mr-4 md:mr-5 text-lg md:text-xl flex-shrink-0 shadow-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs md:text-sm text-blue-200 mb-1">Layanan Telepon</p>
+                                <p class="font-semibold text-base md:text-lg">081213908820  </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-[#1b8e44] rounded-full flex items-center justify-center mr-4 md:mr-5 text-lg md:text-xl flex-shrink-0 shadow-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs md:text-sm text-blue-200 mb-1">Area Operasional</p>
+                                <p class="font-semibold text-sm md:text-lg">Jakarta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 md:p-14 md:w-1/2 bg-white/95 backdrop-blur-md flex flex-col justify-center">
+                    <form class="space-y-5 md:space-y-6">
+                        <div>
+                            <label class="block text-[#053d6c] font-semibold mb-1 md:mb-2 text-sm md:text-base">Nama Instansi / Pribadi</label>
+                            <input type="text" class="w-full px-4 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1b8e44] transition duration-200 text-sm md:text-base bg-white/80" placeholder="Masukkan nama">
+                        </div>
+                        <div>
+                            <label class="block text-[#053d6c] font-semibold mb-1 md:mb-2 text-sm md:text-base">Alamat Email</label>
+                            <input type="email" class="w-full px-4 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1b8e44] transition duration-200 text-sm md:text-base bg-white/80" placeholder="Masukkan email">
+                        </div>
+                        <div>
+                            <label class="block text-[#053d6c] font-semibold mb-1 md:mb-2 text-sm md:text-base">Rincian Kebutuhan</label>
+                            <textarea rows="4" class="w-full px-4 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1b8e44] transition duration-200 text-sm md:text-base bg-white/80" placeholder="Jelaskan secara singkat..."></textarea>
+                        </div>
+                        <button type="button" class="w-full bg-[#1b8e44] text-white font-bold py-3 md:py-4 rounded-lg md:rounded-xl shadow-lg hover:bg-[#157235] transition duration-300 transform hover:-translate-y-1 text-sm md:text-base">Kirim Penawaran</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-      <!-- ========================================== -->
-      <!-- AKHIR VIEW 2 -->
-      <!-- ========================================== -->
-
-    </main>
+    </section>
 
     <!-- Footer -->
-    <footer id="main-footer" class="py-8 bg-white dark:bg-[#0a0a0a] border-t border-neutral-200 dark:border-neutral-800">
-      <div class="container text-center text-sm font-semibold text-neutral-500 dark:text-neutral-400 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p>&copy; 2025 Muhammad Fauzan Hariyono.</p>
-        <p>Built with Tailwind CSS & Javascript.</p>
-      </div>
+    <footer class="bg-[#031d33]/95 backdrop-blur-md text-gray-400 py-8 md:py-10 border-t border-white/10">
+        <div class="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <p class="text-lg md:text-xl font-bold text-white mb-1 md:mb-2">EduGrowth Creative</p>
+                <p class="text-sm md:text-base">&copy; 2026 Hak cipta dilindungi undang-undang.</p>
+            </div>
+            <div class="flex space-x-4">
+                <a href="https://instagram.com/" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#053d6c] flex items-center justify-center hover:bg-[#1b8e44] hover:text-white transition duration-300 text-base md:text-lg shadow-md" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
     </footer>
 
-    <!-- LIGHTBOX -->
-    <!-- Diperbaiki: z-index ditinggikan dan struktur disederhanakan -->
-    <div id="lightbox" class="fixed inset-0 bg-black/95 backdrop-blur-md hidden z-[9999] transition-opacity duration-300 opacity-0 flex flex-col items-center justify-center">
-      <button id="lb-close" class="absolute top-6 right-6 rounded-full bg-white/10 hover:bg-white/30 p-3 text-white z-50 transition-colors flex items-center justify-center cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-      </button>
-      <div id="lightbox-content" class="relative w-full max-w-6xl flex justify-center items-center p-4"></div>
-    </div>
-
+    <!-- Script Menu Mobile -->
     <script>
-      AOS.init({ once: true, duration: 800, offset: 50 });
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
 
-      // ===== Logika Ganti Tema =====
-      const themeBtn = document.getElementById('themeBtn');
-      const doc = document.documentElement;
-      themeBtn.addEventListener('click', () => {
-        doc.classList.toggle('dark');
-      });
-
-      // ===== Logika SPA (Single Page Application) Routing =====
-      const mainView = document.getElementById('main-view');
-      const mainFooter = document.getElementById('main-footer');
-      const portfolioView = document.getElementById('portfolio-view');
-      
-      const openPortfolioBtns = document.querySelectorAll('.open-portfolio-btn');
-      const closePortfolioBtn = document.getElementById('close-portfolio-btn');
-      const logoBtn = document.getElementById('logo-btn');
-      const navLinks = document.querySelectorAll('.nav-link');
-
-      const openPortfolio = (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        
-        mainView.style.opacity = '0';
-        mainFooter.style.opacity = '0';
-        
-        setTimeout(() => {
-            mainView.classList.add('hidden');
-            mainFooter.classList.add('hidden');
-            
-            portfolioView.classList.remove('hidden');
-            setTimeout(() => {
-                portfolioView.style.opacity = '1';
-                portfolioView.classList.replace('opacity-0', 'opacity-100');
-            }, 50);
-        }, 500);
-      };
-
-      const closePortfolio = (e) => {
-        e?.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        
-        portfolioView.style.opacity = '0';
-        portfolioView.classList.replace('opacity-100', 'opacity-0');
-        
-        setTimeout(() => {
-            portfolioView.classList.add('hidden');
-            
-            mainView.classList.remove('hidden');
-            mainFooter.classList.remove('hidden');
-            
-            setTimeout(() => {
-                mainView.style.opacity = '1';
-                mainFooter.style.opacity = '1';
-            }, 50);
-        }, 500);
-      };
-
-      openPortfolioBtns.forEach(btn => btn.addEventListener('click', openPortfolio));
-      closePortfolioBtn.addEventListener('click', closePortfolio);
-      logoBtn.addEventListener('click', closePortfolio);
-      
-      navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-              if(!portfolioView.classList.contains('hidden')) {
-                  closePortfolio();
-              }
-          });
-      });
-
-      // ===== Logika Tab Portofolio Pro =====
-      const tabs = document.querySelectorAll('.tab-btn');
-      const grids = {
-        poster: document.getElementById('grid-poster'),
-        video: document.getElementById('grid-video'),
-        web: document.getElementById('grid-web'),
-        dokumentasi: document.getElementById('grid-dokumentasi'),
-      };
-      
-      const setTabActiveStyles = (btn) => {
-        btn.classList.add('bg-white', 'dark:bg-[#0a0a0a]', 'shadow-sm', 'text-neutral-900', 'dark:text-white');
-        btn.classList.remove('text-neutral-600', 'dark:text-neutral-400');
-      };
-      
-      const setTabInactiveStyles = (btn) => {
-        btn.classList.remove('bg-white', 'dark:bg-[#0a0a0a]', 'shadow-sm', 'text-neutral-900', 'dark:text-white');
-        btn.classList.add('text-neutral-600', 'dark:text-neutral-400');
-      };
-
-      tabs.forEach(t => {
-          if(t.classList.contains('tab-active')) setTabActiveStyles(t);
-      });
-
-      tabs.forEach(btn => {
         btn.addEventListener('click', () => {
-          tabs.forEach(b => {
-              b.classList.remove('tab-active');
-              setTabInactiveStyles(b);
-          });
-          btn.classList.add('tab-active');
-          setTabActiveStyles(btn);
-          
-          const targetTab = btn.getAttribute('data-tab');
-          Object.values(grids).forEach(grid => {
-              grid.classList.add('hidden');
-              grid.style.opacity = '0';
-          });
-          
-          if (grids[targetTab]) {
-            grids[targetTab].classList.remove('hidden');
-            setTimeout(() => {
-                grids[targetTab].style.opacity = '1';
-                grids[targetTab].style.transition = 'opacity 0.4s ease';
-            }, 50);
-          }
-        });
-      });
-
-      // ===== Logika Lightbox (DIPERBAIKI UNTUK SWIPE & KLIK) =====
-      const lightbox = document.getElementById('lightbox');
-      const lbClose = document.getElementById('lb-close');
-      const lbContent = document.getElementById('lightbox-content');
-      
-      function setupLightbox() {
-        document.querySelectorAll('.media-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-            e.preventDefault(); // Hindari default link behavior jika ada
-            const type = card.dataset.type;
-            lbContent.innerHTML = '';
-            
-            if (type === 'image') {
-              const fullSrc = card.dataset.full;
-              const img = document.createElement('img');
-              img.src = fullSrc;
-              img.className = 'w-full h-auto max-h-[85vh] object-contain rounded-2xl';
-              lbContent.appendChild(img);
-              
-            } else if (type === 'video') {
-              const videoSrc = card.dataset.video;
-              const video = document.createElement('video');
-              video.src = videoSrc;
-              video.controls = true;
-              video.autoplay = true;
-
-              if (videoSrc === 'video/barasuara.mp4') {
-                video.muted = true;
-              }
-
-              video.className = 'w-full h-auto max-h-[85vh] rounded-2xl';
-              lbContent.appendChild(video);
-              
-            } else if (type === 'slider') {
-              // Logika Khusus untuk Poster Slider
-              const images = card.dataset.images.split(',');
-              let currentIndex = 0;
-
-              const container = document.createElement('div');
-              container.className = 'relative w-full max-w-4xl flex flex-col items-center justify-center';
-
-              const img = document.createElement('img');
-              img.src = images[currentIndex];
-              img.className = 'max-w-full h-auto max-h-[85vh] object-contain rounded-2xl transition-opacity duration-300 pointer-events-none';
-              
-              // Container khusus untuk mendeteksi klik kiri/kanan di PC
-              const clickLayer = document.createElement('div');
-              clickLayer.className = 'absolute inset-0 z-10 flex';
-              
-              const leftClickArea = document.createElement('div');
-              leftClickArea.className = 'w-1/2 h-full cursor-pointer';
-              const rightClickArea = document.createElement('div');
-              rightClickArea.className = 'w-1/2 h-full cursor-pointer';
-
-              // Tombol visual
-              const prevBtn = document.createElement('button');
-              prevBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>'; 
-              prevBtn.className = 'absolute left-2 md:-left-12 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/80 text-white backdrop-blur-md rounded-full w-14 h-14 flex items-center justify-center z-20 transition-colors cursor-pointer border border-white/20';
-              
-              const nextBtn = document.createElement('button');
-              nextBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
-              nextBtn.className = 'absolute right-2 md:-right-12 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/80 text-white backdrop-blur-md rounded-full w-14 h-14 flex items-center justify-center z-20 transition-colors cursor-pointer border border-white/20';
-
-              const counter = document.createElement('div');
-              counter.className = 'absolute -bottom-14 left-1/2 -translate-x-1/2 bg-black/60 text-white font-bold backdrop-blur-md px-5 py-2 rounded-full text-sm tracking-widest border border-white/20 z-20';
-              counter.innerText = `1 / ${images.length}`;
-
-              const slidePrev = () => {
-                  currentIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
-                  updateView();
-              };
-
-              const slideNext = () => {
-                  currentIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
-                  updateView();
-              };
-
-              const updateView = () => {
-                  img.style.opacity = '0.3';
-                  setTimeout(() => {
-                      img.src = images[currentIndex];
-                      img.style.opacity = '1';
-                      counter.innerText = `${currentIndex + 1} / ${images.length}`;
-                  }, 150);
-              };
-
-              // Deteksi Sentuhan (Swipe untuk HP)
-              let touchstartX = 0;
-              let touchendX = 0;
-              
-              container.addEventListener('touchstart', e => {
-                touchstartX = e.changedTouches[0].screenX;
-              }, {passive: true});
-
-              container.addEventListener('touchend', e => {
-                touchendX = e.changedTouches[0].screenX;
-                if (touchendX < touchstartX - 40) slideNext(); // Swipe kiri
-                if (touchendX > touchstartX + 40) slidePrev(); // Swipe kanan
-              }, {passive: true});
-
-              // Event listeners klik
-              leftClickArea.addEventListener('click', (e) => { e.stopPropagation(); slidePrev(); });
-              rightClickArea.addEventListener('click', (e) => { e.stopPropagation(); slideNext(); });
-              prevBtn.addEventListener('click', (e) => { e.stopPropagation(); slidePrev(); });
-              nextBtn.addEventListener('click', (e) => { e.stopPropagation(); slideNext(); });
-
-              clickLayer.appendChild(leftClickArea);
-              clickLayer.appendChild(rightClickArea);
-
-              container.appendChild(img);
-              container.appendChild(clickLayer); // Layer area klik ditambahkan di atas gambar
-              
-              if(images.length > 1) {
-                  container.appendChild(prevBtn);
-                  container.appendChild(nextBtn);
-                  container.appendChild(counter);
-              }
-              lbContent.appendChild(container);
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')){
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
             }
-            
-            lightbox.classList.remove('hidden');
-            setTimeout(() => {
-                lightbox.classList.remove('opacity-0');
-            }, 10);
-          });
         });
-      }
 
-      const closeLightboxHandler = () => {
-        lightbox.classList.add('opacity-0');
-        const videoElement = lbContent.querySelector('video');
-        if (videoElement) {
-          videoElement.pause();
-        }
-        setTimeout(() => {
-            lightbox.classList.add('hidden');
-            lbContent.innerHTML = '';
-        }, 300); 
-      };
-
-      lbClose.addEventListener('click', closeLightboxHandler);
-      
-      // Menutup jika area luar (background gelap) diklik
-      lightbox.addEventListener('click', (e) => {
-          if(e.target === lightbox || e.target === lbContent) {
-              closeLightboxHandler();
-          }
-      });
-      
-      setupLightbox();
-
-      // ===== Logika Form Kontak =====
-      document.getElementById('contactForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = e.target.children[1].querySelector('input').value; 
-        const email = e.target.children[1].querySelectorAll('input')[1].value;
-        const message = e.target.children[1].querySelector('textarea').value;
-        const mailtoLink = `mailto:fauzanhariyono280705@gmail.com?subject=Message from ${name}&body=${message}%0A%0AFrom: ${email}`;
-        window.location.href = mailtoLink;
-      });
-
-      // ===== Logika Audio Player Floating Button =====
-      document.addEventListener('DOMContentLoaded', () => {
-        const musicToggleBtn = document.getElementById('music-toggle-btn');
-        const backgroundMusic = document.getElementById('background-music');
-        const iconSoundOn = document.getElementById('icon-sound-on');
-        const iconSoundOff = document.getElementById('icon-sound-off');
-
-        // Mainkan musik hanya jika tombol ditekan oleh user (tanpa pop up)
-        musicToggleBtn.addEventListener('click', () => {
-          if (backgroundMusic.paused) {
-            backgroundMusic.play();
-            iconSoundOn.classList.remove('hidden');
-            iconSoundOff.classList.add('hidden');
-            musicToggleBtn.classList.add('music-playing');
-          } else {
-            backgroundMusic.pause();
-            iconSoundOn.classList.add('hidden');
-            iconSoundOff.classList.remove('hidden');
-            musicToggleBtn.classList.remove('music-playing');
-          }
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
         });
-      });
     </script>
-  </body>
+</body>
 </html>
