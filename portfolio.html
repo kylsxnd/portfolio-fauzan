@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portofolio – Muhammad Fauzan Hariyono</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { 
+          extend: { 
+            fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+            colors: { background: '#050505', surface: '#111111', primary: '#10b981', secondary: '#06b6d4' },
+            container: { center: true, padding: '1.5rem', screens: { '2xl': '1200px' } },
+          } 
+        }
+      }
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+      body { background-color: #050505; color: #f3f4f6; -webkit-font-smoothing: antialiased; background-image: radial-gradient(circle at 50% 0%, #10b98115 0%, transparent 50%); background-attachment: fixed; }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #050505; }
+      ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+      .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s ease; cursor: pointer; }
+      .glass-card:hover { border-color: rgba(16, 185, 129, 0.3); transform: translateY(-5px); box-shadow: 0 10px 40px -10px rgba(16, 185, 129, 0.15); }
+    </style>
+  </head>
+  <body class="overflow-x-hidden min-h-screen">
+    
+    <div class="fixed top-4 md:top-6 left-0 w-full z-50 px-4 flex flex-col items-center pointer-events-none">
+      <header class="pointer-events-auto bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-full px-5 py-3 md:px-6 flex items-center justify-between w-full max-w-5xl transition-all duration-300">
+        <a href="index.html" class="font-bold tracking-tight text-base md:text-lg flex items-center gap-3 hover:opacity-80 transition-opacity text-white">
+            <span class="w-7 h-7 md:w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-secondary text-white flex items-center justify-center text-xs md:text-sm shadow-[0_0_15px_rgba(16,185,129,0.5)]">FH</span>
+            <span>M. Fauzan</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+          <a href="index.html#services" class="text-gray-400 hover:text-white transition-colors">Services</a>
+          <a href="certificate.html" class="text-gray-400 hover:text-white transition-colors">Course & Certificate</a>
+          <a href="portfolio.html" class="text-white hover:text-primary transition-colors font-bold">Portofolio</a>
+          <a href="experience.html" class="text-gray-400 hover:text-white transition-colors">Experience</a>
+        </nav>
+        <div class="flex items-center gap-2 pointer-events-auto">
+            <a href="index.html#contact" class="bg-white text-black hover:bg-gray-200 px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-bold shadow-lg transition-all">Let's Talk</a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-400 hover:text-white focus:outline-none rounded-full bg-white/5 border border-white/10 ml-1">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+      </header>
+
+      <div id="mobile-dropdown" class="hidden opacity-0 scale-95 pointer-events-auto w-full max-w-5xl mt-2 bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 flex flex-col gap-3 text-center shadow-2xl transition-all duration-300 transform origin-top lg:hidden">
+        <a href="index.html#services" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Services</a>
+        <a href="certificate.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Course & Certificate</a>
+        <a href="portfolio.html" class="py-3 rounded-xl hover:bg-white/5 text-white font-bold transition-colors">Portofolio</a>
+        <a href="experience.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Experience</a>
+      </div>
+    </div>
+
+    <div class="w-full pt-32 md:pt-40 pb-24">
+        <div class="container mb-12 relative z-10">
+          <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-gray-400 hover:text-white transition-colors mb-8 group bg-white/5 border border-white/10 px-5 py-2.5 rounded-full backdrop-blur">
+            <svg class="group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Kembali ke Beranda
+          </a>
+          
+          <div class="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+            <div data-aos="fade-right">
+                <span class="text-primary font-bold tracking-widest text-sm uppercase">Full Showcase</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mt-2 text-white">Portofolio Saya</h2>
+                <p class="mt-4 text-gray-400 max-w-xl text-lg">Semua karya kreatif desain poster dan produksi video profesional.</p>
+            </div>
+            
+            <div class="inline-flex rounded-full p-1.5 bg-white/5 border border-white/10 backdrop-blur w-full md:w-auto flex-wrap justify-center" data-aos="fade-left">
+                <button data-tab="poster" class="tab-btn px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm font-bold rounded-full transition-all tab-active bg-white text-black shadow-lg">Poster</button>
+                <button data-tab="video"  class="tab-btn px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm font-bold rounded-full text-gray-400 hover:text-white transition-all">Video</button>
+                <button data-tab="web"    class="tab-btn px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm font-bold rounded-full text-gray-400 hover:text-white transition-all">Web</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div id="grid-poster" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-opacity duration-300">
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg"><img src="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg" alt="Poster 1" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/Pujha%20Collection%20%281%29.jpg"><img src="fotocv/Pujha%20Collection%20%281%29.jpg" alt="Poster 2" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/koraksi2.png"><img src="fotocv/koraksi2.png" alt="Poster 3" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/korkasi1.png"><img src="fotocv/korkasi1.png" alt="Poster 4" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/tanggal-14%20%281%29.jpg"><img src="fotocv/tanggal-14%20%281%29.jpg" alt="Poster 5" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/tanggal-22%282%29%20%281%29.jpg"><img src="fotocv/tanggal-22%282%29%20%281%29.jpg" alt="Poster 6" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/1333%20%281%29.jpg"><img src="fotocv/1333%20%281%29.jpg" alt="Poster 7" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/resizegunung.png"><img src="fotocv/resizegunung.png" alt="Poster 8" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/sore1.png"><img src="fotocv/sore1.png" alt="Poster 9" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/500days.png"><img src="fotocv/500days.png" alt="Poster 10" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/awan2.png"><img src="fotocv/awan2.png" alt="Poster 11" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/joker1.png"><img src="fotocv/joker1.png" alt="Poster 12" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/rumah1.png"><img src="fotocv/rumah1.png" alt="Poster 13" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/sepatu2.png"><img src="fotocv/sepatu2.png" alt="Poster 14" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/PHBN.png"><img src="fotocv/PHBN.png" alt="Poster 15" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/Coming Soon.png"><img src="fotocv/Coming Soon.png" alt="Poster 16" class="h-72 w-full object-cover" /></figure>
+              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/Koraksi Connect.png"><img src="fotocv/Koraksi Connect.png" alt="Poster 17" class="h-72 w-full object-cover" /></figure>
+
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group" data-type="slider" data-images="fotocv/pepeapa.png,fotocv/pepeapa2.png">
+                  <img src="fotocv/pepeapa.png" alt="Poster Slide" class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="absolute bottom-4 right-4 bg-white/10 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 backdrop-blur-md border border-white/20 z-10">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                      2 Pages
+                  </div>
+              </figure>
+          </div>
+
+          <div id="grid-video" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden transition-opacity duration-300">
+            <article class="media-card glass-card rounded-2xl overflow-hidden bg-white/5" data-type="video" data-video="video/loncat.mp4"><div class="h-72 w-full flex items-center justify-center relative group"><div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-14 h-14 bg-black/50 backdrop-blur-md text-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div></article>
+            <article class="media-card glass-card rounded-2xl overflow-hidden bg-white/5" data-type="video" data-video="video/barasuara.mp4"><div class="h-72 w-full flex items-center justify-center relative group"><div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-14 h-14 bg-black/50 backdrop-blur-md text-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div></article>
+            <article class="media-card glass-card rounded-2xl overflow-hidden bg-white/5" data-type="video" data-video="video/boladonat.mp4"><div class="h-72 w-full flex items-center justify-center relative group"><div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-14 h-14 bg-black/50 backdrop-blur-md text-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div></article>
+            <article class="media-card glass-card rounded-2xl overflow-hidden bg-white/5" data-type="video" data-video="video/sigembul.mp4"><div class="h-72 w-full flex items-center justify-center relative group"><div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-14 h-14 bg-black/50 backdrop-blur-md text-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div></article>
+            <article class="media-card glass-card rounded-2xl overflow-hidden bg-white/5" data-type="video" data-video="video/jalanduduk.mp4"><div class="h-72 w-full flex items-center justify-center relative group"><div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-14 h-14 bg-black/50 backdrop-blur-md text-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div></article>
+            <article class="media-card glass-card rounded-2xl overflow-hidden bg-white/5" data-type="video" data-video="video/joget.mp4"><div class="h-72 w-full flex items-center justify-center relative group"><div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-14 h-14 bg-black/50 backdrop-blur-md text-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div></article>
+          </div>
+
+          <div id="grid-web" class="grid md:grid-cols-3 gap-6 hidden transition-opacity duration-300">
+            <div class="h-72 w-full glass-card rounded-2xl grid place-content-center text-sm font-bold text-gray-500 uppercase tracking-widest">Coming Soon</div>
+          </div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="fixed inset-0 bg-black/95 backdrop-blur-lg hidden z-[9999] transition-opacity duration-300 opacity-0 flex flex-col items-center justify-center select-none">
+      <button id="lb-close" class="absolute top-6 right-6 lg:top-10 lg:right-10 rounded-full bg-white/10 hover:bg-white/30 p-4 text-white z-[10000] transition-colors flex items-center justify-center cursor-pointer border border-white/20">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="lightbox-content" class="relative w-full h-full flex justify-center items-center p-2 lg:p-10"></div>
+    </div>
+
+    <script>
+      AOS.init({ once: true, duration: 800, offset: 50 });
+
+      // ===== MOBILE MENU LOGIC =====
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const dropdown = document.getElementById('mobile-dropdown');
+      if (menuBtn && dropdown) {
+        menuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if(dropdown.classList.contains('hidden')){
+            dropdown.classList.remove('hidden');
+            setTimeout(() => { dropdown.classList.replace('opacity-0', 'opacity-100'); dropdown.classList.replace('scale-95', 'scale-100'); }, 10);
+          } else { hideMenu(); }
+        });
+        document.addEventListener('click', hideMenu);
+        function hideMenu() { dropdown.classList.replace('opacity-100', 'opacity-0'); dropdown.classList.replace('scale-100', 'scale-95'); setTimeout(() => dropdown.classList.add('hidden'), 300); }
+      }
+
+      // ===== Logika Tab Portofolio Pro =====
+      const tabs = document.querySelectorAll('.tab-btn');
+      const grids = { poster: document.getElementById('grid-poster'), video: document.getElementById('grid-video'), web: document.getElementById('grid-web') };
+      
+      const setTabActiveStyles = (btn) => { btn.classList.add('bg-white', 'text-black', 'shadow-lg'); btn.classList.remove('text-gray-400', 'hover:text-white'); };
+      const setTabInactiveStyles = (btn) => { btn.classList.remove('bg-white', 'text-black', 'shadow-lg'); btn.classList.add('text-gray-400', 'hover:text-white'); };
+
+      tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabs.forEach(b => { b.classList.remove('tab-active'); setTabInactiveStyles(b); });
+          btn.classList.add('tab-active');
+          setTabActiveStyles(btn);
+          const targetTab = btn.getAttribute('data-tab');
+          Object.values(grids).forEach(grid => { if(grid) { grid.classList.add('hidden'); grid.style.opacity = '0'; } });
+          if (grids[targetTab]) { grids[targetTab].classList.remove('hidden'); setTimeout(() => { grids[targetTab].style.opacity = '1'; }, 50); }
+        });
+      });
+
+      // ===== Logika Master Lightbox =====
+      const lightbox = document.getElementById('lightbox');
+      const lbClose = document.getElementById('lb-close');
+      const lbContent = document.getElementById('lightbox-content');
+      
+      document.body.addEventListener('click', (e) => {
+          const card = e.target.closest('.media-card');
+          if (!card) return; 
+          e.preventDefault();
+          const type = card.dataset.type;
+          lbContent.innerHTML = '';
+          
+          if (type === 'image') {
+            const img = document.createElement('img');
+            img.src = card.dataset.full;
+            img.className = 'w-auto h-auto max-w-full max-h-[90vh] lg:max-h-[95vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.5)]';
+            lbContent.appendChild(img);
+          } else if (type === 'video') {
+            const videoSrc = card.dataset.video;
+            const video = document.createElement('video');
+            video.src = videoSrc; video.controls = true; video.autoplay = true;
+            if (videoSrc.includes('barasuara')) video.muted = true;
+            video.className = 'w-auto h-auto max-w-full max-h-[90vh] lg:max-h-[95vh] rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.5)]';
+            lbContent.appendChild(video);
+          } else if (type === 'slider') {
+            const images = card.dataset.images.split(',');
+            let currentIndex = 0;
+            const container = document.createElement('div');
+            container.className = 'relative w-full h-full flex flex-col items-center justify-center';
+            const img = document.createElement('img');
+            img.src = images[currentIndex];
+            img.className = 'w-auto h-auto max-w-full max-h-[90vh] lg:max-h-[95vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-opacity duration-300 pointer-events-none select-none';
+            const clickLayer = document.createElement('div');
+            clickLayer.className = 'absolute inset-0 z-10 flex';
+            const leftClickArea = document.createElement('div'); leftClickArea.className = 'w-1/2 h-full cursor-pointer';
+            const rightClickArea = document.createElement('div'); rightClickArea.className = 'w-1/2 h-full cursor-pointer';
+            
+            const prevBtn = document.createElement('button');
+            prevBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"></polyline></svg>'; 
+            prevBtn.className = 'absolute left-4 lg:left-10 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white backdrop-blur-md rounded-full w-14 h-14 flex items-center justify-center z-20 cursor-pointer border border-white/20';
+            const nextBtn = document.createElement('button');
+            nextBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+            nextBtn.className = 'absolute right-4 lg:right-10 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white backdrop-blur-md rounded-full w-14 h-14 flex items-center justify-center z-20 cursor-pointer border border-white/20';
+
+            const counter = document.createElement('div');
+            counter.className = 'absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/80 text-white font-bold backdrop-blur-md px-6 py-2.5 rounded-full text-sm tracking-widest border border-white/20 z-20 shadow-xl';
+            counter.innerText = `1 / ${images.length}`;
+
+            const updateView = () => {
+                img.style.opacity = '0.3';
+                setTimeout(() => { img.src = images[currentIndex]; img.style.opacity = '1'; counter.innerText = `${currentIndex + 1} / ${images.length}`; }, 150);
+            };
+            const slidePrev = () => { currentIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1; updateView(); };
+            const slideNext = () => { currentIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1; updateView(); };
+
+            let touchstartX = 0; let touchendX = 0;
+            container.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; }, {passive: true});
+            container.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; if (touchendX < touchstartX - 40) slideNext(); if (touchendX > touchstartX + 40) slidePrev(); }, {passive: true});
+
+            leftClickArea.addEventListener('click', (e) => { e.stopPropagation(); slidePrev(); });
+            rightClickArea.addEventListener('click', (e) => { e.stopPropagation(); slideNext(); });
+            prevBtn.addEventListener('click', (e) => { e.stopPropagation(); slidePrev(); });
+            nextBtn.addEventListener('click', (e) => { e.stopPropagation(); slideNext(); });
+
+            clickLayer.appendChild(leftClickArea); clickLayer.appendChild(rightClickArea);
+            container.appendChild(img); container.appendChild(clickLayer);
+            if(images.length > 1) { container.appendChild(prevBtn); container.appendChild(nextBtn); container.appendChild(counter); }
+            lbContent.appendChild(container);
+          }
+          
+          lightbox.classList.remove('hidden'); document.body.style.overflow = 'hidden';
+          setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
+      });
+
+      const closeLightboxHandler = () => {
+        lightbox.classList.add('opacity-0');
+        const videoElement = lbContent.querySelector('video');
+        if (videoElement) videoElement.pause();
+        document.body.style.overflow = '';
+        setTimeout(() => { lightbox.classList.add('hidden'); lbContent.innerHTML = ''; }, 300); 
+      };
+
+      lbClose.addEventListener('click', closeLightboxHandler);
+      lightbox.addEventListener('click', (e) => { if(e.target === lightbox || e.target === lbContent) closeLightboxHandler(); });
+    </script>
+  </body>
+</html>
