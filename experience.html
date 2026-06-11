@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Experience – Muhammad Fauzan Hariyono</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { 
+          extend: { 
+            fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+            colors: { background: '#050505', primary: '#10b981', secondary: '#06b6d4' },
+            container: { center: true, padding: '1.5rem', screens: { '2xl': '1200px' } }
+          } 
+        }
+      }
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+      body { background-color: #050505; color: #f3f4f6; -webkit-font-smoothing: antialiased; background-image: radial-gradient(circle at 50% 0%, #10b98115 0%, transparent 50%); background-attachment: fixed; }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #050505; }
+      ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+      .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s ease; }
+      .glass-card:hover { border-color: rgba(16, 185, 129, 0.3); transform: translateY(-5px); box-shadow: 0 10px 40px -10px rgba(16, 185, 129, 0.15); }
+      .media-card { cursor: pointer; }
+    </style>
+  </head>
+  <body class="overflow-x-hidden min-h-screen">
+    
+    <!-- Floating Navbar (Optimasi Mobile) -->
+    <div class="fixed top-4 md:top-6 left-0 w-full z-50 px-4 flex flex-col items-center pointer-events-none">
+      <header class="pointer-events-auto bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-full px-5 py-3 md:px-6 flex items-center justify-between w-full max-w-5xl transition-all duration-300">
+        <a href="index.html" class="font-bold tracking-tight text-base md:text-lg flex items-center gap-3 hover:opacity-80 transition-opacity text-white">
+            <span class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-tr from-primary to-secondary text-white flex items-center justify-center text-xs md:text-sm shadow-[0_0_15px_rgba(16,185,129,0.5)]">FH</span>
+            <span class="hidden sm:block">M. Fauzan</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+          <a href="index.html#services" class="text-gray-400 hover:text-white transition-colors">Services</a>
+          <a href="certificate.html" class="text-gray-400 hover:text-white transition-colors">Course & Certificate</a>
+          <a href="portfolio.html" class="text-gray-400 hover:text-white transition-colors">Portofolio</a>
+          <a href="experience.html" class="text-white hover:text-primary transition-colors font-bold">Experience</a>
+        </nav>
+        <div class="flex items-center gap-2 pointer-events-auto">
+            <a href="index.html#contact" class="bg-white text-black hover:bg-gray-200 px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-bold shadow-lg transition-all">Let's Talk</a>
+            <!-- Tombol Mobile Menu -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-400 hover:text-white focus:outline-none rounded-full bg-white/5 border border-white/10 ml-1">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+      </header>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-dropdown" class="hidden opacity-0 scale-95 pointer-events-auto w-full max-w-5xl mt-2 bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 flex flex-col gap-3 text-center shadow-2xl transition-all duration-300 transform origin-top lg:hidden">
+        <a href="index.html#services" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Services</a>
+        <a href="certificate.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Course & Certificate</a>
+        <a href="portfolio.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Portofolio</a>
+        <a href="experience.html" class="py-3 rounded-xl hover:bg-white/5 text-white font-bold transition-colors">Experience</a>
+      </div>
+    </div>
+
+    <main class="w-full pt-32 md:pt-40 pb-24">
+      <div class="container">
+        
+        <div class="mb-12 md:mb-16" data-aos="fade-up">
+            <span class="text-primary font-bold tracking-widest text-xs md:text-sm uppercase">Career History</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">My Experience</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up">
+              <div class="flex items-start justify-between mb-6">
+                  <h3 class="text-xl font-bold text-white">Visual Production</h3>
+                  <span class="px-3 py-1 bg-white/10 rounded-lg text-xs font-bold text-white">2025</span>
+              </div>
+              <p class="text-sm font-semibold text-primary mb-4">Koraksi</p>
+              <ul class="list-disc list-outside ml-4 space-y-3 text-sm text-gray-400 marker:text-primary">
+                <li>Developed custom motion graphics, including an animated envelope sequence for digital communications.</li>
+                <li>Designed high-quality social media content and posters aligning with branding guidelines.</li>
+                <li>Assisted in resolving complex technical design challenges.</li>
+              </ul>
+          </div>
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="50">
+            <div class="flex items-start justify-between mb-6"><h3 class="text-xl font-bold text-white">3D Animator</h3><span class="px-3 py-1 bg-white/5 rounded-lg text-xs font-bold text-gray-400">2022</span></div>
+            <p class="text-sm font-semibold text-primary mb-4">Kulstori</p>
+            <ul class="list-disc list-outside ml-4 space-y-3 text-sm text-gray-400 marker:text-primary">
+              <li>Animated the characters "RISKA DAN SI GEMBUL" in 3D environment.</li>
+              <li>Skilled in rigging and animating characters for smooth and natural movements.</li>
+              <li>Collaborative team player focused on engaging audiences.</li>
+            </ul>
+          </div>
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-start justify-between mb-6"><h3 class="text-xl font-bold text-white">Socmed Designer & Editor</h3><span class="px-3 py-1 bg-white/5 rounded-lg text-xs font-bold text-gray-400">2022</span></div>
+            <p class="text-sm font-semibold text-primary mb-4">Morehope</p>
+            <ul class="list-disc list-outside ml-4 space-y-3 text-sm text-gray-400 marker:text-primary">
+              <li>Creating engaging poster designs for various social media platforms.</li>
+              <li>Actively developing innovative creative concepts with the team.</li>
+              <li>Responsible for recording and editing videos for social contents.</li>
+            </ul>
+          </div>
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up">
+            <div class="flex items-start justify-between mb-6"><h3 class="text-xl font-bold text-white">Social Media Designer</h3><span class="px-3 py-1 bg-white/5 rounded-lg text-xs font-bold text-gray-400">2022</span></div>
+            <p class="text-sm font-semibold text-primary mb-4">Commet Kreasi Indonesia</p>
+            <ul class="list-disc list-outside ml-4 space-y-3 text-sm text-gray-400 marker:text-primary">
+              <li>Designed visual content for corporate social media platforms.</li>
+              <li>Edited promotional videos for SPG Commet Kreasi Indonesia.</li>
+              <li>Created and published SPG recruitment promotion designs.</li>
+            </ul>
+          </div>
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="50">
+            <div class="flex items-start justify-between mb-6"><h3 class="text-xl font-bold text-white">Graphic & Video Support</h3><span class="px-3 py-1 bg-white/5 rounded-lg text-xs font-bold text-gray-400">2022</span></div>
+            <p class="text-sm font-semibold text-primary mb-4">Terra</p>
+            <ul class="list-disc list-outside ml-4 space-y-3 text-sm text-gray-400 marker:text-primary">
+              <li>Designed promotional posters focusing on property marketing.</li>
+              <li>Edited and recorded videos for property promotion materials on social media.</li>
+              <li>Operated camera to shoot professional footage for Terra.</li>
+            </ul>
+          </div>
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-start justify-between mb-6"><h3 class="text-xl font-bold text-white">2D Animation & Editor</h3><span class="px-3 py-1 bg-white/5 rounded-lg text-xs font-bold text-gray-400">2021-2023</span></div>
+            <p class="text-sm font-semibold text-primary mb-4">TEFA</p>
+            <ul class="list-disc list-outside ml-4 space-y-3 text-sm text-gray-400 marker:text-primary">
+              <li>Designed 2D school-themed illustrations for animated videos.</li>
+              <li>Produced and animated 2D videos for school promotion.</li>
+              <li>Created complete 2D character designs in Adobe software.</li>
+            </ul>
+          </div>
+          <div class="glass-card p-6 md:p-8 rounded-3xl md:col-span-2 lg:col-span-1" data-aos="fade-up">
+            <div class="flex items-start justify-between mb-6"><h3 class="text-xl font-bold text-white">Laboratory Assistant</h3><span class="px-3 py-1 bg-white/10 rounded-lg text-xs font-bold text-white">Present</span></div>
+            <p class="text-sm font-semibold text-primary mb-4">Universitas Gunadarma</p>
+            <ul class="list-disc list-outside ml-4 space-y-3 text-sm text-gray-400 marker:text-primary">
+              <li>Assisted lecturers in teaching Python and Data Science modules.</li>
+              <li>Guided students in troubleshooting code and logic.</li>
+              <li>Ensured laboratory tech assets were ready for practical sessions.</li>
+            </ul>
+          </div>
+          <div class="glass-card p-6 md:p-8 rounded-3xl md:col-span-2" data-aos="fade-up" data-aos-delay="50">
+            <div class="flex items-start justify-between mb-6"><h3 class="text-xl font-bold text-white">Film Production</h3><span class="px-3 py-1 bg-white/10 rounded-lg text-xs font-bold text-white">Present</span></div>
+            <p class="text-sm font-semibold text-primary mb-5">Peradox Picture</p>
+            <div class="flex flex-col md:flex-row gap-8">
+                <ul class="list-disc list-outside ml-4 space-y-3 text-sm text-gray-400 marker:text-primary flex-1">
+                    <li>Edited recorded footage to enhance storytelling and visual flow.</li>
+                    <li>Assisted camera department for effective and creative angles.</li>
+                    <li>Supported lighting setup for cinematic exposure.</li>
+                </ul>
+                <div class="flex-1">
+                    <div class="p-1 rounded-xl bg-gradient-to-br from-white/10 to-transparent">
+                      <video class="w-full rounded-lg shadow-2xl" controls><source src="video/404 Friends.mp4" type="video/mp4"></video>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-3 text-center font-medium">Cuplikan Film: <strong class="text-white">404 Friends</strong></p>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-20 md:mt-24 mb-10 md:mb-12" data-aos="fade-up">
+            <span class="text-secondary font-bold tracking-widest text-xs md:text-sm uppercase">Community</span>
+            <h3 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">Volunteer Experience</h3>
+        </div>
+        
+        <div class="grid grid-cols-1 gap-8">
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up">
+            <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">Volunteer Sagala Studio</h3>
+            <p class="text-sm font-semibold text-secondary mb-6">Sagala Studio • 2026 March</p>
+            <ul class="list-disc list-outside ml-4 mb-6 space-y-3 text-sm text-gray-400 marker:text-secondary max-w-4xl">
+              <li>Captured comprehensive photo and video documentation throughout the event.</li>
+              <li>Edited and produced engaging after-movie videos post-event.</li>
+              <li>Directed and coordinated participants to ensure high-quality portrait sessions.</li>
+            </ul>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/dokumentasi.jpeg"><img src="fotocv/dokumentasi.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/dokumentasi2.jpeg"><img src="fotocv/dokumentasi2.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/dokumentasi3.jpeg"><img src="fotocv/dokumentasi3.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/dokumentasi4.jpeg"><img src="fotocv/dokumentasi4.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up">
+            <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">Volunteer Edutrip Koraksi</h3>
+            <p class="text-sm font-semibold text-secondary mb-6">Koraksi • 2025</p>
+            <ul class="list-disc list-outside ml-4 mb-6 space-y-3 text-sm text-gray-400 marker:text-secondary max-w-4xl">
+              <li>Coordinated and supervised a team of volunteers, ensuring all team members were aligned with the event’s objectives.</li>
+              <li>Facilitated field missions assigned by organizers, guiding participants through educational goals.</li>
+              <li>Ensured safety, well-being, and group engagement dynamically.</li>
+            </ul>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/edu1.jpeg"><img src="fotocv/edu1.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/edu2.jpeg"><img src="fotocv/edu2.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/edu3.jpeg"><img src="fotocv/edu3.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/edu4.jpeg"><img src="fotocv/edu4.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up">
+            <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">PKKMB Volunteer</h3>
+            <p class="text-sm font-semibold text-secondary mb-6">Universitas Gunadarma • 2025</p>
+            <ul class="list-disc list-outside ml-4 mb-6 space-y-3 text-sm text-gray-400 marker:text-secondary max-w-4xl">
+              <li>Provided on-the-spot assistance and answered inquiries from new students regarding schedules.</li>
+              <li>Helped students navigate the campus and locate important facilities like library and clinic.</li>
+              <li>Assisted in distributing orientation materials and refreshments.</li>
+            </ul>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/pkkmb4.JPG"><img src="fotocv/pkkmb4.JPG" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/pkkmb3.JPG"><img src="fotocv/pkkmb3.JPG" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/pkkmb2.jpg"><img src="fotocv/pkkmb2.jpg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/pkkmb1.jpg"><img src="fotocv/pkkmb1.jpg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up">
+            <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">React Day Volunteer</h3>
+            <p class="text-sm font-semibold text-secondary mb-6">PPIM UIN JAKARTA • 2025 Aug</p>
+            <ul class="list-disc list-outside ml-4 mb-6 space-y-3 text-sm text-gray-400 marker:text-secondary max-w-4xl">
+                <li>Supported design team by editing event cards and promotional videos for Instagram.</li>
+                <li>Created engaging content to boost audience interaction.</li>
+                <li>Collaborated to develop the eco-friendly game using recycled materials.</li>
+                <li>Managed booths, facilitating interactive activities, raising environmental awareness.</li>
+            </ul>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/ppim2.jpg"><img src="fotocv/ppim2.jpg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/ppim3.jpg"><img src="fotocv/ppim3.jpg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/ppim4.jpeg"><img src="fotocv/ppim4.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/ppim5.jpeg"><img src="fotocv/ppim5.jpeg" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up">
+            <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">World Turtle Day (TEBAK X KORAKSI)</h3>
+            <p class="text-sm font-semibold text-secondary mb-6">Koraksi • May 2026</p>
+            <ul class="list-disc list-outside ml-4 mb-6 space-y-3 text-sm text-gray-400 marker:text-secondary max-w-4xl">
+                <li>Handled the logistical backbone of community initiatives, from equipment handling to resource procurement.</li>
+                <li>Ensured smooth event operations by quickly addressing material shortages and managing supply chain needs on the field.</li>
+                <li>Facilitated a seamless event experience through strategic setup and space coordination, allowing the team to focus on spreading impact.</li>
+            </ul>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/tebak1.JPG"><img src="fotocv/tebak1.JPG" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/tebak2.JPG"><img src="fotocv/tebak2.JPG" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/tebak5.JPG"><img src="fotocv/tebak5.JPG" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/tebak4.JPG"><img src="fotocv/tebak4.JPG" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 md:p-8 rounded-3xl" data-aos="fade-up">
+            <h3 class="text-xl md:text-2xl font-bold mb-2 text-white">Percik X Koraksi</h3>
+            <p class="text-sm font-semibold text-secondary mb-6">Koraksi • May 2026 </p>
+            <ul class="list-disc list-outside ml-4 mb-6 space-y-3 text-sm text-gray-400 marker:text-secondary max-w-4xl">
+                <li>Captured high-quality individual portraits of children during community events, ensuring each child felt comfortable and empowered during the photography session.</li>
+                <li>Documented candid and emotional moments throughout the event, weaving a visual narrative that showcases the spirit of the community and the impact of the program.</li>
+                <li>Managed the curation and organization of visual assets, ensuring all event documentation is archived and ready for use in social media campaigns and reports.</li>
+            </ul>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/Percik 1.jpeg"><img src="fotocv/Percik 1.jpeg" alt="Percik 1" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/Percik 2.jpeg"><img src="fotocv/Percik 2.jpeg" alt="Percik 2" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/Percik 3.jpeg"><img src="fotocv/Percik 3.jpeg" alt="Percik 3" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                <div class="media-card relative group rounded-xl overflow-hidden" data-type="image" data-full="fotocv/Percik 4.jpeg"><img src="fotocv/Percik 4.jpeg" alt="Percik 4" class="w-full h-40 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="py-10 border-t border-white/5 mt-10">
+      <div class="container text-center text-sm font-medium text-gray-500 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p>&copy; 2026 Muhammad Fauzan Hariyono.</p>
+        <p>Built with Tailwind CSS.</p>
+      </div>
+    </footer>
+
+    <!-- LIGHTBOX UNTUK FOTO VOLUNTEER -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 backdrop-blur-lg hidden z-[9999] transition-opacity duration-300 opacity-0 flex flex-col items-center justify-center select-none">
+      <button id="lb-close" class="absolute top-6 right-6 lg:top-10 lg:right-10 rounded-full bg-white/10 hover:bg-white/30 p-4 text-white z-[10000] transition-colors flex items-center justify-center cursor-pointer border border-white/20">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="lightbox-content" class="relative w-full h-full flex justify-center items-center p-2 lg:p-10"></div>
+    </div>
+
+    <script>
+      AOS.init({ once: true, duration: 800, offset: 50 });
+
+      // ===== LOGIKA MOBILE DROPDOWN MENU =====
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const dropdown = document.getElementById('mobile-dropdown');
+      
+      if(menuBtn && dropdown) {
+        menuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if(dropdown.classList.contains('hidden')){
+            dropdown.classList.remove('hidden');
+            setTimeout(() => { dropdown.classList.replace('opacity-0', 'opacity-100'); dropdown.classList.replace('scale-95', 'scale-100'); }, 10);
+          } else { hideMenu(); }
+        });
+        document.addEventListener('click', hideMenu);
+        function hideMenu() { dropdown.classList.replace('opacity-100', 'opacity-0'); dropdown.classList.replace('scale-100', 'scale-95'); setTimeout(() => dropdown.classList.add('hidden'), 300); }
+      }
+
+      // ===== LOGIKA LIGHTBOX =====
+      const lightbox = document.getElementById('lightbox');
+      const lbClose = document.getElementById('lb-close');
+      const lbContent = document.getElementById('lightbox-content');
+      
+      document.body.addEventListener('click', (e) => {
+          const card = e.target.closest('.media-card');
+          if (!card) return; 
+          e.preventDefault();
+          lbContent.innerHTML = '';
+          const img = document.createElement('img');
+          img.src = card.dataset.full;
+          img.className = 'w-auto h-auto max-w-full max-h-[90vh] lg:max-h-[95vh] object-contain rounded-xl shadow-[0_0_50px_rgba(0,0,0,0.5)]';
+          lbContent.appendChild(img);
+          
+          lightbox.classList.remove('hidden'); document.body.style.overflow = 'hidden';
+          setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
+      });
+
+      const closeLightboxHandler = () => {
+        lightbox.classList.add('opacity-0'); document.body.style.overflow = '';
+        setTimeout(() => { lightbox.classList.add('hidden'); lbContent.innerHTML = ''; }, 300); 
+      };
+
+      lbClose.addEventListener('click', closeLightboxHandler);
+      lightbox.addEventListener('click', (e) => { if(e.target === lightbox || e.target === lbContent) closeLightboxHandler(); });
+    </script>
+  </body>
+</html>
