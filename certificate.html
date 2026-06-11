@@ -10,13 +10,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        theme: { 
-          extend: { 
+        theme: { extend: { 
             fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
             colors: { background: '#050505', primary: '#10b981', secondary: '#06b6d4' },
             container: { center: true, padding: '1.5rem', screens: { '2xl': '1200px' } }
-          } 
-        }
+        } }
       }
     </script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -33,10 +31,10 @@
   </head>
   <body class="overflow-x-hidden min-h-screen">
     
-    <div class="fixed top-6 left-0 w-full z-50 px-4 flex justify-center pointer-events-none">
-      <header class="pointer-events-auto bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-full px-6 py-3 flex items-center justify-between w-full max-w-5xl">
-        <a href="index.html" class="font-bold tracking-tight text-lg flex items-center gap-3 text-white hover:opacity-80">
-            <span class="w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-secondary text-white flex items-center justify-center text-sm">FH</span>
+    <div class="fixed top-4 md:top-6 left-0 w-full z-50 px-4 flex flex-col items-center pointer-events-none">
+      <header class="pointer-events-auto bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-full px-5 py-3 md:px-6 flex items-center justify-between w-full max-w-5xl transition-all duration-300">
+        <a href="index.html" class="font-bold tracking-tight text-base md:text-lg flex items-center gap-3 hover:opacity-80 transition-opacity text-white">
+            <span class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-tr from-primary to-secondary text-white flex items-center justify-center text-xs md:text-sm shadow-[0_0_15px_rgba(16,185,129,0.5)]">FH</span>
             <span class="hidden sm:block">M. Fauzan</span>
         </a>
         <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
@@ -45,15 +43,28 @@
           <a href="portfolio.html" class="text-gray-400 hover:text-white transition-colors">Portofolio</a>
           <a href="experience.html" class="text-gray-400 hover:text-white transition-colors">Experience</a>
         </nav>
-        <a href="index.html#contact" class="bg-white text-black hover:bg-gray-200 px-5 py-2 rounded-full text-sm font-bold transition-all">Let's Talk</a>
+        <div class="flex items-center gap-2 pointer-events-auto">
+            <a href="index.html#contact" class="bg-white text-black hover:bg-gray-200 px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-bold shadow-lg transition-all">Let's Talk</a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-400 hover:text-white focus:outline-none rounded-full bg-white/5 border border-white/10 ml-1">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
       </header>
+
+      <div id="mobile-dropdown" class="hidden opacity-0 scale-95 pointer-events-auto w-full max-w-5xl mt-2 bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 flex flex-col gap-3 text-center shadow-2xl transition-all duration-300 transform origin-top lg:hidden">
+        <a href="index.html#services" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Services</a>
+        <a href="certificate.html" class="py-3 rounded-xl hover:bg-white/5 text-white font-bold transition-colors">Course & Certificate</a>
+        <a href="portfolio.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Portofolio</a>
+        <a href="experience.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Experience</a>
+      </div>
     </div>
 
-    <main class="w-full pt-40 pb-24">
+    <main class="w-full pt-32 md:pt-40 pb-24">
+      
       <section id="trainings" class="container mb-24">
-          <div class="mb-12" data-aos="fade-right">
-              <span class="text-primary font-bold tracking-widest text-sm uppercase">Education</span>
-              <h2 class="text-4xl font-extrabold tracking-tight mt-2 text-white">My Course</h2>
+          <div class="mb-12 md:mb-16" data-aos="fade-right">
+              <span class="text-primary font-bold tracking-widest text-xs md:text-sm uppercase">Education</span>
+              <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">My Course</h2>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <div class="glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="50">
@@ -84,10 +95,10 @@
       </section>
 
       <section id="certifications" class="container">
-          <div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div class="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div data-aos="fade-right">
-                <span class="text-primary font-bold tracking-widest text-sm uppercase">Achievements</span>
-                <h2 class="text-4xl font-extrabold tracking-tight mt-2 text-white">Certificates</h2>
+                <span class="text-primary font-bold tracking-widest text-xs md:text-sm uppercase">Achievements</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">Certificates</h2>
             </div>
             <p class="text-gray-400 text-sm font-medium" data-aos="fade-left">22 Validated Certifications</p>
           </div>
@@ -257,21 +268,25 @@
         <p>Built with Tailwind CSS.</p>
       </div>
     </footer>
+
     <script>
       AOS.init({ once: true, duration: 800, offset: 50 });
-      document.addEventListener('DOMContentLoaded', () => {
-        const musicToggleBtn = document.getElementById('music-toggle-btn');
-        const backgroundMusic = document.getElementById('background-music');
-        const iconSoundOn = document.getElementById('icon-sound-on');
-        const iconSoundOff = document.getElementById('icon-sound-off');
-        musicToggleBtn.addEventListener('click', () => {
-          if (backgroundMusic.paused) {
-            backgroundMusic.play(); iconSoundOn.classList.remove('hidden'); iconSoundOff.classList.add('hidden'); musicToggleBtn.classList.add('music-playing');
-          } else {
-            backgroundMusic.pause(); iconSoundOn.classList.add('hidden'); iconSoundOff.classList.remove('hidden'); musicToggleBtn.classList.remove('music-playing');
-          }
+
+      // ===== LOGIKA MOBILE DROPDOWN MENU =====
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const dropdown = document.getElementById('mobile-dropdown');
+      
+      if(menuBtn && dropdown) {
+        menuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if(dropdown.classList.contains('hidden')){
+            dropdown.classList.remove('hidden');
+            setTimeout(() => { dropdown.classList.replace('opacity-0', 'opacity-100'); dropdown.classList.replace('scale-95', 'scale-100'); }, 10);
+          } else { hideMenu(); }
         });
-      });
+        document.addEventListener('click', hideMenu);
+        function hideMenu() { dropdown.classList.replace('opacity-100', 'opacity-0'); dropdown.classList.replace('scale-100', 'scale-95'); setTimeout(() => dropdown.classList.add('hidden'), 300); }
+      }
     </script>
   </body>
 </html>
