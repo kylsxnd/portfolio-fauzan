@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id" class="scroll-smooth overflow-x-hidden">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <title>Home – Muhammad Fauzan Hariyono</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,12 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <style>
-      html { scroll-behavior: smooth; }
+      /* KUNCI LAYAR HP BIAR GAK BISA GESER KANAN */
+      html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      
       body {
         background-color: #050505;
         color: #f3f4f6;
@@ -58,13 +63,11 @@
         background-attachment: fixed;
       }
       
-      /* Scrollbar Premium */
       ::-webkit-scrollbar { width: 6px; }
       ::-webkit-scrollbar-track { background: #050505; }
       ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
       ::-webkit-scrollbar-thumb:hover { background: #10b981; }
 
-      /* Glass Card & Hover Effects */
       .glass-card {
         background: rgba(255, 255, 255, 0.03);
         backdrop-filter: blur(16px);
@@ -79,356 +82,327 @@
         box-shadow: 0 10px 40px -10px rgba(16, 185, 129, 0.15);
       }
 
-      /* Glow Text */
       .text-gradient {
         background: linear-gradient(to right, #10b981, #06b6d4);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-
-      .hide-view { opacity: 0; pointer-events: none; visibility: hidden; position: absolute; top:0; width:100%; }
-      .show-view { opacity: 1; pointer-events: auto; visibility: visible; position: relative; }
     </style>
   </head>
-  <body class="overflow-x-hidden min-h-screen relative w-full">
+  <body class="relative w-full">
     
-    <div id="preloader" class="fixed inset-0 bg-[#050505] z-[999999] flex flex-col items-center justify-center transition-opacity duration-700">
-      <div class="relative w-24 h-24 flex flex-col items-center justify-center mb-2">
-        <div class="absolute text-5xl animate-bounce drop-shadow-[0_0_15px_rgba(16,185,129,0.8)]">
-          👾
-        </div>
-        <div class="absolute -bottom-2 w-10 h-1.5 bg-emerald-500/20 rounded-[50%] blur-[2px] animate-pulse"></div>
-      </div>
-      
-      <div class="h-8 overflow-hidden flex items-center justify-center mt-4">
-         <p id="loading-text" class="text-emerald-400 font-bold tracking-widest text-sm uppercase transition-all duration-300 transform translate-y(0) opacity-100 text-center px-4">
-            Menyeduh kopi virtual... ☕
-         </p>
-      </div>
-      
-      <div class="w-48 h-1 bg-white/10 rounded-full mt-6 overflow-hidden">
-        <div class="h-full bg-gradient-to-r from-primary to-secondary w-full rounded-full origin-left animate-[progress_3.8s_ease-in-out]"></div>
-      </div>
-    </div>
+    <div class="w-full overflow-x-hidden relative">
 
-    <div id="enter-screen" class="fixed inset-0 bg-[#050505] z-[99999] hidden opacity-0 flex flex-col items-center justify-center transition-all duration-700 px-4" style="background-image: radial-gradient(circle at center, #10b98110 0%, transparent 60%);">
-      <div class="text-center p-6 max-w-md w-full glass-card rounded-3xl border border-white/10">
-        <div class="w-24 h-24 rounded-full mx-auto mb-6 p-1 bg-gradient-to-tr from-primary to-secondary shadow-[0_0_25px_rgba(16,185,129,0.4)]">
-          <div class="w-full h-full rounded-full bg-surfaceLight flex items-center justify-center text-3xl overflow-hidden border-2 border-background">
-            👨‍💻
-          </div>
+      <div id="preloader" class="fixed inset-0 bg-[#050505] z-[999999] flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="relative w-24 h-24 flex flex-col items-center justify-center mb-2">
+          <div class="absolute text-5xl animate-bounce drop-shadow-[0_0_15px_rgba(16,185,129,0.8)]">👾</div>
+          <div class="absolute -bottom-2 w-10 h-1.5 bg-emerald-500/20 rounded-[50%] blur-[2px] animate-pulse"></div>
         </div>
-        <h2 class="text-2xl font-extrabold text-white tracking-tight mb-2 px-2">Muhammad Fauzan Hariyono</h2>
-        <p class="text-sm text-gray-400 mb-8 font-medium px-4">Sistem siap. Klik untuk memuat sistem portfolio.</p>
         
-        <button id="system-enter-btn" class="w-full bg-white text-black hover:bg-gray-200 py-4 px-6 rounded-2xl font-bold tracking-wide text-sm shadow-[0_0_35px_rgba(255,255,255,0.15)] active:scale-95 transition-all uppercase">
-          Masuk ke Portfolio 🚀
-        </button>
-      </div>
-    </div>
-    
-    <div id="portfolio-main-content" class="hidden opacity-0 transition-opacity duration-700 w-full">
-      
-      <div class="fixed top-4 md:top-6 left-0 w-full z-50 px-4 pointer-events-none flex flex-col items-center">
-        <header class="pointer-events-auto bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-full px-5 py-3 md:px-6 flex items-center justify-between w-full max-w-5xl transition-all duration-300">
-          <a href="index.html" class="font-bold tracking-tight text-base md:text-lg flex items-center gap-3 hover:opacity-80 transition-opacity text-white">
-              <span class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-tr from-primary to-secondary text-white flex items-center justify-center text-xs md:text-sm shadow-[0_0_15px_rgba(16,185,129,0.5)]">FH</span>
-              <span>M. Fauzan</span>
-          </a>
-          
-          <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
-            <a href="#services" class="text-white hover:text-primary transition-colors font-bold">Services</a>
-            <a href="certificate.html" class="text-gray-400 hover:text-white transition-colors">Course & Certificate</a>
-            <a href="portfolio.html" class="text-gray-400 hover:text-white transition-colors">Portofolio</a>
-            <a href="experience.html" class="text-gray-400 hover:text-white transition-colors">Experience</a>
-          </nav>
-
-          <div class="flex items-center gap-2 pointer-events-auto">
-            <a href="#contact" class="bg-white text-black hover:bg-gray-200 px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-bold transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-              Let's Talk
-            </a>
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-400 hover:text-white focus:outline-none rounded-full bg-white/5 border border-white/10 ml-1">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-          </div>
-        </header>
-
-        <div id="mobile-dropdown" class="hidden opacity-0 scale-95 pointer-events-auto w-full max-w-5xl mt-2 bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 flex flex-col gap-3 text-center shadow-2xl transition-all duration-300 transform origin-top lg:hidden">
-          <a href="#services" class="mobile-nav-link py-3 rounded-xl hover:bg-white/5 text-white font-bold transition-colors">Services</a>
-          <a href="certificate.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Course & Certificate</a>
-          <a href="portfolio.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Portofolio</a>
-          <a href="experience.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Experience</a>
+        <div class="h-8 overflow-hidden flex items-center justify-center mt-4">
+           <p id="loading-text" class="text-emerald-400 font-bold tracking-widest text-sm uppercase transition-all duration-300 transform translate-y-0 opacity-100 text-center px-4">
+              Menyeduh kopi virtual... ☕
+           </p>
+        </div>
+        
+        <div class="w-48 h-1 bg-white/10 rounded-full mt-6 overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-primary to-secondary w-full rounded-full origin-left animate-[progress_3.8s_ease-in-out]"></div>
         </div>
       </div>
 
-      <main class="w-full">
-        <section class="relative overflow-hidden pt-36 pb-20 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32">
-          <div class="container grid lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-7 text-center lg:text-left" data-aos="fade-up">
-              <div class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary mb-6">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
-                Available For Freelance
-              </div>
-              <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] lg:leading-[1.1]">
-                IT Student & <br/>
-                <span class="text-gradient">Multimedia Graduate</span>
-              </h1>
-              <p class="mt-6 text-base md:text-lg text-gray-400 max-w-xl leading-relaxed mx-auto lg:mx-0">
-                Combining multimedia design skills and IT development to create digital works that are both visually aesthetic and functionally powerful.
-              </p>
-              
-              <div class="mt-10 flex flex-wrap justify-center lg:justify-start items-center gap-4">
-                <a href="portfolio.html" class="bg-primary text-black hover:bg-emerald-400 px-7 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:-translate-y-1">
-                  Look My Portofolio
-                </a>
-                <a href="fotocv/Cvatsbener2025.pdf" target="_blank" rel="noopener" class="bg-surfaceLight hover:bg-white/10 border border-white/10 px-7 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm transition-all hover:-translate-y-1 flex items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                  Download CV
-                </a>
-              </div>
-
-              <div class="mt-12 flex flex-wrap justify-center lg:justify-start gap-4 md:gap-6 text-xs md:text-sm font-medium text-gray-500">
-                <a href="mailto:fauzanhariyono280705@gmail.com" class="hover:text-primary transition-colors flex items-center gap-2">
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    fauzanhariyono280705@gmail.com
-                </a>
-                <span class="flex items-center gap-2 cursor-default">
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    +62 856-9565-1087
-                </span>
-              </div>
-            </div>
-
-            <div class="lg:col-span-5 relative flex justify-center mt-6 lg:mt-0" data-aos="fade-left" data-aos-delay="200">
-              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 rounded-full mix-blend-screen filter blur-[60px] animate-blob"></div>
-              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-secondary/20 rounded-full mix-blend-screen filter blur-[60px] animate-blob animation-delay-2000 ml-10"></div>
-              
-              <div class="relative w-full max-w-[280px] sm:max-w-sm">
-                <div class="p-2 rounded-[2rem] bg-gradient-to-tr from-white/10 to-white/5 border border-white/10 backdrop-blur-sm">
-                  <img src="foto profil saya/fotoprofile.jpg" alt="Muhammad Fauzan Hariyono" class="w-full aspect-[4/5] object-cover rounded-[1.5rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
-                </div>
-                
-                <div class="absolute -bottom-4 left-4 sm:-left-6 glass-card p-4 rounded-2xl shadow-xl">
-                  <p class="text-xs md:text-sm font-bold text-white">Indonesia 🇮🇩</p>
-                  <p class="text-[10px] md:text-xs text-gray-400 mt-0.5">Based in Depok</p>
-                </div>
-              </div>
-            </div>
+      <div id="enter-screen" class="fixed inset-0 bg-[#050505] z-[99999] hidden opacity-0 flex flex-col items-center justify-center transition-all duration-700 px-4" style="background-image: radial-gradient(circle at center, #10b98110 0%, transparent 60%);">
+        <div class="text-center p-6 max-w-md w-full glass-card rounded-3xl border border-white/10">
+          <div class="w-24 h-24 rounded-full mx-auto mb-6 p-1 bg-gradient-to-tr from-primary to-secondary shadow-[0_0_25px_rgba(16,185,129,0.4)]">
+            <div class="w-full h-full rounded-full bg-surfaceLight flex items-center justify-center text-3xl overflow-hidden border-2 border-background">👨‍💻</div>
           </div>
-        </section>
-
-        <section class="py-12 border-y border-white/5 bg-surfaceLight/30 backdrop-blur-sm relative z-10">
-          <div class="container text-center">
-            <p class="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-widest mb-8">Trusted by Amazing Clients</p>
-            <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-              
-              <div class="flex items-center gap-2 md:gap-3 font-bold text-base md:text-xl text-white cursor-default hover:text-primary transition-colors">
-                <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-                <span>[Nama Klien 1]</span>
-              </div>
-              
-              <div class="flex items-center gap-2 md:gap-3 font-bold text-base md:text-xl text-white cursor-default hover:text-blue-500 transition-colors">
-                <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
-                <span>[Nama Klien 2]</span>
-              </div>
-              
-              <div class="flex items-center gap-2 md:gap-3 font-bold text-base md:text-xl text-white cursor-default hover:text-purple-500 transition-colors">
-                <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-500 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline></svg></div>
-                <span>[Nama Klien 3]</span>
-              </div>
-              
-              <div class="flex items-center gap-2 md:gap-3 font-bold text-base md:text-xl text-white cursor-default hover:text-orange-500 transition-colors">
-                <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path></svg></div>
-                <span>[Nama Klien 4]</span>
-              </div>
-              
-            </div>
-          </div>
-        </section>
-
-        <section id="services" class="py-20 md:py-24 relative scroll-mt-20">
-          <div class="container">
-            <div class="mb-12 md:mb-16" data-aos="fade-up">
-                <span class="text-primary font-bold tracking-widest text-sm uppercase">What I Do</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">My Services</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="glass-card p-6 md:p-8 rounded-3xl group" data-aos="fade-up">
-                <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3 text-white">Data Science</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Processing & analyzing data using Python, machine learning models, and advanced data visualization to gain actionable and powerful insights.</p>
-              </div>
-              
-              <div class="glass-card p-6 md:p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-secondary/10 border border-secondary/20 text-secondary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3 text-white">Graphic Design</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Crafting digital branding, engaging social media content, and promotional materials.</p>
-              </div>
-              
-              <div class="glass-card p-6 md:p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3 text-white">Video Editor</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">Producing visual storytelling with precise color grading and visual effects using Premiere Pro.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="skills" class="py-20 md:py-24 bg-surfaceLight/30 border-y border-white/5 scroll-mt-20">
-          <div class="container">
-            <div class="mb-12 text-center" data-aos="fade-up">
-                <span class="text-primary font-bold tracking-widest text-sm uppercase">Tech Stack & Tools</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">My Skills</h2>
-            </div>
-            <div class="flex flex-wrap justify-center gap-3 md:gap-4 text-xs md:text-sm font-semibold" data-aos="zoom-in" data-aos-delay="100">
-              <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 hover:text-white hover:border-primary hover:bg-primary/10 transition-all cursor-default shadow-lg">HTML</span>
-              <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 hover:text-white hover:border-primary hover:bg-primary/10 transition-all cursor-default shadow-lg">Golang</span>
-              <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 hover:text-white hover:border-primary hover:bg-primary/10 transition-all cursor-default shadow-lg">Python</span>
-              <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 hover:text-white hover:border-secondary hover:bg-secondary/10 transition-all cursor-default shadow-lg">Photoshop</span>
-              <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 hover:text-white hover:border-purple-400 hover:bg-purple-400/10 transition-all cursor-default shadow-lg">Premiere Pro</span>
-              <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 hover:text-white hover:border-blue-400 hover:bg-blue-400/10 transition-all cursor-default shadow-lg">Canva</span>
-              <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 hover:text-white hover:border-primary hover:bg-primary/10 transition-all cursor-default shadow-lg">Microsoft Office</span>
-              <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 hover:text-white hover:border-purple-400 hover:bg-purple-400/10 transition-all cursor-default shadow-lg">After Effects</span>
-              <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 hover:text-white hover:border-white hover:bg-white/10 transition-all cursor-default shadow-lg">Capcut</span>
-              <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 hover:text-white hover:border-orange-400 hover:bg-orange-400/10 transition-all cursor-default shadow-lg">Adobe Illustrator</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="relative py-32 md:py-40 flex items-center justify-center overflow-hidden" data-aos="fade-up">
-          <div class="absolute inset-0 bg-gradient-to-br from-surface to-background z-0"></div>
-          <div class="absolute inset-0 bg-[url('fotocv/abstrak1.jpg')] opacity-10 bg-cover bg-center md:bg-fixed mix-blend-overlay z-0"></div>
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[800px] bg-primary/15 rounded-full blur-[120px] z-0 pointer-events-none"></div>
-
-          <div class="container relative z-10 text-center px-4">
-            <span class="text-primary font-bold tracking-widest text-xs md:text-sm uppercase">Showcase</span>
-            <h2 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mt-4 mb-6 text-white">See My Creative Work</h2>
-            <p class="text-gray-400 text-sm md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">Jelajahi galeri lengkap desain poster, produksi video, dan hasil karya visual yang dirancang dengan dedikasi tinggi.</p>
-            <a href="portfolio.html" class="bg-white text-black hover:bg-gray-200 px-8 py-4 md:px-10 md:py-5 rounded-full font-bold text-sm md:text-lg transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] inline-flex items-center gap-3 hover:-translate-y-1 active:scale-95 w-max mx-auto">
-              Buka Halaman Portofolio
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
-          </div>
-        </section>
-
-        <section id="contact" class="py-20 md:py-24 relative overflow-hidden border-t border-white/5">
-          <div class="absolute inset-0 bg-surfaceLight z-0"></div>
-          <div class="absolute top-0 right-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-primary/15 rounded-full blur-[120px] z-0 translate-x-1/3 -translate-y-1/3"></div>
+          <h2 class="text-2xl font-extrabold text-white tracking-tight mb-2 px-2">Muhammad Fauzan Hariyono</h2>
+          <p class="text-sm text-gray-400 mb-8 font-medium px-4">Sistem siap. Klik untuk memuat sistem portfolio.</p>
           
-          <div class="container grid lg:grid-cols-2 gap-12 lg:gap-20 items-center z-10 relative">
-            <div data-aos="fade-up" class="text-center lg:text-left">
-              <span class="text-primary font-bold tracking-widest text-sm uppercase">Get in touch</span>
-              <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mt-3 mb-6 text-white">Let's work together!</h2>
-              <p class="text-gray-400 text-base md:text-lg mb-10 max-w-md mx-auto lg:mx-0 leading-relaxed">Have an exciting project or want to hire me? Drop a message, I'll reply via email as soon as possible.</p>
+          <button id="system-enter-btn" class="w-full bg-white text-black hover:bg-gray-200 py-4 px-6 rounded-2xl font-bold tracking-wide text-sm shadow-[0_0_35px_rgba(255,255,255,0.15)] active:scale-95 transition-all uppercase">
+            Masuk ke Portfolio 🚀
+          </button>
+        </div>
+      </div>
+      
+      <div id="portfolio-main-content" class="hidden opacity-0 transition-opacity duration-700 w-full">
+        
+        <div class="fixed top-4 md:top-6 left-0 w-full z-50 px-4 flex flex-col items-center pointer-events-none">
+          <header class="pointer-events-auto bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl rounded-full px-5 py-3 md:px-6 flex items-center justify-between w-full max-w-5xl transition-all duration-300">
+            <a href="index.html" class="font-bold tracking-tight text-base md:text-lg flex items-center gap-3 hover:opacity-80 transition-opacity text-white">
+                <span class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-tr from-primary to-secondary text-white flex items-center justify-center text-xs md:text-sm shadow-[0_0_15px_rgba(16,185,129,0.5)]">FH</span>
+                <span>M. Fauzan</span>
+            </a>
+            
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+              <a href="#services" class="text-white hover:text-primary transition-colors font-bold">Services</a>
+              <a href="certificate.html" class="text-gray-400 hover:text-white transition-colors">Course & Certificate</a>
+              <a href="portfolio.html" class="text-gray-400 hover:text-white transition-colors">Portofolio</a>
+              <a href="experience.html" class="text-gray-400 hover:text-white transition-colors">Experience</a>
+            </nav>
+
+            <div class="flex items-center gap-2 pointer-events-auto">
+              <a href="#contact" class="bg-white text-black hover:bg-gray-200 px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-bold transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                Let's Talk
+              </a>
+              <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-400 hover:text-white focus:outline-none rounded-full bg-white/5 border border-white/10 ml-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+              </button>
+            </div>
+          </header>
+
+          <div id="mobile-dropdown" class="hidden opacity-0 scale-95 pointer-events-auto w-full max-w-5xl mt-2 bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 flex flex-col gap-3 text-center shadow-2xl transition-all duration-300 transform origin-top lg:hidden">
+            <a href="#services" class="mobile-nav-link py-3 rounded-xl hover:bg-white/5 text-white font-bold transition-colors">Services</a>
+            <a href="certificate.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Course & Certificate</a>
+            <a href="portfolio.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Portofolio</a>
+            <a href="experience.html" class="py-3 rounded-xl hover:bg-white/5 text-gray-400 hover:text-white transition-colors">Experience</a>
+          </div>
+        </div>
+
+        <main class="w-full">
+          <section class="relative overflow-hidden pt-36 pb-20 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32">
+            <div class="container grid lg:grid-cols-12 gap-12 items-center">
               
-              <div class="flex flex-col items-center lg:items-start gap-5">
-                <a href="mailto:fauzanhariyono280705@gmail.com" class="flex items-center gap-4 hover:translate-x-2 transition-transform max-w-full group">
-                  <div class="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-primary/50 group-hover:text-primary transition-colors text-white shrink-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  </div>
-                  <div class="text-left overflow-hidden">
-                      <p class="text-xs text-gray-500 font-semibold mb-0.5">Email</p>
-                      <p class="font-bold text-sm md:text-lg text-white group-hover:text-primary transition-colors truncate">fauzanhariyono280705@gmail.com</p>
-                  </div>
-                </a>
-                <div class="flex items-center gap-4 max-w-full group hover:translate-x-2 transition-transform cursor-default">
-                  <div class="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-secondary/50 group-hover:text-secondary transition-colors text-white shrink-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                  </div>
-                  <div class="text-left">
-                      <p class="text-xs text-gray-500 font-semibold mb-0.5">WhatsApp / Phone</p>
-                      <p class="font-bold text-sm md:text-lg text-white group-hover:text-secondary transition-colors">+62 856-9565-1087</p>
-                  </div>
+              <div class="lg:col-span-7 text-center lg:text-left" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary mb-6">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                  </span>
+                  Available For Freelance
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] lg:leading-[1.1]">
+                  IT Student & <br/>
+                  <span class="text-gradient">Multimedia Graduate</span>
+                </h1>
+                <p class="mt-6 text-base md:text-lg text-gray-400 max-w-xl leading-relaxed mx-auto lg:mx-0">
+                  Combining multimedia design skills and IT development to create digital works that are both visually aesthetic and functionally powerful.
+                </p>
+                
+                <div class="mt-10 flex flex-wrap justify-center lg:justify-start items-center gap-4">
+                  <a href="portfolio.html" class="bg-primary text-black hover:bg-emerald-400 px-7 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:-translate-y-1">
+                    Look My Portofolio
+                  </a>
+                  <a href="fotocv/Cvatsbener2025.pdf" target="_blank" rel="noopener" class="bg-surfaceLight hover:bg-white/10 border border-white/10 px-7 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-sm transition-all hover:-translate-y-1 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download CV
+                  </a>
+                </div>
+
+                <div class="mt-12 flex flex-wrap justify-center lg:justify-start gap-4 md:gap-6 text-xs md:text-sm font-medium text-gray-500">
+                  <a href="mailto:fauzanhariyono280705@gmail.com" class="hover:text-primary transition-colors flex items-center gap-2">
+                      <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                      fauzanhariyono280705@gmail.com
+                  </a>
+                  <span class="flex items-center gap-2 cursor-default">
+                      <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                      +62 856-9565-1087
+                  </span>
                 </div>
               </div>
-            </div>
 
-            <form id="contactForm" class="glass-card rounded-3xl p-6 md:p-10 w-full" data-aos="fade-left" data-aos-delay="100">
-              <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-white">Send a Message</h3>
-              <div class="space-y-5">
-                  <div>
-                      <label class="block text-xs md:text-sm font-semibold mb-2 text-gray-400">Full Name</label>
-                      <input type="text" class="w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 md:px-5 md:py-4 text-sm text-white focus:outline-none focus:border-primary focus:bg-black transition-all" placeholder="John Doe" required>
-                  </div>
-                  <div>
-                      <label class="block text-xs md:text-sm font-semibold mb-2 text-gray-400">Email Address</label>
-                      <input type="email" class="w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 md:px-5 md:py-4 text-sm text-white focus:outline-none focus:border-primary focus:bg-black transition-all" placeholder="john@example.com" required>
-                  </div>
-                  <div>
-                      <label class="block text-xs md:text-sm font-semibold mb-2 text-gray-400">Message</label>
-                      <textarea rows="4" class="w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 md:px-5 md:py-4 text-sm text-white focus:outline-none focus:border-primary focus:bg-black transition-all resize-none" placeholder="Hello Fauzan..." required></textarea>
+              <div class="lg:col-span-5 relative flex justify-center mt-6 lg:mt-0" data-aos="fade-left" data-aos-delay="200">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 rounded-full mix-blend-screen filter blur-[60px] animate-blob"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-secondary/20 rounded-full mix-blend-screen filter blur-[60px] animate-blob animation-delay-2000 ml-10"></div>
+                
+                <div class="relative w-full max-w-[280px] sm:max-w-sm">
+                  <div class="p-2 rounded-[2rem] bg-gradient-to-tr from-white/10 to-white/5 border border-white/10 backdrop-blur-sm">
+                    <img src="foto profil saya/fotoprofile.jpg" alt="Muhammad Fauzan Hariyono" class="w-full aspect-[4/5] object-cover rounded-[1.5rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
                   </div>
                   
-                  <button type="submit" class="w-full rounded-xl bg-white text-black px-4 py-3.5 md:py-4 text-sm font-bold hover:bg-gray-200 active:scale-95 transition-all flex justify-center items-center gap-2 mt-2">
-                      Send via Email <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                  </button>
+                  <div class="absolute -bottom-4 left-4 sm:-left-6 glass-card p-4 rounded-2xl shadow-xl">
+                    <p class="text-xs md:text-sm font-bold text-white">Indonesia 🇮🇩</p>
+                    <p class="text-[10px] md:text-xs text-gray-400 mt-0.5">Based in Depok</p>
+                  </div>
+                </div>
               </div>
-            </form>
-          </div>
-        </section>
-      </main>
+            </div>
+          </section>
 
-      <footer class="py-8 border-t border-white/5 mt-10">
-        <div class="container text-center text-xs md:text-sm font-medium text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p>&copy; 2026 Muhammad Fauzan Hariyono.</p>
-          <p>Built with Tailwind CSS.</p>
-        </div>
-      </footer>
+          <section class="py-12 border-y border-white/5 bg-surfaceLight/30 backdrop-blur-sm relative z-10">
+            <div class="container text-center">
+              <p class="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-widest mb-8">Trusted by Amazing Clients</p>
+              <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex items-center gap-2 md:gap-3 font-bold text-base md:text-xl text-white cursor-default hover:text-primary transition-colors">
+                  <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                  <span>[Nama Klien 1]</span>
+                </div>
+                <div class="flex items-center gap-2 md:gap-3 font-bold text-base md:text-xl text-white cursor-default hover:text-blue-500 transition-colors">
+                  <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+                  <span>[Nama Klien 2]</span>
+                </div>
+                <div class="flex items-center gap-2 md:gap-3 font-bold text-base md:text-xl text-white cursor-default hover:text-purple-500 transition-colors">
+                  <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-500 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline></svg></div>
+                  <span>[Nama Klien 3]</span>
+                </div>
+                <div class="flex items-center gap-2 md:gap-3 font-bold text-base md:text-xl text-white cursor-default hover:text-orange-500 transition-colors">
+                  <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path></svg></div>
+                  <span>[Nama Klien 4]</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="services" class="py-20 md:py-24 relative scroll-mt-20">
+            <div class="container">
+              <div class="mb-12 md:mb-16" data-aos="fade-up">
+                  <span class="text-primary font-bold tracking-widest text-sm uppercase">What I Do</span>
+                  <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">My Services</h2>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 md:p-8 rounded-3xl group" data-aos="fade-up">
+                  <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                  </div>
+                  <h3 class="text-xl font-bold mb-3 text-white">Data Science</h3>
+                  <p class="text-gray-400 leading-relaxed text-sm">Processing & analyzing data using Python, machine learning models, and advanced data visualization to gain actionable and powerful insights.</p>
+                </div>
+                
+                <div class="glass-card p-6 md:p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="100">
+                  <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-secondary/10 border border-secondary/20 text-secondary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
+                  </div>
+                  <h3 class="text-xl font-bold mb-3 text-white">Graphic Design</h3>
+                  <p class="text-gray-400 leading-relaxed text-sm">Crafting digital branding, engaging social media content, and promotional materials.</p>
+                </div>
+                
+                <div class="glass-card p-6 md:p-8 rounded-3xl group" data-aos="fade-up" data-aos-delay="200">
+                  <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+                  </div>
+                  <h3 class="text-xl font-bold mb-3 text-white">Video Editor</h3>
+                  <p class="text-gray-400 leading-relaxed text-sm">Producing visual storytelling with precise color grading and visual effects using Premiere Pro.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="skills" class="py-20 md:py-24 bg-surfaceLight/30 border-y border-white/5 scroll-mt-20">
+            <div class="container">
+              <div class="mb-12 text-center" data-aos="fade-up">
+                  <span class="text-primary font-bold tracking-widest text-sm uppercase">Tech Stack & Tools</span>
+                  <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mt-2 text-white">My Skills</h2>
+              </div>
+              <div class="flex flex-wrap justify-center gap-3 md:gap-4 text-xs md:text-sm font-semibold" data-aos="zoom-in" data-aos-delay="100">
+                <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 shadow-lg">HTML</span>
+                <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 shadow-lg">Golang</span>
+                <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 shadow-lg">Python</span>
+                <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 shadow-lg">Photoshop</span>
+                <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 shadow-lg">Premiere Pro</span>
+                <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 shadow-lg">Canva</span>
+                <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 shadow-lg">Microsoft Office</span>
+                <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 shadow-lg">After Effects</span>
+                <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 shadow-lg">Capcut</span>
+                <span class="bg-surface border border-white/10 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-gray-300 shadow-lg">Adobe Illustrator</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="relative py-32 md:py-40 flex items-center justify-center overflow-hidden" data-aos="fade-up">
+            <div class="absolute inset-0 bg-gradient-to-br from-surface to-background z-0"></div>
+            <div class="absolute inset-0 bg-[url('fotocv/abstrak1.jpg')] opacity-10 bg-cover bg-center md:bg-fixed mix-blend-overlay z-0"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[800px] bg-primary/15 rounded-full blur-[120px] z-0 pointer-events-none"></div>
+
+            <div class="container relative z-10 text-center px-4">
+              <span class="text-primary font-bold tracking-widest text-xs md:text-sm uppercase">Showcase</span>
+              <h2 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mt-4 mb-6 text-white">See My Creative Work</h2>
+              <p class="text-gray-400 text-sm md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">Jelajahi galeri lengkap desain poster, produksi video, dan hasil karya visual yang dirancang dengan dedikasi tinggi.</p>
+              <a href="portfolio.html" class="bg-white text-black hover:bg-gray-200 px-8 py-4 md:px-10 md:py-5 rounded-full font-bold text-sm md:text-lg transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] inline-flex items-center gap-3 hover:-translate-y-1 active:scale-95 w-max mx-auto">
+                Buka Halaman Portofolio
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </section>
+
+          <section id="contact" class="py-20 md:py-24 relative overflow-hidden border-t border-white/5">
+            <div class="absolute inset-0 bg-surfaceLight z-0"></div>
+            <div class="absolute top-0 right-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-primary/15 rounded-full blur-[120px] z-0 translate-x-1/3 -translate-y-1/3"></div>
+            
+            <div class="container grid lg:grid-cols-2 gap-12 lg:gap-20 items-center z-10 relative">
+              <div data-aos="fade-up" class="text-center lg:text-left">
+                <span class="text-primary font-bold tracking-widest text-sm uppercase">Get in touch</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mt-3 mb-6 text-white">Let's work together!</h2>
+                <p class="text-gray-400 text-base md:text-lg mb-10 max-w-md mx-auto lg:mx-0 leading-relaxed">Have an exciting project or want to hire me? Drop a message, I'll reply via email as soon as possible.</p>
+                
+                <div class="flex flex-col items-center lg:items-start gap-5">
+                  <a href="mailto:fauzanhariyono280705@gmail.com" class="flex items-center gap-4 hover:translate-x-2 transition-transform max-w-full group">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-primary/50 group-hover:text-primary transition-colors text-white shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <div class="text-left overflow-hidden">
+                        <p class="text-xs text-gray-500 font-semibold mb-0.5">Email</p>
+                        <p class="font-bold text-sm md:text-lg text-white group-hover:text-primary transition-colors truncate">fauzanhariyono280705@gmail.com</p>
+                    </div>
+                  </a>
+                  <div class="flex items-center gap-4 max-w-full group cursor-default">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-secondary/50 group-hover:text-secondary transition-colors text-white shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-gray-500 font-semibold mb-0.5">WhatsApp / Phone</p>
+                        <p class="font-bold text-sm md:text-lg text-white group-hover:text-secondary transition-colors">+62 856-9565-1087</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <form id="contactForm" class="glass-card rounded-3xl p-6 md:p-10 w-full" data-aos="fade-left" data-aos-delay="100">
+                <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-white">Send a Message</h3>
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-xs md:text-sm font-semibold mb-2 text-gray-400">Full Name</label>
+                        <input type="text" class="w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 md:px-5 md:py-4 text-sm text-white focus:outline-none focus:border-primary focus:bg-black transition-all" placeholder="John Doe" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs md:text-sm font-semibold mb-2 text-gray-400">Email Address</label>
+                        <input type="email" class="w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 md:px-5 md:py-4 text-sm text-white focus:outline-none focus:border-primary focus:bg-black transition-all" placeholder="john@example.com" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs md:text-sm font-semibold mb-2 text-gray-400">Message</label>
+                        <textarea rows="4" class="w-full rounded-xl border border-white/10 bg-black/50 px-4 py-3 md:px-5 md:py-4 text-sm text-white focus:outline-none focus:border-primary focus:bg-black transition-all resize-none" placeholder="Hello Fauzan..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full rounded-xl bg-white text-black px-4 py-3.5 md:py-4 text-sm font-bold hover:bg-gray-200 active:scale-95 transition-all flex justify-center items-center gap-2 mt-2">
+                        Send via Email <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </main>
+
+        <footer class="py-8 border-t border-white/5 mt-10">
+          <div class="container text-center text-xs md:text-sm font-medium text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Muhammad Fauzan Hariyono.</p>
+            <p>Built with Tailwind CSS.</p>
+          </div>
+        </footer>
+      </div>
+
     </div>
 
     <script>
-      // DEKLARASI ELEMEN UTAMA
-      const preloader = document.getElementById('preloader');
-      const enterScreen = document.getElementById('enter-screen');
-      const mainContent = document.getElementById('portfolio-main-content');
-      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const mobileDropdown = document.getElementById('mobile-dropdown');
-
-      // ===== LOGIKA MOBILE DROPDOWN NAVIGATION =====
-      if (mobileMenuBtn && mobileDropdown) {
-        mobileMenuBtn.addEventListener('click', (e) => {
+      // ===== LOGIKA MOBILE DROPDOWN MENU =====
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const dropdown = document.getElementById('mobile-dropdown');
+      
+      if(menuBtn && dropdown) {
+        menuBtn.addEventListener('click', (e) => {
           e.stopPropagation();
-          if (mobileDropdown.classList.contains('hidden')) {
-            mobileDropdown.classList.remove('hidden');
-            setTimeout(() => {
-              mobileDropdown.classList.replace('opacity-0', 'opacity-100');
-              mobileDropdown.classList.replace('scale-95', 'scale-100');
-            }, 10);
-          } else {
-            hideMobileMenu();
-          }
+          if(dropdown.classList.contains('hidden')){
+            dropdown.classList.remove('hidden');
+            setTimeout(() => { dropdown.classList.replace('opacity-0', 'opacity-100'); dropdown.classList.replace('scale-95', 'scale-100'); }, 10);
+          } else { hideMenu(); }
         });
-
-        // Tutup otomatis jika klik di luar dropdown menu
-        document.addEventListener('click', (e) => {
-          if (!mobileDropdown.contains(e.target) && e.target !== mobileMenuBtn) {
-            hideMobileMenu();
-          }
-        });
-
-        function hideMobileMenu() {
-          mobileDropdown.classList.replace('opacity-100', 'opacity-0');
-          mobileDropdown.classList.replace('scale-100', 'scale-95');
-          setTimeout(() => {
-            mobileDropdown.classList.add('hidden');
-          }, 300);
-        }
+        document.addEventListener('click', hideMenu);
+        function hideMenu() { dropdown.classList.replace('opacity-100', 'opacity-0'); dropdown.classList.replace('scale-100', 'scale-95'); setTimeout(() => dropdown.classList.add('hidden'), 300); }
       }
 
       // ===== LOGIKA PRELOADER TEXT BERJALAN (4 DETIK) =====
       window.addEventListener('load', () => {
         const loadingText = document.getElementById('loading-text');
+        const preloader = document.getElementById('preloader');
+        const enterScreen = document.getElementById('enter-screen');
         
         const funnyTexts = [
           "Merapikan pixel yang berantakan... 🎨", 
@@ -469,6 +443,9 @@
 
       // ===== LOGIKA TOMBOL MASUK PORTFOLIO =====
       document.getElementById('system-enter-btn').addEventListener('click', () => {
+        const enterScreen = document.getElementById('enter-screen');
+        const mainContent = document.getElementById('portfolio-main-content');
+        
         enterScreen.style.opacity = '0';
         enterScreen.classList.replace('opacity-100', 'opacity-0');
         
