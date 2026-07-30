@@ -29,6 +29,7 @@
       ::-webkit-scrollbar-thumb:hover { background: #10b981; }
       .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s ease; cursor: pointer; }
       .glass-card:hover { border-color: rgba(16, 185, 129, 0.3); transform: translateY(-5px); box-shadow: 0 10px 40px -10px rgba(16, 185, 129, 0.15); }
+      .poster-item { transition: opacity 0.4s ease, transform 0.4s ease; }
     </style>
   </head>
   <body class="overflow-x-hidden min-h-screen">
@@ -62,7 +63,7 @@
     </div>
 
     <div class="w-full pt-32 md:pt-40 pb-24">
-        <div class="container mb-12 relative z-10">
+        <div class="container mb-8 relative z-10">
           <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-gray-400 hover:text-white transition-colors mb-8 group bg-white/5 border border-white/10 px-5 py-2.5 rounded-full backdrop-blur">
             <svg class="group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
             Kembali ke Beranda
@@ -81,39 +82,184 @@
                 <button data-tab="web"    class="tab-btn px-6 md:px-8 py-2 md:py-3 text-xs md:text-sm font-bold rounded-full text-gray-400 hover:text-white transition-all">Web</button>
             </div>
           </div>
+
+          <div id="poster-filters" class="flex flex-wrap gap-3 mt-8" data-aos="fade-up" data-aos-delay="100">
+             <button class="sub-filter-btn px-5 py-2 rounded-full text-xs font-bold bg-white/20 text-white border border-white/20 transition-all shadow-[0_0_10px_rgba(255,255,255,0.1)]" data-filter="all">Semua Poster</button>
+             <button class="sub-filter-btn px-5 py-2 rounded-full text-xs font-bold bg-white/5 text-gray-400 border border-white/5 hover:text-white transition-all" data-filter="koraksi">Proyek Koraksi</button>
+             <button class="sub-filter-btn px-5 py-2 rounded-full text-xs font-bold bg-white/5 text-gray-400 border border-white/5 hover:text-white transition-all" data-filter="other">Personal / Lainnya</button>
+          </div>
         </div>
 
         <div class="container">
-          <div id="grid-poster" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-opacity duration-300">
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg"><img src="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg" alt="Poster 1" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/Pujha%20Collection%20%281%29.jpg"><img src="fotocv/Pujha%20Collection%20%281%29.jpg" alt="Poster 2" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/koraksi2.png"><img src="fotocv/koraksi2.png" alt="Poster 3" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/korkasi1.png"><img src="fotocv/korkasi1.png" alt="Poster 4" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/tanggal-14%20%281%29.jpg"><img src="fotocv/tanggal-14%20%281%29.jpg" alt="Poster 5" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/tanggal-22%282%29%20%281%29.jpg"><img src="fotocv/tanggal-22%282%29%20%281%29.jpg" alt="Poster 6" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/1333%20%281%29.jpg"><img src="fotocv/1333%20%281%29.jpg" alt="Poster 7" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/resizegunung.png"><img src="fotocv/resizegunung.png" alt="Poster 8" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/sore1.png"><img src="fotocv/sore1.png" alt="Poster 9" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/500days.png"><img src="fotocv/500days.png" alt="Poster 10" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/awan2.png"><img src="fotocv/awan2.png" alt="Poster 11" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/joker1.png"><img src="fotocv/joker1.png" alt="Poster 12" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/rumah1.png"><img src="fotocv/rumah1.png" alt="Poster 13" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/sepatu2.png"><img src="fotocv/sepatu2.png" alt="Poster 14" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/PHBN.png"><img src="fotocv/PHBN.png" alt="Poster 15" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/Coming Soon.png"><img src="fotocv/Coming Soon.png" alt="Poster 16" class="h-72 w-full object-cover" /></figure>
-              <figure class="media-card glass-card rounded-2xl overflow-hidden" data-type="image" data-full="fotocv/Koraksi Connect.png"><img src="fotocv/Koraksi Connect.png" alt="Poster 17" class="h-72 w-full object-cover" /></figure>
+          <div id="grid-poster" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-opacity duration-300 pt-4">
+              <!-- Poster 1: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg" data-category="other">
+                  <img src="fotocv/portofolio%20pujha%20cyber%20bullying%20%281%29.jpg" alt="Poster 1" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 2: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/Pujha%20Collection%20%281%29.jpg" data-category="other">
+                  <img src="fotocv/Pujha%20Collection%20%281%29.jpg" alt="Poster 2" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 3: Koraksi -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="image" data-full="fotocv/koraksi2.png" data-category="koraksi">
+                  <img src="fotocv/koraksi2.png" alt="Poster 3" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+              </figure>
+              
+              <!-- Poster 4: Koraksi -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="image" data-full="fotocv/korkasi1.png" data-category="koraksi">
+                  <img src="fotocv/korkasi1.png" alt="Poster 4" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+              </figure>
+              
+              <!-- Poster 5: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/tanggal-14%20%281%29.jpg" data-category="other">
+                  <img src="fotocv/tanggal-14%20%281%29.jpg" alt="Poster 5" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 6: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/tanggal-22%282%29%20%281%29.jpg" data-category="other">
+                  <img src="fotocv/tanggal-22%282%29%20%281%29.jpg" alt="Poster 6" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 7: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/1333%20%281%29.jpg" data-category="other">
+                  <img src="fotocv/1333%20%281%29.jpg" alt="Poster 7" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 8: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/resizegunung.png" data-category="other">
+                  <img src="fotocv/resizegunung.png" alt="Poster 8" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 9: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/sore1.png" data-category="other">
+                  <img src="fotocv/sore1.png" alt="Poster 9" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 10: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/500days.png" data-category="other">
+                  <img src="fotocv/500days.png" alt="Poster 10" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 11: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/awan2.png" data-category="other">
+                  <img src="fotocv/awan2.png" alt="Poster 11" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 12: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/joker1.png" data-category="other">
+                  <img src="fotocv/joker1.png" alt="Poster 12" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 13: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/rumah1.png" data-category="other">
+                  <img src="fotocv/rumah1.png" alt="Poster 13" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 14: Lainnya -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item" data-type="image" data-full="fotocv/sepatu2.png" data-category="other">
+                  <img src="fotocv/sepatu2.png" alt="Poster 14" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md border border-white/10 text-gray-300 text-[10px] font-extrabold px-2 py-1 rounded-md z-10 uppercase tracking-wider">Lainnya</div>
+              </figure>
+              
+              <!-- Poster 15: Koraksi (DARI HARI BURUH) -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="image" data-full="fotocv/PHBN.png" data-category="koraksi">
+                  <img src="fotocv/PHBN.png" alt="Poster 15" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+              </figure>
+              
+              <!-- Poster 16: Koraksi (DARI COMING SOON) -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="image" data-full="fotocv/Coming Soon.png" data-category="koraksi">
+                  <img src="fotocv/Coming Soon.png" alt="Poster 16" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+              </figure>
+              
+              <!-- Poster 17: Koraksi -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="image" data-full="fotocv/Koraksi Connect.png" data-category="koraksi">
+                  <img src="fotocv/Koraksi Connect.png" alt="Poster 17" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+              </figure>
 
-              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group" data-type="slider" data-images="fotocv/pepeapa.png,fotocv/pepeapa2.png">
+              <!-- Poster 18: Koraksi (DARI SLIDER PEPEAPA) -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="slider" data-images="fotocv/pepeapa.png,fotocv/pepeapa2.png" data-category="koraksi">
                   <img src="fotocv/pepeapa.png" alt="Poster Slide" class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
                   <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div class="absolute bottom-4 right-4 bg-white/10 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 backdrop-blur-md border border-white/20 z-10">
+                  <div class="absolute bottom-4 right-4 bg-white/10 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 backdrop-blur-md border border-white/20 z-20">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
                       2 Pages
                   </div>
               </figure>
+
+              <!-- Slider H-1, H-2, H-3 (Koraksi) -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="slider" data-images="fotocv/H-1.png,fotocv/H-2.png,fotocv/H-3.png" data-category="koraksi">
+                  <img src="fotocv/H-1.png" alt="Poster Slide H" class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="absolute bottom-4 right-4 bg-white/10 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 backdrop-blur-md border border-white/20 z-20">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                      3 Pages
+                  </div>
+              </figure>
+
+              <!-- Islamic 1 (Koraksi) -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="image" data-full="fotocv/islamic1.png" data-category="koraksi">
+                  <img src="fotocv/islamic1.png" alt="Poster Islamic 1" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+              </figure>
+
+              <!-- Islamic 2 (Koraksi) -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="image" data-full="fotocv/islamic2.png" data-category="koraksi">
+                  <img src="fotocv/islamic2.png" alt="Poster Islamic 2" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+              </figure>
+
+              <!-- Kidzania Park (Koraksi) -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="image" data-full="fotocv/kidzaniapark.png" data-category="koraksi">
+                  <img src="fotocv/kidzaniapark.png" alt="Poster Kidzania Park" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+              </figure>
+
+              <!-- Kodak (Koraksi) -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="image" data-full="fotocv/kodak.png" data-category="koraksi">
+                  <img src="fotocv/kodak.png" alt="Poster Kodak" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+              </figure>
+
+              <!-- Talk in the Park (Koraksi) -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="image" data-full="fotocv/talkinthepark.png" data-category="koraksi">
+                  <img src="fotocv/talkinthepark.png" alt="Poster Talk in the Park" class="h-72 w-full object-cover" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+              </figure>
+
+              <!-- Slider 1, 2, 3, 4, 5 (Koraksi) -->
+              <figure class="media-card glass-card rounded-2xl overflow-hidden relative group poster-item ring-1 ring-primary/30" data-type="slider" data-images="fotocv/1.png,fotocv/2.png,fotocv/3.png,fotocv/4.png,fotocv/5.png" data-category="koraksi">
+                  <img src="fotocv/1.png" alt="Poster Slide 12345" class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute top-3 left-3 bg-primary text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] text-[10px] font-extrabold px-2.5 py-1 rounded-md z-10 uppercase tracking-wider">Koraksi</div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="absolute bottom-4 right-4 bg-white/10 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 backdrop-blur-md border border-white/20 z-20">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                      5 Pages
+                  </div>
+              </figure>
+
           </div>
 
-          <div id="grid-video" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden transition-opacity duration-300">
+          <div id="grid-video" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden transition-opacity duration-300 pt-4">
             <article class="media-card glass-card rounded-2xl overflow-hidden bg-white/5" data-type="video" data-video="video/loncat.mp4"><div class="h-72 w-full flex items-center justify-center relative group"><div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-14 h-14 bg-black/50 backdrop-blur-md text-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div></article>
             <article class="media-card glass-card rounded-2xl overflow-hidden bg-white/5" data-type="video" data-video="video/barasuara.mp4"><div class="h-72 w-full flex items-center justify-center relative group"><div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-14 h-14 bg-black/50 backdrop-blur-md text-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div></article>
             <article class="media-card glass-card rounded-2xl overflow-hidden bg-white/5" data-type="video" data-video="video/boladonat.mp4"><div class="h-72 w-full flex items-center justify-center relative group"><div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-14 h-14 bg-black/50 backdrop-blur-md text-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div></article>
@@ -122,7 +268,7 @@
             <article class="media-card glass-card rounded-2xl overflow-hidden bg-white/5" data-type="video" data-video="video/joget.mp4"><div class="h-72 w-full flex items-center justify-center relative group"><div class="absolute inset-0 flex items-center justify-center z-10"><div class="w-14 h-14 bg-black/50 backdrop-blur-md text-white rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div></article>
           </div>
 
-          <div id="grid-web" class="grid md:grid-cols-3 gap-6 hidden transition-opacity duration-300">
+          <div id="grid-web" class="grid md:grid-cols-3 gap-6 hidden transition-opacity duration-300 pt-4">
             <div class="h-72 w-full glass-card rounded-2xl grid place-content-center text-sm font-bold text-gray-500 uppercase tracking-widest">Coming Soon</div>
           </div>
         </div>
@@ -153,9 +299,10 @@
         function hideMenu() { dropdown.classList.replace('opacity-100', 'opacity-0'); dropdown.classList.replace('scale-100', 'scale-95'); setTimeout(() => dropdown.classList.add('hidden'), 300); }
       }
 
-      // ===== Logika Tab Portofolio Pro =====
+      // ===== Logika Tab Portofolio Utama =====
       const tabs = document.querySelectorAll('.tab-btn');
       const grids = { poster: document.getElementById('grid-poster'), video: document.getElementById('grid-video'), web: document.getElementById('grid-web') };
+      const posterFiltersBox = document.getElementById('poster-filters');
       
       const setTabActiveStyles = (btn) => { btn.classList.add('bg-white', 'text-black', 'shadow-lg'); btn.classList.remove('text-gray-400', 'hover:text-white'); };
       const setTabInactiveStyles = (btn) => { btn.classList.remove('bg-white', 'text-black', 'shadow-lg'); btn.classList.add('text-gray-400', 'hover:text-white'); };
@@ -165,9 +312,46 @@
           tabs.forEach(b => { b.classList.remove('tab-active'); setTabInactiveStyles(b); });
           btn.classList.add('tab-active');
           setTabActiveStyles(btn);
+          
           const targetTab = btn.getAttribute('data-tab');
+          
+          if (targetTab === 'poster') {
+            posterFiltersBox.style.display = 'flex';
+          } else {
+            posterFiltersBox.style.display = 'none';
+          }
+
           Object.values(grids).forEach(grid => { if(grid) { grid.classList.add('hidden'); grid.style.opacity = '0'; } });
           if (grids[targetTab]) { grids[targetTab].classList.remove('hidden'); setTimeout(() => { grids[targetTab].style.opacity = '1'; }, 50); }
+        });
+      });
+
+      // ===== Logika Filter Sub-Kategori Poster =====
+      const subFilterBtns = document.querySelectorAll('.sub-filter-btn');
+      const posterItems = document.querySelectorAll('.poster-item');
+
+      subFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          subFilterBtns.forEach(b => {
+            b.classList.remove('bg-white/20', 'text-white', 'shadow-[0_0_10px_rgba(255,255,255,0.1)]');
+            b.classList.add('bg-white/5', 'text-gray-400');
+          });
+          btn.classList.add('bg-white/20', 'text-white', 'shadow-[0_0_10px_rgba(255,255,255,0.1)]');
+          btn.classList.remove('bg-white/5', 'text-gray-400');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          posterItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            if (filterValue === 'all' || itemCategory === filterValue) {
+              item.style.display = 'block';
+              setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 50);
+            } else {
+              item.style.opacity = '0';
+              item.style.transform = 'scale(0.95)';
+              setTimeout(() => { item.style.display = 'none'; }, 300);
+            }
+          });
         });
       });
 
